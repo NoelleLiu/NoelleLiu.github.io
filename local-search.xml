@@ -116,7 +116,7 @@
     <link href="/2023/05/15/%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E5%BC%95%E5%85%A5icon/"/>
     <url>/2023/05/15/%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E5%BC%95%E5%85%A5icon/</url>
     
-    <content type="html"><![CDATA[<h2 id="尝试如何在markdown文档中引入可爱的icon图标"><a href="#尝试如何在markdown文档中引入可爱的icon图标" class="headerlink" title="尝试如何在markdown文档中引入可爱的icon图标"></a>尝试如何在markdown文档中引入可爱的icon图标</h2><p>最近写自己的技术博客的时候，在一些地方很想插入一些可爱的图标，就想着用之前做项目的时候使用的Font Awesome图标库引入文档，由此插入其中的icon。下面是官方的地址：</p><p><i><a href="https://fontawesome.com/">https://fontawesome.com/</a></i></p><h3 id="具体步骤："><a href="#具体步骤：" class="headerlink" title="具体步骤："></a>具体步骤：</h3><h5><i class="fa-solid fa-baby"></i>step1: 引入Font Awesome的js文件<img src="./img/Font-Awesome.png"/></h5><p>   （注：位置要放在head标签内）</li></p><h5><i class="fa-solid fa-person-rays"></i>step2: 在icon界面找到想要的图标，复制类名到自己的想加的地方</h5><p>   （注：拿i标签包裹一下）</li></p><head>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head><ul]]></content>
+    <content type="html"><![CDATA[<h2 id="尝试如何在markdown文档中引入可爱的icon图标"><a href="#尝试如何在markdown文档中引入可爱的icon图标" class="headerlink" title="尝试如何在markdown文档中引入可爱的icon图标"></a>尝试如何在markdown文档中引入可爱的icon图标</h2><p>最近写自己的技术博客的时候，在一些地方很想插入一些可爱的图标，就想着用之前做项目的时候使用的Font Awesome图标库引入文档，由此插入其中的icon。下面是官方的地址：</p><p><i><a href="https://fontawesome.com/">https://fontawesome.com/</a></i></p><h3 id="具体步骤："><a href="#具体步骤：" class="headerlink" title="具体步骤："></a>具体步骤：</h3><h5><i class="fa-solid fa-baby"></i>step1: 引入Font Awesome的js文件<img src="../img/Font-Awesome.png"/></h5><p>   （注：位置要放在head标签内）</li></p><h5><i class="fa-solid fa-person-rays"></i>step2: 在icon界面找到想要的图标，复制类名到自己的想加的地方</h5><p>   （注：拿i标签包裹一下）</li></p><head>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head><ul]]></content>
     
     
     <categories>
@@ -166,7 +166,7 @@
     <link href="/2023/05/15/CSS%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90/"/>
     <url>/2023/05/15/CSS%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90/</url>
     
-    <content type="html"><![CDATA[<h2 id="css文字对齐包括水平对齐和垂直对齐"><a href="#css文字对齐包括水平对齐和垂直对齐" class="headerlink" title="css文字对齐包括水平对齐和垂直对齐"></a>css文字对齐包括水平对齐和垂直对齐</h2><ol><li><p>水平对齐  <strong>text-align</strong></p><p>text-align属性默认值是left，也就是靠左侧对齐文字，如果想水平方向居中显示，则需要对元素的样式设置text-align: center</p></li><li><p>垂直对齐  <strong>line-height &#x3D; height</strong></p><p>在css中没有相对应的属性可以设置文字垂直居中，但是一个小trick就是使这一行文字的line-height等于设置的盒子高度height。</p><p>解释：因为line-height行高除了内容本身的高度以外还有上间距和下间距，可以看下面的图配合食用~</p><p>配图说明：<img title="line-height组成" src="./img/lineheight.jpg"/></p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="css文字对齐包括水平对齐和垂直对齐"><a href="#css文字对齐包括水平对齐和垂直对齐" class="headerlink" title="css文字对齐包括水平对齐和垂直对齐"></a>css文字对齐包括水平对齐和垂直对齐</h2><ol><li><p>水平对齐  <strong>text-align</strong></p><p>text-align属性默认值是left，也就是靠左侧对齐文字，如果想水平方向居中显示，则需要对元素的样式设置text-align: center</p></li><li><p>垂直对齐  <strong>line-height &#x3D; height</strong></p><p>在css中没有相对应的属性可以设置文字垂直居中，但是一个小trick就是使这一行文字的line-height等于设置的盒子高度height。</p><p>解释：因为line-height行高除了内容本身的高度以外还有上间距和下间距，可以看下面的图配合食用~</p><p>配图说明：<img title="line-height组成" src="../img/lineheight.jpg"/></p></li></ol>]]></content>
     
     
     <categories>
