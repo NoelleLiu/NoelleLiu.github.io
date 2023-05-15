@@ -4,6 +4,45 @@
   
   
   <entry>
+    <title>页面布局三大核心之三： 定位</title>
+    <link href="/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%B8%89%EF%BC%9A-%E5%AE%9A%E4%BD%8D/"/>
+    <url>/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%B8%89%EF%BC%9A-%E5%AE%9A%E4%BD%8D/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>页面布局三大核心之二：浮动</title>
+    <link href="/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%BA%8C%EF%BC%9A%E6%B5%AE%E5%8A%A8/"/>
+    <url>/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%BA%8C%EF%BC%9A%E6%B5%AE%E5%8A%A8/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>页面布局三大核心之一：盒子模型</title>
+    <link href="/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%B8%80%EF%BC%9A%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"/>
+    <url>/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%B8%80%EF%BC%9A%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
+    
+    <content type="html"><![CDATA[<h2>盒子模型</h2><p>最近准备找前端实习和工作啦，就在博客上总结一下布局的三大核心：盒子模型，浮动和定位。剩下两个也有单独的讲解~</p><ol><li><p>页面布局的<strong>本质</strong>：利用CSS设置好盒子样式，摆放到相应的位置。（听起来好像很简单，坑很多）</p></li><li><p>盒子模型的组成：把HTML布局元素看成一个矩形的盒子，封装周围的元素，包括：边框border、内边距padding、外边距margin和实际内容content</p><p>2.1 边框border注意:</p> <ul><p>​  <li>复合型写法  border: 1px solid black;</li></p><p>​  <li>细线边框属性：border-collapse: collapse;</li></p><p>​  <li>如果是<strong>border-box</strong>，边框会影响盒子的实际大小，需要减去对应的宽高</p>  </ul><p>2.2 内边距padding注意：</p><ul><p>​  <li>如果padding属性有一个值，代表上下左右的padding都一样；两个值代表上下，左右；三个值代表上，左右，下；四个值代表上，右，下，左</li></p><p>​  <li>如果是<strong>border-box</strong>，padding也会撑大盒子，同理，需要减去对应的宽高</p>  </ul><p>2.3 外边距margin注意：</p><ul><p>​  <li>前两条和padding一样，见2.2</li></p><p>​  <li><i class="fa-solid fa-seal-exclamation"></i><span class="red">外边距的合并</span>会有新的问题：</br></p><p>​(1). <i class="fa-regular fa-triangle-exclamation"></i><strong>相邻</strong>元素垂直外边距合并: 并非相加，而是取大的那个</br></p><p>​(2). <i class="fa-regular fa-star-exclamation"></i><strong>嵌套</strong>元素垂直外边距合并会引起塌陷问题：父元素会塌陷较大的外边距值</li></p>  </ul></li><li><p>圆角边框：border-radius</p><p>注意复合写法的时候顺序是top-left，top-right，bottom-right, bottom-left。</p></li><li><p>盒子阴影：box-shadow</p><p>box-shadow: h-shadow v-shadow blur spread color inset;</p><p>(注：盒子阴影并不占用空间，不会影响其他盒子的排列)</p></li></ol><head>    <style>        .red {            color: red;        }    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>在md文档中引入icon</title>
     <link href="/2023/05/15/%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E5%BC%95%E5%85%A5icon/"/>
     <url>/2023/05/15/%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E5%BC%95%E5%85%A5icon/</url>
