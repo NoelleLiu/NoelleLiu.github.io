@@ -11,6 +11,20 @@
     <content type="html"><![CDATA[<h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><h3 id="精灵图的背景"><a href="#精灵图的背景" class="headerlink" title="精灵图的背景"></a>精灵图的背景</h3><p>一个网页中会需要很多小的背景图作为装饰，但是如果图像过多时，服务器频繁的接收和发送请求会使得服务器压力过大，降低加载速度。</p><p><i class="fa-sharp fa-light fa-truck-fast" style="color: #a4d5f4;"></i>为了<span class="red">有效减少服务器接收和发送请求的次数，提高网页的加载速度</span>， 出现了CSS精灵技术</p><h3 id="精灵图的核心原理"><a href="#精灵图的核心原理" class="headerlink" title="精灵图的核心原理"></a>精灵图的核心原理</h3><p>将一堆小的背景图像整合到一张大图 (精灵图sprites) 上，服务器只需要请求一次就可以了~</p><h3 id="精灵图的使用"><a href="#精灵图的使用" class="headerlink" title="精灵图的使用"></a>精灵图的使用</h3><p>移动背景图片的位置，调整<strong>background-position</strong>属性值</p><p>[注：属性值是调整x和y坐标的距离，但是网页的坐标是以左到右为x正方向，上到下为y正方向，所以一般我们都向上向左调整精灵图的位置，数值为<span class="red">负值</span>。]</p><head>    <style>        .red {            color: red;        }    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
     
     
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+      <tag>sprites</tag>
+      
+    </tags>
     
   </entry>
   
@@ -24,6 +38,20 @@
     <content type="html"><![CDATA[<h2>定位</h2><p>[Review: 浮动可以让多个块级盒子在一行没有缝隙的排列显示，常用于横向排列盒子。]</p><p>终于轮到定位啦！！</p><ol><li><p>定位的目的： 让盒子自由的在某个盒子内移动位置或者固定位置， 并且可以<span class="red">压住</span>其他盒子</p></li><li><p>定位模式： 也就是position属性可能的属性值： 静态定位static、相对定位relative、绝对定位absolute、固定定位fixed</p><p>2.1 静态定位static（position属性的默认值）：无定位，可以按照标准流来看待</p><p>2.2 相对定位relative：元素在移动位置的时候，相对<u>它本身原来的位置</u>来移动的。</p><p>[<i class="fa-solid fa-flag"></i>注意]原来位置还在，相对定位并<span class="red">没有脱离标准流</span>，后面的盒子仍然以标准流的方式看它。</p><p>2.3 绝对定位absolute：元素在移动的时候，是根据他的<u>祖先元素</u>来移动的</p><p>[<i class="fa-solid fa-flag"></i>注意] 绝对定位是<span class="red">脱标</span>的！</p><p>2.4 固定定位fixed：元素固定在浏览器<u>可视区</u>的某一位置。</p><p>[<i class="fa-solid fa-flag"></i>注意] 固定定位也是脱离标准流的，不占有原来的位置。</p></li><li><p><i class="fa-solid fa-stars"></i>一个非常经典的组合：<span class="red"><strong>子绝父相</strong></span>、子绝父绝</p><p>原因：子级绝对定位不会占有位置，可以放到父盒子里任一个位置，不影响其他兄弟。而父盒子相对定位并没有脱离标准流会限制子盒子。如果父盒子也不需要占位置的话，子绝父绝也是可以滴~</p></li><li><p>绝对定位或者固定定位水平居中：在标准流中，我们可以通过margin: 0 auto；来设置元素水平居中，但是脱离标准流的时候就要{left: 50%; margin-left: -（自身宽度的一半); }</p></li></ol><head>    <style>        .red {            color: red;        }    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
     
     
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+      <tag>position</tag>
+      
+    </tags>
     
   </entry>
   
@@ -37,6 +65,20 @@
     <content type="html"><![CDATA[<h2>浮动</h2><p>这篇来复盘一下布局三大哥中的二哥： 浮动。</p><ol><li><p>传统页面布局的三种方式： 标准流、<span class="red">浮动</span>、定位。</p></li><li><p>浮动和标准流的差别：</p><ul>    <li>标准流：按照规定好的默认方式排列元素</li>    <li>浮动float：脱离标准流，按自己的规则排列</li></ul></li><li><p>浮动的特性：</p><ul>    <li>脱离标准流，以至于不再保留盒子原来的位置</li>    <li>任何元素都可以进行浮动，且浮动后会具有行内块元素相似的特性，建议如果一个元素浮动，其他的兄弟元素也一起浮动</li>    <li>浮动的元素常和标准流的父级搭配使用</li></ul></li><li><p><i class="fa-solid fa-car-on"></i>浮动可能会带来的问题： 如果父盒子在一些情况下不方便直接给高度，但是子盒子浮动是不占位置的，无法撑开盒子，父盒子的高度为0，会影响后面的标准流盒子。</p></li><li><p>清除浮动：clear: both 清除左右两侧浮动影响</p><p>清除浮动后，父级会根据子盒子自动调整高度，就可以解决上述问题了。</p></li><li><p>具体方法：</p><ol>    <li>额外标签法：在浮动的元素末尾添加一个空标签</li>    <li>父元素添加overflow: hidden属性</li>    <li>:after伪元素法：给父元素添加after伪元素并clear</li>    <li>双伪元素清除浮动：在3的基础上再添加一个:before</li></ol></li></ol><head>    <style>        .red {            color: red;        }    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
     
     
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+      <tag>float</tag>
+      
+    </tags>
     
   </entry>
   
@@ -50,6 +92,20 @@
     <content type="html"><![CDATA[<h2>盒子模型</h2><p>最近准备找前端实习和工作啦，就在博客上总结一下布局的三大核心：盒子模型，浮动和定位。剩下两个也有单独的讲解~</p><ol><li><p>页面布局的<strong>本质</strong>：利用CSS设置好盒子样式，摆放到相应的位置。（听起来好像很简单，坑很多）</p></li><li><p>盒子模型的组成：把HTML布局元素看成一个矩形的盒子，封装周围的元素，包括：边框border、内边距padding、外边距margin和实际内容content</p><p>2.1 边框border注意:</p> <ul><p>​  <li>复合型写法  border: 1px solid black;</li></p><p>​  <li>细线边框属性：border-collapse: collapse;</li></p><p>​  <li>如果是<strong>border-box</strong>，边框会影响盒子的实际大小，需要减去对应的宽高</p>  </ul><p>2.2 内边距padding注意：</p><ul><p>​  <li>如果padding属性有一个值，代表上下左右的padding都一样；两个值代表上下，左右；三个值代表上，左右，下；四个值代表上，右，下，左</li></p><p>​  <li>如果是<strong>border-box</strong>，padding也会撑大盒子，同理，需要减去对应的宽高</p>  </ul><p>2.3 外边距margin注意：</p><ul><p>​  <li>前两条和padding一样，见2.2</li></p><p>​  <li><i class="fa-solid fa-seal-exclamation"></i><span class="red">外边距的合并</span>会有新的问题：</br></p><p>​(1). <i class="fa-regular fa-triangle-exclamation"></i><strong>相邻</strong>元素垂直外边距合并: 并非相加，而是取大的那个</br></p><p>​(2). <i class="fa-regular fa-star-exclamation"></i><strong>嵌套</strong>元素垂直外边距合并会引起塌陷问题：父元素会塌陷较大的外边距值</li></p>  </ul></li><li><p>圆角边框：border-radius</p><p>注意复合写法的时候顺序是top-left，top-right，bottom-right, bottom-left。</p></li><li><p>盒子阴影：box-shadow</p><p>box-shadow: h-shadow v-shadow blur spread color inset;</p><p>(注：盒子阴影并不占用空间，不会影响其他盒子的排列)</p></li></ol><head>    <style>        .red {            color: red;        }    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
     
     
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+      <tag>box-model</tag>
+      
+    </tags>
     
   </entry>
   
@@ -60,9 +116,21 @@
     <link href="/2023/05/15/%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E5%BC%95%E5%85%A5icon/"/>
     <url>/2023/05/15/%E5%9C%A8md%E6%96%87%E6%A1%A3%E4%B8%AD%E5%BC%95%E5%85%A5icon/</url>
     
-    <content type="html"><![CDATA[<h2 id="尝试如何在markdown文档中引入可爱的icon图标"><a href="#尝试如何在markdown文档中引入可爱的icon图标" class="headerlink" title="尝试如何在markdown文档中引入可爱的icon图标"></a>尝试如何在markdown文档中引入可爱的icon图标</h2><p>最近写自己的技术博客的时候，在一些地方很想插入一些可爱的图标，就想着用之前做项目的时候使用的Font Awesome图标库引入文档，由此插入其中的icon。下面是官方的地址：</p><p><i><a href="https://fontawesome.com/">https://fontawesome.com/</a></i></p><h3 id="具体步骤："><a href="#具体步骤：" class="headerlink" title="具体步骤："></a>具体步骤：</h3><h5><i class="fa-solid fa-baby"></i>step1: 引入Font Awesome的js文件</h5><p>   （注：位置要放在head标签内）</li></p><h5><i class="fa-solid fa-person-rays"></i>step2: 在icon界面找到想要的图标，复制类名到自己的想加的地方</h5><p>   （注：拿i标签包裹一下）</li></p><head>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head><ul]]></content>
+    <content type="html"><![CDATA[<h2 id="尝试如何在markdown文档中引入可爱的icon图标"><a href="#尝试如何在markdown文档中引入可爱的icon图标" class="headerlink" title="尝试如何在markdown文档中引入可爱的icon图标"></a>尝试如何在markdown文档中引入可爱的icon图标</h2><p>最近写自己的技术博客的时候，在一些地方很想插入一些可爱的图标，就想着用之前做项目的时候使用的Font Awesome图标库引入文档，由此插入其中的icon。下面是官方的地址：</p><p><i><a href="https://fontawesome.com/">https://fontawesome.com/</a></i></p><h3 id="具体步骤："><a href="#具体步骤：" class="headerlink" title="具体步骤："></a>具体步骤：</h3><h5><i class="fa-solid fa-baby"></i>step1: 引入Font Awesome的js文件<img src="./img/Font-Awesome.png"/></h5><p>   （注：位置要放在head标签内）</li></p><h5><i class="fa-solid fa-person-rays"></i>step2: 在icon界面找到想要的图标，复制类名到自己的想加的地方</h5><p>   （注：拿i标签包裹一下）</li></p><head>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head><ul]]></content>
     
     
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>lib</tag>
+      
+    </tags>
     
   </entry>
   
@@ -76,6 +144,18 @@
     <content type="html"><![CDATA[<h2>CSS层叠时的优先级问题</h2><p>今天在写样式的时候发现一个样式怎么也不显示，找了一圈发现是样式冲突了，css会优先执行优先级更高的样式。特意复习一下css中的优先级好啦~</p><h3>下面的选择器权重从小到大</h3><p>(ps: 也就是越往下越会优先执行）</p><ul>    <li>继承 或者通配符选择器*</li>    <li>元素选择器  e.g. p {}</li>    <li>类选择器，伪类选择器  e.g.  .para{}  .nav:hover{}</li>    <li>ID选择器  e.g.  #customid {}</li>    <li>行内样式 style=""</li>    <li>在属性值后面加!important</li></ul></ul><p><strong>在使用复合选择器的时候，要注意权重的叠加计算</strong></p>]]></content>
     
     
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
     
   </entry>
   
@@ -86,9 +166,21 @@
     <link href="/2023/05/15/CSS%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90/"/>
     <url>/2023/05/15/CSS%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90/</url>
     
-    <content type="html"><![CDATA[<h2 id="css文字对齐包括水平对齐和垂直对齐"><a href="#css文字对齐包括水平对齐和垂直对齐" class="headerlink" title="css文字对齐包括水平对齐和垂直对齐"></a>css文字对齐包括水平对齐和垂直对齐</h2><ol><li><p>水平对齐  <strong>text-align</strong></p><p>text-align属性默认值是left，也就是靠左侧对齐文字，如果想水平方向居中显示，则需要对元素的样式设置text-align: center</p></li><li><p>垂直对齐  <strong>line-height &#x3D; height</strong></p><p>在css中没有相对应的属性可以设置文字垂直居中，但是一个小trick就是使这一行文字的line-height等于设置的盒子高度height。</p><p>解释：因为line-height行高除了内容本身的高度以外还有上间距和下间距，可以看下面的图配合食用~</p><p>配图说明：<img title="line-height组成" src="/images/css文字对齐1-lineheight.jpg"/></p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="css文字对齐包括水平对齐和垂直对齐"><a href="#css文字对齐包括水平对齐和垂直对齐" class="headerlink" title="css文字对齐包括水平对齐和垂直对齐"></a>css文字对齐包括水平对齐和垂直对齐</h2><ol><li><p>水平对齐  <strong>text-align</strong></p><p>text-align属性默认值是left，也就是靠左侧对齐文字，如果想水平方向居中显示，则需要对元素的样式设置text-align: center</p></li><li><p>垂直对齐  <strong>line-height &#x3D; height</strong></p><p>在css中没有相对应的属性可以设置文字垂直居中，但是一个小trick就是使这一行文字的line-height等于设置的盒子高度height。</p><p>解释：因为line-height行高除了内容本身的高度以外还有上间距和下间距，可以看下面的图配合食用~</p><p>配图说明：<img title="line-height组成" src="./img/lineheight.jpg"/></p></li></ol>]]></content>
     
     
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
     
   </entry>
   
@@ -103,18 +195,11 @@
     
     
     
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2023/05/12/hello-world/"/>
-    <url>/2023/05/12/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
+    <tags>
+      
+      <tag>try</tag>
+      
+    </tags>
     
   </entry>
   
