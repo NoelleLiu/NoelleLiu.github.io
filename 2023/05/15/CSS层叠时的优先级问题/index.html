@@ -16,23 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="css文字对齐包括水平对齐和垂直对齐 水平对齐  text-align text-align属性默认值是left，也就是靠左侧对齐文字，如果想水平方向居中显示，则需要对元素的样式设置text-align: center  垂直对齐  line-height &#x3D; height 在css中没有相对应的属性可以设置文字垂直居中，但是一个小trick就是使这一行文字的line-height等于设">
+    <meta name="description" content="CSS层叠时的优先级问题  今天在写样式的时候发现一个样式怎么也不显示，找了一圈发现是样式冲突了，css会优先执行优先级更高的样式。特意复习一下css中的优先级好啦~ 下面的选择器权重从小到大  (ps: 也就是越往下越会优先执行）       继承 或者通配符选择器*     元素选择器  e.g. p {}     类选择器，伪类选择器  e.g.  .para{}  .nav:hover{}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css文字对齐">
-<meta property="og:url" content="http://example.com/2023/05/15/css%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90/index.html">
+<meta property="og:title" content="CSS层叠时的优先级问题">
+<meta property="og:url" content="http://example.com/2023/05/15/CSS%E5%B1%82%E5%8F%A0%E6%97%B6%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="css文字对齐包括水平对齐和垂直对齐 水平对齐  text-align text-align属性默认值是left，也就是靠左侧对齐文字，如果想水平方向居中显示，则需要对元素的样式设置text-align: center  垂直对齐  line-height &#x3D; height 在css中没有相对应的属性可以设置文字垂直居中，但是一个小trick就是使这一行文字的line-height等于设">
+<meta property="og:description" content="CSS层叠时的优先级问题  今天在写样式的时候发现一个样式怎么也不显示，找了一圈发现是样式冲突了，css会优先执行优先级更高的样式。特意复习一下css中的优先级好啦~ 下面的选择器权重从小到大  (ps: 也就是越往下越会优先执行）       继承 或者通配符选择器*     元素选择器  e.g. p {}     类选择器，伪类选择器  e.g.  .para{}  .nav:hover{}">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/images/css%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%901-lineheight.jpg">
-<meta property="article:published_time" content="2023-05-15T07:18:22.000Z">
-<meta property="article:modified_time" content="2023-05-15T07:31:08.141Z">
+<meta property="article:published_time" content="2023-05-15T07:40:58.000Z">
+<meta property="article:modified_time" content="2023-05-15T07:48:23.414Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/css%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%901-lineheight.jpg">
   
   
   
-  <title>css文字对齐 - Hexo</title>
+  <title>CSS层叠时的优先级问题 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="css文字对齐"></span>
+            <span id="subtitle" data-typed-text="CSS层叠时的优先级问题"></span>
           
         </div>
 
@@ -209,7 +207,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-15 15:18" pubdate>
+        <time datetime="2023-05-15 15:40" pubdate>
           May 15, 2023 pm
         </time>
       </span>
@@ -221,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          257 words
+          215 words
         
       </span>
     
@@ -232,7 +230,7 @@
         
         
         
-          3 mins
+          2 mins
         
       </span>
     
@@ -270,21 +268,28 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">css文字对齐</h1>
+            <h1 style="display: none">CSS层叠时的优先级问题</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="css文字对齐包括水平对齐和垂直对齐"><a href="#css文字对齐包括水平对齐和垂直对齐" class="headerlink" title="css文字对齐包括水平对齐和垂直对齐"></a>css文字对齐包括水平对齐和垂直对齐</h2><ol>
-<li><p>水平对齐  <strong>text-align</strong></p>
-<p>text-align属性默认值是left，也就是靠左侧对齐文字，如果想水平方向居中显示，则需要对元素的样式设置text-align: center</p>
-</li>
-<li><p>垂直对齐  <strong>line-height &#x3D; height</strong></p>
-<p>在css中没有相对应的属性可以设置文字垂直居中，但是一个小trick就是使这一行文字的line-height等于设置的盒子高度height。</p>
-<p>解释：因为line-height行高除了内容本身的高度以外还有上间距和下间距，可以看下面的图配合食用~</p>
-<p>配图说明：<img title="line-height组成" src="/images/css文字对齐1-lineheight.jpg" srcset="/img/loading.gif" lazyload/></p>
-</li>
-</ol>
+                <h2>CSS层叠时的优先级问题</h2>
+
+<p>今天在写样式的时候发现一个样式怎么也不显示，找了一圈发现是样式冲突了，css会优先执行优先级更高的样式。特意复习一下css中的优先级好啦~</p>
+<h3>下面的选择器权重从小到大</h3>
+
+<p>(ps: 也就是越往下越会优先执行）</p>
+
+<ul>
+    <li>继承 或者通配符选择器*</li>
+    <li>元素选择器  e.g. p {}</li>
+    <li>类选择器，伪类选择器  e.g.  .para{}  .nav:hover{}</li>
+    <li>ID选择器  e.g.  #customid {}</li>
+    <li>行内样式 style=""</li>
+    <li>在属性值后面加!important</li>
+</ul>
+
+</ul>
 
                 
               </div>
@@ -302,8 +307,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>css文字对齐</div>
-      <div>http://example.com/2023/05/15/css文字对齐/</div>
+      <div>CSS层叠时的优先级问题</div>
+      <div>http://example.com/2023/05/15/CSS层叠时的优先级问题/</div>
     </div>
     <div class="license-meta">
       
@@ -347,18 +352,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/15/CSS%E5%B1%82%E5%8F%A0%E6%97%B6%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E9%97%AE%E9%A2%98/" title="CSS层叠时的优先级问题">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CSS层叠时的优先级问题</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/12/my-first-blog/" title="my first blog">
-                        <span class="hidden-mobile">my first blog</span>
+                      <a href="/2023/05/15/css%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90/" title="css文字对齐">
+                        <span class="hidden-mobile">css文字对齐</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
