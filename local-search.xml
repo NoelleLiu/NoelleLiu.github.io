@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>css文字对齐</title>
+    <link href="/2023/05/15/css%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90/"/>
+    <url>/2023/05/15/css%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90/</url>
+    
+    <content type="html"><![CDATA[<h2 id="css文字对齐包括水平对齐和垂直对齐"><a href="#css文字对齐包括水平对齐和垂直对齐" class="headerlink" title="css文字对齐包括水平对齐和垂直对齐"></a>css文字对齐包括水平对齐和垂直对齐</h2><ol><li><p>水平对齐  <strong>text-align</strong></p><p>text-align属性默认值是left，也就是靠左侧对齐文字，如果想水平方向居中显示，则需要对元素的样式设置text-align: center</p></li><li><p>垂直对齐  <strong>line-height &#x3D; height</strong></p><p>在css中没有相对应的属性可以设置文字垂直居中，但是一个小trick就是使这一行文字的line-height等于设置的盒子高度height。</p><p>解释：因为line-height行高除了内容本身的高度以外还有上间距和下间距，可以看下面的图配合食用~</p><p>配图说明：<img title="line-height组成" src="/images/css文字对齐1-lineheight.jpg"/></p></li></ol>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>my first blog</title>
     <link href="/2023/05/12/my-first-blog/"/>
     <url>/2023/05/12/my-first-blog/</url>
