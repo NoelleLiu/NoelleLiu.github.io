@@ -16,13 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="浮动  这篇来复盘一下布局三大哥中的二哥： 浮动。  传统页面布局的三种方式： 标准流、浮动、定位。  浮动和标准流的差别：      标准流：按照规定好的默认方式排列元素     浮动float：脱离标准流，按自己的规则排列   浮动的特性：      脱离标准流，以至于不再保留盒子原来的位置     任何元素都可以进行浮动，且浮动后会具有行内块元素相似的特性，建议如果一个元素浮动，其他的兄弟元">
+<meta property="og:type" content="article">
 <meta property="og:title" content="页面布局三大核心之二：浮动">
 <meta property="og:url" content="http://example.com/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%BA%8C%EF%BC%9A%E6%B5%AE%E5%8A%A8/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="浮动  这篇来复盘一下布局三大哥中的二哥： 浮动。  传统页面布局的三种方式： 标准流、浮动、定位。  浮动和标准流的差别：      标准流：按照规定好的默认方式排列元素     浮动float：脱离标准流，按自己的规则排列   浮动的特性：      脱离标准流，以至于不再保留盒子原来的位置     任何元素都可以进行浮动，且浮动后会具有行内块元素相似的特性，建议如果一个元素浮动，其他的兄弟元">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-15T08:41:25.000Z">
-<meta property="article:modified_time" content="2023-05-15T08:41:25.584Z">
+<meta property="article:modified_time" content="2023-05-15T11:06:06.963Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -217,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          442 words
         
       </span>
     
@@ -228,7 +230,7 @@
         
         
         
-          1 mins
+          4 mins
         
       </span>
     
@@ -271,7 +273,47 @@
             
               <div class="markdown-body">
                 
-                
+                <h2>浮动</h2>
+
+<p>这篇来复盘一下布局三大哥中的二哥： 浮动。</p>
+<ol>
+<li><p>传统页面布局的三种方式： 标准流、<span class="red">浮动</span>、定位。</p>
+</li>
+<li><p>浮动和标准流的差别：</p>
+<ul>
+    <li>标准流：按照规定好的默认方式排列元素</li>
+    <li>浮动float：脱离标准流，按自己的规则排列</li>
+</ul>
+</li>
+<li><p>浮动的特性：</p>
+<ul>
+    <li>脱离标准流，以至于不再保留盒子原来的位置</li>
+    <li>任何元素都可以进行浮动，且浮动后会具有行内块元素相似的特性，建议如果一个元素浮动，其他的兄弟元素也一起浮动</li>
+    <li>浮动的元素常和标准流的父级搭配使用</li>
+</ul>
+</li>
+<li><p><i class="fa-solid fa-car-on"></i>浮动可能会带来的问题： 如果父盒子在一些情况下不方便直接给高度，但是子盒子浮动是不占位置的，无法撑开盒子，父盒子的高度为0，会影响后面的标准流盒子。</p>
+</li>
+<li><p>清除浮动：clear: both 清除左右两侧浮动影响</p>
+<p>清除浮动后，父级会根据子盒子自动调整高度，就可以解决上述问题了。</p>
+</li>
+<li><p>具体方法：</p>
+<ol>
+    <li>额外标签法：在浮动的元素末尾添加一个空标签</li>
+    <li>父元素添加overflow: hidden属性</li>
+    <li>:after伪元素法：给父元素添加after伪元素并clear</li>
+    <li>双伪元素清除浮动：在3的基础上再添加一个:before</li>
+</ol></li>
+</ol>
+<head>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script>
+</head>
+
                 
               </div>
             
