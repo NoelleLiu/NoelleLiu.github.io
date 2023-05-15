@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="定位  [Review: 浮动可以让多个块级盒子在一行没有缝隙的排列显示，常用于横向排列盒子。] 终于轮到定位啦！！  定位的目的： 让盒子自由的在某个盒子内移动位置或者固定位置， 并且可以压住其他盒子  定位模式： 也就是position属性可能的属性值： 静态定位static、相对定位relative、绝对定位absolute、固定定位fixed 2.1 静态定位static（position">
+    <meta name="description" content="精灵图精灵图的背景一个网页中会需要很多小的背景图作为装饰，但是如果图像过多时，服务器频繁的接收和发送请求会使得服务器压力过大，降低加载速度。 为了有效减少服务器接收和发送请求的次数，提高网页的加载速度， 出现了CSS精灵技术 精灵图的核心原理将一堆小的背景图像整合到一张大图 (精灵图sprites) 上，服务器只需要请求一次就可以了~ 精灵图的使用移动背景图片的位置，调整background-po">
 <meta property="og:type" content="article">
-<meta property="og:title" content="页面布局三大核心之三： 定位">
-<meta property="og:url" content="http://example.com/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%B8%89%EF%BC%9A%E5%AE%9A%E4%BD%8D/index.html">
+<meta property="og:title" content="精灵图">
+<meta property="og:url" content="http://example.com/2023/05/15/%E7%B2%BE%E7%81%B5%E5%9B%BE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="定位  [Review: 浮动可以让多个块级盒子在一行没有缝隙的排列显示，常用于横向排列盒子。] 终于轮到定位啦！！  定位的目的： 让盒子自由的在某个盒子内移动位置或者固定位置， 并且可以压住其他盒子  定位模式： 也就是position属性可能的属性值： 静态定位static、相对定位relative、绝对定位absolute、固定定位fixed 2.1 静态定位static（position">
+<meta property="og:description" content="精灵图精灵图的背景一个网页中会需要很多小的背景图作为装饰，但是如果图像过多时，服务器频繁的接收和发送请求会使得服务器压力过大，降低加载速度。 为了有效减少服务器接收和发送请求的次数，提高网页的加载速度， 出现了CSS精灵技术 精灵图的核心原理将一堆小的背景图像整合到一张大图 (精灵图sprites) 上，服务器只需要请求一次就可以了~ 精灵图的使用移动背景图片的位置，调整background-po">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-05-15T08:41:49.000Z">
-<meta property="article:modified_time" content="2023-05-15T11:34:29.575Z">
+<meta property="article:published_time" content="2023-05-15T11:37:48.000Z">
+<meta property="article:modified_time" content="2023-05-15T11:50:19.540Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>页面布局三大核心之三： 定位 - Hexo</title>
+  <title>精灵图 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="页面布局三大核心之三： 定位"></span>
+            <span id="subtitle" data-typed-text="精灵图"></span>
           
         </div>
 
@@ -207,7 +207,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-15 16:41" pubdate>
+        <time datetime="2023-05-15 19:37" pubdate>
           May 15, 2023 pm
         </time>
       </span>
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          615 words
+          291 words
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          6 mins
+          3 mins
         
       </span>
     
@@ -268,33 +268,16 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">页面布局三大核心之三： 定位</h1>
+            <h1 style="display: none">精灵图</h1>
             
             
               <div class="markdown-body">
                 
-                <h2>定位</h2>
-
-<p>[Review: 浮动可以让多个块级盒子在一行没有缝隙的排列显示，常用于横向排列盒子。]</p>
-<p>终于轮到定位啦！！</p>
-<ol>
-<li><p>定位的目的： 让盒子自由的在某个盒子内移动位置或者固定位置， 并且可以<span class="red">压住</span>其他盒子</p>
-</li>
-<li><p>定位模式： 也就是position属性可能的属性值： 静态定位static、相对定位relative、绝对定位absolute、固定定位fixed</p>
-<p>2.1 静态定位static（position属性的默认值）：无定位，可以按照标准流来看待</p>
-<p>2.2 相对定位relative：元素在移动位置的时候，相对<u>它本身原来的位置</u>来移动的。</p>
-<p>[<i class="fa-solid fa-flag"></i>注意]原来位置还在，相对定位并<span class="red">没有脱离标准流</span>，后面的盒子仍然以标准流的方式看它。</p>
-<p>2.3 绝对定位absolute：元素在移动的时候，是根据他的<u>祖先元素</u>来移动的</p>
-<p>[<i class="fa-solid fa-flag"></i>注意] 绝对定位是<span class="red">脱标</span>的！</p>
-<p>2.4 固定定位fixed：元素固定在浏览器<u>可视区</u>的某一位置。</p>
-<p>[<i class="fa-solid fa-flag"></i>注意] 固定定位也是脱离标准流的，不占有原来的位置。</p>
-</li>
-<li><p><i class="fa-solid fa-stars"></i>一个非常经典的组合：<span class="red"><strong>子绝父相</strong></span>、子绝父绝</p>
-<p>原因：子级绝对定位不会占有位置，可以放到父盒子里任一个位置，不影响其他兄弟。而父盒子相对定位并没有脱离标准流会限制子盒子。如果父盒子也不需要占位置的话，子绝父绝也是可以滴~</p>
-</li>
-<li><p>绝对定位或者固定定位水平居中：在标准流中，我们可以通过margin: 0 auto；来设置元素水平居中，但是脱离标准流的时候就要{left: 50%; margin-left: -（自身宽度的一半); }</p>
-</li>
-</ol>
+                <h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><h3 id="精灵图的背景"><a href="#精灵图的背景" class="headerlink" title="精灵图的背景"></a>精灵图的背景</h3><p>一个网页中会需要很多小的背景图作为装饰，但是如果图像过多时，服务器频繁的接收和发送请求会使得服务器压力过大，降低加载速度。</p>
+<p><i class="fa-sharp fa-light fa-truck-fast" style="color: #a4d5f4;"></i>为了<span class="red">有效减少服务器接收和发送请求的次数，提高网页的加载速度</span>， 出现了CSS精灵技术</p>
+<h3 id="精灵图的核心原理"><a href="#精灵图的核心原理" class="headerlink" title="精灵图的核心原理"></a>精灵图的核心原理</h3><p>将一堆小的背景图像整合到一张大图 (精灵图sprites) 上，服务器只需要请求一次就可以了~</p>
+<h3 id="精灵图的使用"><a href="#精灵图的使用" class="headerlink" title="精灵图的使用"></a>精灵图的使用</h3><p>移动背景图片的位置，调整<strong>background-position</strong>属性值</p>
+<p>[注：属性值是调整x和y坐标的距离，但是网页的坐标是以左到右为x正方向，上到下为y正方向，所以一般我们都向上向左调整精灵图的位置，数值为<span class="red">负值</span>。]</p>
 <head>
     <style>
         .red {
@@ -321,8 +304,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>页面布局三大核心之三： 定位</div>
-      <div>http://example.com/2023/05/15/页面布局三大核心之三：定位/</div>
+      <div>精灵图</div>
+      <div>http://example.com/2023/05/15/精灵图/</div>
     </div>
     <div class="license-meta">
       
@@ -366,18 +349,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/15/%E7%B2%BE%E7%81%B5%E5%9B%BE/" title="精灵图">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">精灵图</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%BA%8C%EF%BC%9A%E6%B5%AE%E5%8A%A8/" title="页面布局三大核心之二：浮动">
-                        <span class="hidden-mobile">页面布局三大核心之二：浮动</span>
+                      <a href="/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%B8%89%EF%BC%9A%E5%AE%9A%E4%BD%8D/" title="页面布局三大核心之三： 定位">
+                        <span class="hidden-mobile">页面布局三大核心之三： 定位</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

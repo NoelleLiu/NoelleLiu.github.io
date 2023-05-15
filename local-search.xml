@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>精灵图</title>
+    <link href="/2023/05/15/%E7%B2%BE%E7%81%B5%E5%9B%BE/"/>
+    <url>/2023/05/15/%E7%B2%BE%E7%81%B5%E5%9B%BE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><h3 id="精灵图的背景"><a href="#精灵图的背景" class="headerlink" title="精灵图的背景"></a>精灵图的背景</h3><p>一个网页中会需要很多小的背景图作为装饰，但是如果图像过多时，服务器频繁的接收和发送请求会使得服务器压力过大，降低加载速度。</p><p><i class="fa-sharp fa-light fa-truck-fast" style="color: #a4d5f4;"></i>为了<span class="red">有效减少服务器接收和发送请求的次数，提高网页的加载速度</span>， 出现了CSS精灵技术</p><h3 id="精灵图的核心原理"><a href="#精灵图的核心原理" class="headerlink" title="精灵图的核心原理"></a>精灵图的核心原理</h3><p>将一堆小的背景图像整合到一张大图 (精灵图sprites) 上，服务器只需要请求一次就可以了~</p><h3 id="精灵图的使用"><a href="#精灵图的使用" class="headerlink" title="精灵图的使用"></a>精灵图的使用</h3><p>移动背景图片的位置，调整<strong>background-position</strong>属性值</p><p>[注：属性值是调整x和y坐标的距离，但是网页的坐标是以左到右为x正方向，上到下为y正方向，所以一般我们都向上向左调整精灵图的位置，数值为<span class="red">负值</span>。]</p><head>    <style>        .red {            color: red;        }    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>页面布局三大核心之三： 定位</title>
     <link href="/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%B8%89%EF%BC%9A%E5%AE%9A%E4%BD%8D/"/>
     <url>/2023/05/15/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%B9%8B%E4%B8%89%EF%BC%9A%E5%AE%9A%E4%BD%8D/</url>
