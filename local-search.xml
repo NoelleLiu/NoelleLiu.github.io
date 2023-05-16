@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Less</title>
+    <link href="/2023/05/16/Less/"/>
+    <url>/2023/05/16/Less/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Less"><a href="#Less" class="headerlink" title="Less"></a>Less</h2><h4>CSS的弊端</h4><ul>    <li>CSS冗余度很高</li>    <li>不利于复用代码</li>    <li>CSS没有很好的计算能力</li></ul><h4>Less(Leaner Style Sheets)</h4><p>Less是一门<span class="red">CSS扩展语言</span>，也称为<span class="red">CSS</span>预处理器，在现有的CSS语法的基础上，加入<strong>程序式</strong>语言的特性。最大的特点就是引入了变量、函数等功能，用最少的代码做更多的事情。</p><h3>1. Less变量</h3><p>e.g. @color: pink; <br></p><p>​body {</p><p>​background-color: @color; }</p><h3>2. Less编译</h3><p><u>Easy LESS</u>插件可以使保存的less文件自动生成css文件</p><h3>3. Less嵌套</h3><p>在css选择器中的子代选择器be like: .header logo{}， 但是在less中，子元素的样式需要嵌套在父元素的样式中书写。e.g. .header{logo {}}</p><h3>4. Less实现伪类选择器</h3><p>在Less中，有<span class="red"><strong>&amp;</strong></span>符号，会被解析成<u>父元素本身</u>或者<u>父元素的伪类</u></p><p>e.g. 在css中，a:hover {}; 在Less中，a{&amp;hover{}}</p><h3>5. Less算数运算</h3><p><i class="fa-regular fa-face-smile-plus"></i>在Less中，任何数字、颜色或者变量都可以参与算数运算</p><p>[ 注：若两个不同单位的值进行算数运算， 运算结果取第一个值的单位。e.g. 10px + 5rem &#x3D; 15px;<br></p><p>若只有一个值有单位，则运算结果取该单位。e.g. 10px + 5 &#x3D; 15px]</p><head>    <style>    .red {        color: red;}</style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Less</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>移动端常见布局</title>
     <link href="/2023/05/16/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E5%B8%83%E5%B1%80/"/>
     <url>/2023/05/16/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E5%B8%83%E5%B1%80/</url>
