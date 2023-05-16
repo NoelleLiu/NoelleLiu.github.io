@@ -16,26 +16,27 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="DeepConv*模型出处：Deep learning with convolutional neural networks for EEG decoding and visualization  模型结构    数据集   BCI competition IV dataset 2a（ 288 trials per subject）  自采数据集（880 trials per subject）">
+    <meta name="description" content="EEGNet*模型出处：EEGNet: A Compact Convolutional Network for EEG-based Brain-Computer Interfaces 模型结构  数据集 对比实验  baseline：DeepConvNet, ShallowConvNet  超参       batch_size: not mentioned     learning_rate:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="baseline1-DeepConv">
-<meta property="og:url" content="http://example.com/2023/05/15/baseline1-DeepConv/index.html">
+<meta property="og:title" content="baseline2-EEGNet">
+<meta property="og:url" content="http://example.com/2023/05/16/baseline2-EEGNet/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="DeepConv*模型出处：Deep learning with convolutional neural networks for EEG decoding and visualization  模型结构    数据集   BCI competition IV dataset 2a（ 288 trials per subject）  自采数据集（880 trials per subject）">
+<meta property="og:description" content="EEGNet*模型出处：EEGNet: A Compact Convolutional Network for EEG-based Brain-Computer Interfaces 模型结构  数据集 对比实验  baseline：DeepConvNet, ShallowConvNet  超参       batch_size: not mentioned     learning_rate:">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/DeepConv.png">
-<meta property="og:image" content="http://example.com/img/DeepConvRes.png">
-<meta property="og:image" content="http://example.com/img/DeepConvCode.png">
-<meta property="article:published_time" content="2023-05-15T13:42:36.000Z">
-<meta property="article:modified_time" content="2023-05-16T06:44:53.280Z">
+<meta property="og:image" content="http://example.com/img/EEGNet.png">
+<meta property="og:image" content="http://example.com/img/EEGNetspecific.png">
+<meta property="og:image" content="http://example.com/img/EEGNetdataset.png">
+<meta property="og:image" content="http://example.com/img/EEGNetCode.png">
+<meta property="article:published_time" content="2023-05-16T06:51:51.000Z">
+<meta property="article:modified_time" content="2023-05-16T07:50:38.912Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="DeepConv">
+<meta property="article:tag" content="EEGNet">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/DeepConv.png">
+<meta name="twitter:image" content="http://example.com/img/EEGNet.png">
   
   
   
-  <title>baseline1-DeepConv - 德芭贝贝同学今天code了吗</title>
+  <title>baseline2-EEGNet - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="baseline1-DeepConv"></span>
+            <span id="subtitle" data-typed-text="baseline2-EEGNet"></span>
           
         </div>
 
@@ -212,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-15 21:42" pubdate>
-          May 15, 2023 pm
+        <time datetime="2023-05-16 14:51" pubdate>
+          May 16, 2023 pm
         </time>
       </span>
     
@@ -224,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          607 words
+          455 words
         
       </span>
     
@@ -235,7 +236,7 @@
         
         
         
-          6 mins
+          4 mins
         
       </span>
     
@@ -273,60 +274,48 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">baseline1-DeepConv</h1>
+            <h1 style="display: none">baseline2-EEGNet</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="DeepConv"><a href="#DeepConv" class="headerlink" title="DeepConv"></a>DeepConv</h2><p>*模型出处：Deep learning with convolutional neural networks for EEG decoding and visualization </p>
-<h3>模型结构</h3>
-
-<img alt="DeepConv" title="DeepConv" src="/img/DeepConv.png" srcset="/img/loading.gif" lazyload>
-
-<h3>数据集</h3>
-
-<ol>
-<li><p><i>BCI competition IV dataset 2a</i><span>（ 288 trials per subject）</span></p>
-</li>
-<li><p>自采数据集（880 trials per subject）</p>
-</li>
-</ol>
+                <h2 id="EEGNet"><a href="#EEGNet" class="headerlink" title="EEGNet"></a>EEGNet</h2><p>*模型出处：EEGNet: A Compact Convolutional Network for EEG-based Brain-Computer Interfaces</p>
+<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="/img/EEGNet.png" srcset="/img/loading.gif" lazyload alt="Model"></p>
+<p><img src="/img/EEGNetspecific.png" srcset="/img/loading.gif" lazyload alt="Details"></p>
+<h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p><img src="/img/EEGNetdataset.png" srcset="/img/loading.gif" lazyload alt="Dataset"></p>
 <h3>对比实验</h3>
 
-<p><strong>baseline</strong>：FBCSP</p>
-<p>设计了两层的shallowConvNet和五层的DeepConvNet甚至最高到31层的ResNet以及深浅结合的网络。</p>
+<p><strong>baseline</strong>：DeepConvNet, ShallowConvNet </p>
 <h3>超参</h3>
 
 <ul>
-    <li>batch_size: 100</li>
+    <li>batch_size: not mentioned</li>
     <li>learning_rate: not mentioned</li>
-    <li>epochs: not mentioned</li>
-    <li>dropout: 0.5</li>
+    <li>epochs: 500</li>
+    <li>dropout: 0.5forCS / 0.25forSI</li>
     <li>batch_normalization: True</li>
 </ul>
 
 <h3>结果</h3>
 
-<p><img src="/img/DeepConvRes.png" srcset="/img/loading.gif" lazyload alt="Result"></p>
+<p>在被试独立和被试交叉的情况下，四种范式上均有提升。</p>
 <h3><i class="fa-sharp fa-solid fa-stars"></i>Highlights</h3>
 
 <ul>
-    <li>这篇的出发点是围绕着如何将在图像领域的深度卷积网络运用在脑电数据上。<br>
-        首先，作者提出了脑电和图像的区别：图像是二维静态的，而脑电数据是在<strong>三维的头皮上获取的时序数据
-        </strong><br>
-        接着，作者还提出了，脑电数据相比于图像数据数量太少，需要进行裁剪，也就是分段，作者用的2s一段。
-        </li>
-    <li>作者提出的DeepConv网络的Block1是专门为了提取脑电数据信息的：时间维度拼接空间维度</li>
-    <li>作者通过尝试对神经网络进行解释，得出结论：卷积网络学习了不同频段信息。<br>
-        <i class="fa-solid fa-hand-sparkles"></i>我可以试着把数据先进行小波包分解再送进网络进行学习</li>
+    <li>出发点: 想要提出一种适合各种BCI范式的通用的网络，并且希望这个通用网络十分紧凑（参数数量少）。</li>
+    <li>亮点1：将深度卷积和可分离卷积运用到脑电数据上<br>
+        (1)可分离卷积在这里是指将完整的卷积运算分解为深度卷积+逐点卷积
+        (2)逐点卷积的作用：学习如何将特征图做优化的结合</li>
+    <li>亮点2：对被试交叉和被试独立的数据划分情况都做了相应的讨论</li>
 </ul>
 
 <h3>我实现的DeepConv网络架构部分代码</h3>
 
-<p><img src="/img/DeepConvCode.png" srcset="/img/loading.gif" lazyload alt="myCode"></p>
+<p><img src="/img/EEGNetCode.png" srcset="/img/loading.gif" lazyload alt="Code"></p>
 <head>
     <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script>
 </head>
+
 
                 
               </div>
@@ -360,7 +349,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/DeepConv/">#DeepConv</a>
+        <a href="/tags/EEGNet/">#EEGNet</a>
       
     </div>
   
@@ -372,8 +361,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>baseline1-DeepConv</div>
-      <div>http://example.com/2023/05/15/baseline1-DeepConv/</div>
+      <div>baseline2-EEGNet</div>
+      <div>http://example.com/2023/05/16/baseline2-EEGNet/</div>
     </div>
     <div class="license-meta">
       
@@ -385,7 +374,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>May 15, 2023</div>
+          <div>May 16, 2023</div>
         </div>
       
       
@@ -417,9 +406,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/15/baseline3-DeepConvLSTM/" title="baseline3-DeepConvLSTM">
+                      <a href="/2023/05/16/baseline4-DeepConvLSTMimp/" title="baseline4-DeepConvLSTMimp">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">baseline3-DeepConvLSTM</span>
+                        <span class="hidden-mobile">baseline4-DeepConvLSTMimp</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -427,8 +416,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/15/%E7%B2%BE%E7%81%B5%E5%9B%BE/" title="精灵图">
-                        <span class="hidden-mobile">精灵图</span>
+                      <a href="/2023/05/15/baseline3-DeepConvLSTM/" title="baseline3-DeepConvLSTM">
+                        <span class="hidden-mobile">baseline3-DeepConvLSTM</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
