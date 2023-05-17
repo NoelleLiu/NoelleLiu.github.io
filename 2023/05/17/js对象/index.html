@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="##This is my first blog and try it here!!">
+    <meta name="description" content="js中的对象数据结构   为什么需要对象？ 保存一个值，我可以选择用变量来存 保存多个值，我可以选择用数组来存 那么如果我想存储一个人的完整信息，那么我就需要对象啦~  对象的组成：属性 + 方法  如何创建一个对象呢？  利用字面量来进行创建 : 键值对     e.g. var star &#x3D; {    ​	name: xxx,     ​	age: 18,    ​	sayHi: f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="my first blog">
-<meta property="og:url" content="http://example.com/2023/05/12/my-first-blog/index.html">
+<meta property="og:title" content="js对象">
+<meta property="og:url" content="http://example.com/2023/05/17/js%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="##This is my first blog and try it here!!">
+<meta property="og:description" content="js中的对象数据结构   为什么需要对象？ 保存一个值，我可以选择用变量来存 保存多个值，我可以选择用数组来存 那么如果我想存储一个人的完整信息，那么我就需要对象啦~  对象的组成：属性 + 方法  如何创建一个对象呢？  利用字面量来进行创建 : 键值对     e.g. var star &#x3D; {    ​	name: xxx,     ​	age: 18,    ​	sayHi: f">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-05-12T08:32:03.000Z">
-<meta property="article:modified_time" content="2023-05-15T12:36:03.315Z">
+<meta property="article:published_time" content="2023-05-17T08:31:40.000Z">
+<meta property="article:modified_time" content="2023-05-17T12:30:15.856Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="try">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>my first blog - 德芭贝贝同学今天code了吗</title>
+  <title>js对象 - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="my first blog"></span>
+            <span id="subtitle" data-typed-text="js对象"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-12 16:32" pubdate>
-          May 12, 2023 pm
+        <time datetime="2023-05-17 16:31" pubdate>
+          May 17, 2023 pm
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          33 words
+          1.3k words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          1 mins
+          12 mins
         
       </span>
     
@@ -269,12 +269,113 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">my first blog</h1>
+            <h1 style="display: none">js对象</h1>
             
             
               <div class="markdown-body">
                 
-                <p>##This is my first blog and try it here!!</p>
+                <h2>js中的对象数据结构</h2>
+
+<ul>
+<li><p>为什么需要对象？</p>
+<p>保存一个值，我可以选择用变量来存<br></p>
+<p>保存多个值，我可以选择用数组来存<br></p>
+<p>那么如果我想存储一个人的完整信息，那么我就需要<span class="red">对象</span>啦~</p>
+</li>
+<li><p>对象的组成：属性 + 方法</p>
+</li>
+<li><p>如何创建一个对象呢？</p>
+<ol>
+<li>利用<span class="red">字面量</span>来进行创建 : 键值对<br></li>
+</ol>
+<p>   e.g. var star &#x3D; {</p>
+<p>   ​	name: xxx, <br></p>
+<p>   ​	age: 18,<br></p>
+<p>   ​	sayHi: function() {<br></p>
+<p>   ​		alert(‘Hi’)</p>
+<p>   }}</p>
+<p>   调用方式：star.name，star.sayHi()</p>
+<ol start="2">
+<li><p>利用<span class="red">new Object</span>来创建：<br></p>
+<p>var lxy &#x3D; new Object();<br></p>
+<p>lxy.name &#x3D; ‘Noelle’;<br></p>
+<p>lxy.sayHi &#x3D; function() {<br></p>
+<p>​	alert(‘Hi’)</p>
+</li>
+<li><p>利用<span class="red">构造函数</span>来创建：<br></p>
+<p>[<u>好处</u>:  上述使用字面量和原生的Object构造函数一次只能创建一个对象。但是利用自定义构造函数封装公共的属性和方法，可以一次创建多个不同的对象！！！<i class="fa-solid fa-award"></i>]<br></p>
+<p>function Person(name, age) {&#x2F;&#x2F;抽象公共部分，泛指一个类class<br></p>
+<p>​	this.name &#x3D; name;<br></p>
+<p>​	this.age &#x3D; age;<br></p>
+<p>​	this.sayHi &#x3D; function() {<br></p>
+<p>​	alert(‘Hi’)}</p>
+<p>}</p>
+<p>var lxy &#x3D; <span class="red">new </span> Person(‘Noelle’, 18);&#x2F;&#x2F;<span class="red">对象实例化</span></p>
+</li>
+<li><p><i class="fa-solid fa-trumpet"></i><span class="red"><strong>new关键字执行时做了什么？</strong></span></p>
+<ul>
+<li>首先，在内存中创建一个新的空对象；</li>
+<li>其次，让<span class="red">this</span>指向这个新的空对象；</li>
+<li>接着，执行构造函数里的代码，给新的空对象添加属性和方法；</li>
+<li>最后，返回这个新对象（<i class="fa-solid fa-exclamation"></i>new就做了，不需要一般函数return了！）</li>
+</ul>
+</li>
+<li><p>如何遍历一个对象里的所有属性？</p>
+<p>for (var att in obj) {</p>
+<p>xxx}</p>
+</li>
+<li><p>常用的的JavaScript中的内置对象和内置构造函数：Math, Date, Array, String<br></p>
+<p>其中Math<strong>是内置对象，并不是构造函数</strong>，因为它不需要new进行调用，可以直接使用，不要被大写迷惑咯~</p>
+<hr></hr>
+
+<p>6.1 Math(内置对象)</p>
+<ul>
+<li>Math.floor()  向下取整</li>
+<li>Math.ceil()向上取整</li>
+<li>Math.round()四舍五入取整</li>
+<li>Math.abs()绝对值</li>
+</ul>
+<hr></hr>
+
+<p>6.2 Date（内置构造函数）</p>
+<ul>
+<li><p>new Date()  如果括号里有参数比如’2023&#x2F;5&#x2F;17’就返回括号里的时间；若没有参数就反正当前时间</p>
+</li>
+<li><p>日期格式化可用的方法：</p>
+<p>a. getFullYear()</p>
+<p>b. getMonth()  记得＋1！！！！！！！</p>
+<p>c. getDate()</p>
+<p>d. getDay()</p>
+<p>e. getHours()</p>
+<p>f. getMinutes()</p>
+<p>g. getSeconds()</p>
+</li>
+</ul>
+<hr></hr>
+
+<p>6.3 Array (内置构造函数)</p>
+<p>indexOf可以查找一个给定元素的第一个索引</p>
+<hr></hr>
+
+<p>6.4 String(内置构造函数)</p>
+<p>注意!!!!字符串所有的方法都不会修改字符串本身，操作完成返回一个新的字符串而已，所以<strong>避免大量的字符串拼接</strong></p>
+<ul>
+<li>charAt()返回指定位置的字符</li>
+<li>substr(start, length) 返回从start开始，长度为length的子字符串f</li>
+<li>slice(start, end)返回[start,end)的子字符串</li>
+<li><i class="fa-solid fa-exclamation"></i>split()将字符串切分为<strong>数组</strong>并返回</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<head>
+    <style>
+        .red {
+            color: red;}
+    </style>
+    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script>
+</head>
 
                 
               </div>
@@ -283,11 +384,32 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/front-end/" class="category-chain-item">front-end</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/try/">#try</a>
+        <a href="/tags/js/">#js</a>
       
     </div>
   
@@ -299,8 +421,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>my first blog</div>
-      <div>http://example.com/2023/05/12/my-first-blog/</div>
+      <div>js对象</div>
+      <div>http://example.com/2023/05/17/js对象/</div>
     </div>
     <div class="license-meta">
       
@@ -312,7 +434,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>May 12, 2023</div>
+          <div>May 17, 2023</div>
         </div>
       
       
@@ -344,15 +466,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/15/CSS%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90/" title="css文字对齐">
+                      <a href="/2023/05/17/js%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="js简单数据类型和复杂数据类型">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">css文字对齐</span>
+                        <span class="hidden-mobile">js简单数据类型和复杂数据类型</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/05/17/js%E9%A2%84%E8%A7%A3%E6%9E%90/" title="js预解析">
+                        <span class="hidden-mobile">js预解析</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
