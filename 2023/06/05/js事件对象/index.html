@@ -16,25 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="DOM  1. DOM的定义  DOM：document object model文档对象模型，是W3C组织推荐的处理可扩展标记语言的标准编程接口，通过这些接口可以改变网页的内容、结构和样式。 2. DOM树    文档：一个页面就是一个文档，DOM中用document表示 元素：页面中所有的标签都是元素，DOM中用element表示 节点：页面中所有的内容都是节点，DOM中用node表示  DO">
+    <meta name="description" content="事件对象  1. 事件对象的定义与理解  事件对象的官方定义：event事件对象代表事件的状态，比如按键的状态，鼠标的位置等等。 理解：当DOM树中某一个元素事件被触发的时候，会同时自动产生一个用来描述事件的所有相关信息的对象，这就是event（事件对象）。 2. 事件对象的使用语法  2.1 可以直接通过event来获取 2.2 可以通过函数传参数的方式获取： eventTarget.oncli">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js-DOM">
-<meta property="og:url" content="http://example.com/2023/05/17/js-DOM/index.html">
+<meta property="og:title" content="js事件对象">
+<meta property="og:url" content="http://example.com/2023/06/05/js%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="DOM  1. DOM的定义  DOM：document object model文档对象模型，是W3C组织推荐的处理可扩展标记语言的标准编程接口，通过这些接口可以改变网页的内容、结构和样式。 2. DOM树    文档：一个页面就是一个文档，DOM中用document表示 元素：页面中所有的标签都是元素，DOM中用element表示 节点：页面中所有的内容都是节点，DOM中用node表示  DO">
+<meta property="og:description" content="事件对象  1. 事件对象的定义与理解  事件对象的官方定义：event事件对象代表事件的状态，比如按键的状态，鼠标的位置等等。 理解：当DOM树中某一个元素事件被触发的时候，会同时自动产生一个用来描述事件的所有相关信息的对象，这就是event（事件对象）。 2. 事件对象的使用语法  2.1 可以直接通过event来获取 2.2 可以通过函数传参数的方式获取： eventTarget.oncli">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/DOMTree.jpg">
-<meta property="article:published_time" content="2023-05-17T13:10:00.000Z">
-<meta property="article:modified_time" content="2023-05-17T13:31:11.744Z">
+<meta property="article:published_time" content="2023-06-05T03:19:05.000Z">
+<meta property="article:modified_time" content="2023-06-05T03:58:25.580Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="js">
-<meta property="article:tag" content="DOM">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/DOMTree.jpg">
   
   
   
-  <title>js-DOM - 德芭贝贝同学今天code了吗</title>
+  <title>js事件对象 - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="js-DOM"></span>
+            <span id="subtitle" data-typed-text="js事件对象"></span>
           
         </div>
 
@@ -211,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-17 21:10" pubdate>
-          May 17, 2023 pm
+        <time datetime="2023-06-05 11:19" pubdate>
+          June 5, 2023 am
         </time>
       </span>
     
@@ -223,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          596 words
+          859 words
         
       </span>
     
@@ -234,7 +231,7 @@
         
         
         
-          5 mins
+          8 mins
         
       </span>
     
@@ -272,53 +269,54 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">js-DOM</h1>
+            <h1 style="display: none">js事件对象</h1>
             
             
               <div class="markdown-body">
                 
-                <h2>DOM</h2>
+                <h2>事件对象</h2>
 
-<h4>1. DOM的定义</h4>
+<h4>1. 事件对象的定义与理解</h4>
 
-<p>DOM：document object model文档对象模型，是W3C组织推荐的处理可扩展标记语言的标准编程接口，通过这些接口可以改变网页的内容、结构和样式。</p>
-<h4>2. DOM树</h4>
+<p>事件对象的官方定义：event事件对象代表事件的状态，比如按键的状态，鼠标的位置等等。</p>
+<p><span class="red">理解</span>：当DOM树中某一个元素事件被触发的时候，会同时自动产生一个用来描述事件的所有相关信息的对象，这就是event（事件对象）。</p>
+<h4>2. 事件对象的使用语法</h4>
 
-<p><img src="/img/DOMTree.jpg" srcset="/img/loading.gif" lazyload alt="DOM树结构"></p>
-<ul>
-<li>文档：一个页面就是一个文档，DOM中用document表示</li>
-<li>元素：页面中所有的标签都是元素，DOM中用element表示</li>
-<li>节点：页面中所有的内容都是节点，DOM中用node表示</li>
-</ul>
-<p>DOM把以上所有看作为<span class="red">对象</span>，所以叫做文档对象模型</p>
-<h4>3. DOM是如何获取元素的？</h4>
+<p>2.1 可以直接通过event来获取</p>
+<p>2.2 可以通过函数传参数的方式获取： eventTarget.onclick &#x3D; function(<span class="red">e</span>) {…}</p>
+<h4>3. 事件对象常见的属性和方法</h4>[事件对象常见的方法和属性](/img/event.jpg)
 
-<ul>
-<li><p>根据id获取：<strong>document.getElementById(‘id’)</strong></p>
-<p>若匹配到则返回<span class="pink">Element对象</span>，没找到返回null</p>
-</li>
-<li><p>根据标签名获取：<strong>document.getElementByTagName(‘标签名’)</strong></p>
-<p>获取来的（不管是多个还是一个还是没有）都以<span class="pink">伪数组</span>的形式进行存储。</p>
-</li>
-<li><p>通过类型获取:<strong>document.getElementByClassName(‘类名’)</strong></p>
-</li>
-<li><p>通过<span class="red">选择器</span>选择（单）：<strong>document.querySelector(‘选择器’)</strong></p>
-</li>
-</ul>
-<p>​		会根据指定选择器返回<span class="red">第一个</span>元素对象</p>
-<ul>
-<li><p>通过<span class="red">选择器</span>选择（复数）：<strong>document.querySelectorAll(‘选择器’)</strong></p>
-</li>
-<li><p>两个特殊的元素(body, html)的获取方式</p>
-<p>document.body, document.documentElement</p>
-</li>
-</ul>
+<h4>4. 阻止事件冒泡</h4>
+
+<p>利用事件对象中的stopPropagation（）方法！！</p>
+<p>var son &#x3D; document.querySelector(‘.son’);</p>
+<p>son.addEventListener(‘click’, function(e) {</p>
+<p>​	alert(‘son’);</p>
+<p>​	<span class="red">e.stopPropagation();</span>&#x2F;&#x2F;阻止事件冒泡，这样就不会弹出下面的father！！！</p>
+<p>})</p>
+<p>var father &#x3D; document.querySelector(‘.father’);</p>
+<p>father.addEventListener(‘click’, function() {</p>
+<p>​	alert(‘father’)})</p>
+<h4>5. 事件委托（委派、代理）</h4>
+
+<p>问题引出：如果想给ul的每个小li都注册事件，访问DOM次数过多会演唱整个页面的交互就绪时间。</p>
+<p><strong>事件委托原理：</strong>不是给每个子节点单独设置事件监听器，而是设置在父节点上，利用冒泡影响每个子节点。</p>
+<p>var ul &#x3D; document.querySelector(‘ul’); &#x2F;&#x2F;只需要获取一次</p>
+<p>ul.addEventListener(‘click’, function(e) {</p>
+<p>​	alert(‘hhhhh’)})</p>
+<h4>6. 常见的鼠标事件以及事件对象</h4>
+
+<p><a href="/img/mouseEvent.jpg">常见的鼠标事件</a></p>
+<p><a href="/img/%E9%BC%A0%E6%A0%87%E5%AF%B9%E8%B1%A1%E4%BA%8B%E4%BB%B6.jpg">常见的鼠标事件对象</a></p>
+<h4>7. 常见的键盘事件以及事件对象</h4>
+
+<p><a href="/img/keyEvent.jpg">常见的键盘事件</a></p>
+<p><a href="/img/%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1.jpg">常见的键盘事件对象</a></p>
 <head>
     <style>
         .red {
             color: red;}
-        .pink {
-            color: pink;}</style>
+    </style>
     <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script>
 </head>
 
@@ -356,8 +354,6 @@
       
         <a href="/tags/js/">#js</a>
       
-        <a href="/tags/DOM/">#DOM</a>
-      
     </div>
   
 </div>
@@ -368,8 +364,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>js-DOM</div>
-      <div>http://example.com/2023/05/17/js-DOM/</div>
+      <div>js事件对象</div>
+      <div>http://example.com/2023/06/05/js事件对象/</div>
     </div>
     <div class="license-meta">
       
@@ -381,7 +377,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>May 17, 2023</div>
+          <div>June 5, 2023</div>
         </div>
       
       
@@ -413,18 +409,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/23/js%E4%BA%8B%E4%BB%B6%E5%9F%BA%E7%A1%80/" title="js事件基础">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js事件基础</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/17/js%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="js简单数据类型和复杂数据类型">
-                        <span class="hidden-mobile">js简单数据类型和复杂数据类型</span>
+                      <a href="/2023/06/05/jsDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

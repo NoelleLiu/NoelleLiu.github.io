@@ -4,6 +4,119 @@
   
   
   <entry>
+    <title>js事件对象</title>
+    <link href="/2023/06/05/js%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"/>
+    <url>/2023/06/05/js%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
+    
+    <content type="html"><![CDATA[<h2>事件对象</h2><h4>1. 事件对象的定义与理解</h4><p>事件对象的官方定义：event事件对象代表事件的状态，比如按键的状态，鼠标的位置等等。</p><p><span class="red">理解</span>：当DOM树中某一个元素事件被触发的时候，会同时自动产生一个用来描述事件的所有相关信息的对象，这就是event（事件对象）。</p><h4>2. 事件对象的使用语法</h4><p>2.1 可以直接通过event来获取</p><p>2.2 可以通过函数传参数的方式获取： eventTarget.onclick &#x3D; function(<span class="red">e</span>) {…}</p><h4>3. 事件对象常见的属性和方法</h4>[事件对象常见的方法和属性](/img/event.jpg)<h4>4. 阻止事件冒泡</h4><p>利用事件对象中的stopPropagation（）方法！！</p><p>var son &#x3D; document.querySelector(‘.son’);</p><p>son.addEventListener(‘click’, function(e) {</p><p>​alert(‘son’);</p><p>​<span class="red">e.stopPropagation();</span>&#x2F;&#x2F;阻止事件冒泡，这样就不会弹出下面的father！！！</p><p>})</p><p>var father &#x3D; document.querySelector(‘.father’);</p><p>father.addEventListener(‘click’, function() {</p><p>​alert(‘father’)})</p><h4>5. 事件委托（委派、代理）</h4><p>问题引出：如果想给ul的每个小li都注册事件，访问DOM次数过多会演唱整个页面的交互就绪时间。</p><p><strong>事件委托原理：</strong>不是给每个子节点单独设置事件监听器，而是设置在父节点上，利用冒泡影响每个子节点。</p><p>var ul &#x3D; document.querySelector(‘ul’); &#x2F;&#x2F;只需要获取一次</p><p>ul.addEventListener(‘click’, function(e) {</p><p>​alert(‘hhhhh’)})</p><h4>6. 常见的鼠标事件以及事件对象</h4><p><a href="/img/mouseEvent.jpg">常见的鼠标事件</a></p><p><a href="/img/%E9%BC%A0%E6%A0%87%E5%AF%B9%E8%B1%A1%E4%BA%8B%E4%BB%B6.jpg">常见的鼠标事件对象</a></p><h4>7. 常见的键盘事件以及事件对象</h4><p><a href="/img/keyEvent.jpg">常见的键盘事件</a></p><p><a href="/img/%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1.jpg">常见的键盘事件对象</a></p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2023/06/05/jsDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
+    <url>/2023/06/05/jsDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
+    
+    <content type="html"><![CDATA[<p>title: jsDOM事件流<br>date: 2023-06-05 10:43:36<br>categories: front-end<br>tags: js</p><h2>DOM事件流</h2><h4>1. 事件流</h4><p>描述从页面中接收事件的顺序。</p><h4>2. DOM事件流</h4><p>事件发生时会在节点元素之间按照特定的顺序传播。此传播过程即为DOM事件流。</p><h4> 3. DOM事件流三阶段</h4><p><span class="red">捕获阶段</span>：从windows对象依次向下传播，到达目标节点。捕获阶段不会相应任何事件。</p><p><span class="red">当前目标阶段</span>：目标节点触发事件。</p><p><span class="red">冒泡阶段</span>：从当前节点依次向上传播，直到windows对象。</p><p><a href="/img/EventFlow.jpg">DOM事件流三阶段</a></p><h4><span class="red">4. 注意<span></h4><p>a. JS代码中只能执行捕获或者是冒泡其中的一个阶段</p><p>b. onclick只能得到冒泡阶段</p><p>c. addEventListener(type, listener[,useCapture])如果第三个参数不写默认false就是在冒泡阶段调用事件处理程序；若设置为true，则是在事件捕获阶段调用事件处理程序。</p><p>d. 但是在开发中，关注事件冒泡会更多。</p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>js事件高级</title>
+    <link href="/2023/06/05/js%E4%BA%8B%E4%BB%B6%E9%AB%98%E7%BA%A7/"/>
+    <url>/2023/06/05/js%E4%BA%8B%E4%BB%B6%E9%AB%98%E7%BA%A7/</url>
+    
+    <content type="html"><![CDATA[<h2>js事件高级</h2><h4>1. 注册事件（绑定事件）</h4><p>【传统的注册方式】：</p><p>​        var btn &#x3D; document.getElementById(‘btn’);&#x2F;&#x2F;获取事件源</p><p>​btn.onclick &#x3D; function() {alert(‘hhhhh’)}&#x2F;&#x2F;事件类型+事件处理程序</p><p><span class="red">特点</span>：注册事件的唯一性（同一个元素同一个事件只能设置一个处理函数，最后注册的会覆盖前面注册的处理函数</p><p>【<span class="red">方法监听注册方式</span>】：W3C标准推荐</p><p>​eventTarget.addEventListener(type, listener[, useCapture])</p><p><span class="red">特点</span>：同一个元素同一个事件只能注册多个监听器，按照注册顺序依次执行。</p><h4>2. 删除事件（解绑事件）</h4><p>注意：解绑事件需要写在function里的最后，这样才能保证先执行一次处理程序再解绑。</p><p>【传统的注册方式的解绑】：</p><p>​ var btn &#x3D; document.getElementById(‘btn’);</p><p>​ btn.onclick &#x3D; function() {</p><p>​alert(‘hhhhh’)；</p><p>​btn.onclick &#x3D; null;}</p><p>【<span class="red">方法监听注册方式的绑定与解绑</span>】：</p><p>​btn.addEventListener(‘click’, fn);</p><p>​function fn() {</p><p>​alert(‘hhhhh’);</p><p>​btn.removeEventListener(‘click’, fn)};</p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>js节点操作</title>
+    <link href="/2023/05/23/js%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/"/>
+    <url>/2023/05/23/js%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/</url>
+    
+    <content type="html"><![CDATA[<h2>js节点操作</h2><p>利用DOM树可以把节点划分为不同的层级关系。</p><ol><li><p>父级节点</p><p>node.parentNode  这个属性返回node节点最近的一个父节点</p></li><li><p>子节点</p><p>node.childNode 返回指定节点的<span class="red">所有</span>子节点的集合</p><p>!注意：包括文本节点甚至空格等都会被一起返回， 若只想获得子元素节点就别用了</p></li></ol><p>​2.1  <i class="fa-sharp fa-light fa-sparkles"></i><span class="red">更推荐的方法</span></p><p>​<span class="red">node.children</span>只读属性，只返回所有子元素节点。</p><p>​2.2 返回某个特定的子节点</p><p>​node.firstChild（Child是包含所有节点，文字等）</p><p>​node.lastChild</p><p>​node.firstElementChild（真正的子节点）</p><p>​node.lastElementChild</p><ol start="3"><li><p>兄弟节点</p><p>node.nextSibling</p><p>node.previousSibling</p><p>node.nextElementSibling</p><p>node.previousElementSibling</p></li><li><p>节点的<span class="red">创建</span></p></li></ol><p>​document.createElement(‘tagName’)根据需求动态创建元素节点，但是创建了还不会显示，还需要<span class="red">添加</span></p><ol start="5"><li><p>节点的添加</p><p>node.appendChild(child)将一个节点添加到指定父节点的子节点列表末尾。<span class="blue">类似css中的after伪元素</span></p><p>node.insertChild(child)将一个节点添加到指定父节点的子节点前面。<span class="blue">类似css中的before伪元素</span></p></li><li><p>节点的删除</p><p>node.removeChild()返回删除节点</p></li><li><p>节点的赋值</p><p>node.cloneNode()返回节点的副本 - 若无参数就是浅拷贝，不克隆里面的子节点；若参数为true，则是深度拷贝，会复制节点本身以及里面所有的节点。</p></li></ol><head>    <style>        .red {            color: red;}        .blue {            color: blue;        }    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>js事件基础</title>
+    <link href="/2023/05/23/js%E4%BA%8B%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
+    <url>/2023/05/23/js%E4%BA%8B%E4%BB%B6%E5%9F%BA%E7%A1%80/</url>
+    
+    <content type="html"><![CDATA[<h2>js事件基础</h2><h4>1. 事件概述</h4><p>​js使我们有能力创造动态页面，其中，<span class="red">事件</span>是可以被js侦测到的行为。</p><h4>2. 事件三要素</h4><ul><li>事件源：谁被触发  e.g.按钮</li><li>事件类型： 怎么触发  e.g.点击触发</li><li>事件处理程序：通过函数赋值的方式  e.g.弹出对话框</li></ul><h4>3. 执行事件的步骤</h4><ol><li>获取事件源</li><li>注册（绑定事件）</li><li>添加事件处理程序（函数赋值）</li></ol><h4>4. 常见的鼠标事件</h4><p><img src="/img/mouseevent.jpg" alt="常见的鼠标事件"></p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>js-DOM</title>
     <link href="/2023/05/17/js-DOM/"/>
     <url>/2023/05/17/js-DOM/</url>
