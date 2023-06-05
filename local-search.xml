@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title>js事件对象</title>
-    <link href="/2023/06/05/js%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"/>
-    <url>/2023/06/05/js%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
+    <title>js-DOM事件流</title>
+    <link href="/2023/06/05/js-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
+    <url>/2023/06/05/js-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
     
-    <content type="html"><![CDATA[<h2>事件对象</h2><h4>1. 事件对象的定义与理解</h4><p>事件对象的官方定义：event事件对象代表事件的状态，比如按键的状态，鼠标的位置等等。</p><p><span class="red">理解</span>：当DOM树中某一个元素事件被触发的时候，会同时自动产生一个用来描述事件的所有相关信息的对象，这就是event（事件对象）。</p><h4>2. 事件对象的使用语法</h4><p>2.1 可以直接通过event来获取</p><p>2.2 可以通过函数传参数的方式获取： eventTarget.onclick &#x3D; function(<span class="red">e</span>) {…}</p><h4>3. 事件对象常见的属性和方法</h4>[事件对象常见的方法和属性](/img/event.jpg)<h4>4. 阻止事件冒泡</h4><p>利用事件对象中的stopPropagation（）方法！！</p><p>var son &#x3D; document.querySelector(‘.son’);</p><p>son.addEventListener(‘click’, function(e) {</p><p>​alert(‘son’);</p><p>​<span class="red">e.stopPropagation();</span>&#x2F;&#x2F;阻止事件冒泡，这样就不会弹出下面的father！！！</p><p>})</p><p>var father &#x3D; document.querySelector(‘.father’);</p><p>father.addEventListener(‘click’, function() {</p><p>​alert(‘father’)})</p><h4>5. 事件委托（委派、代理）</h4><p>问题引出：如果想给ul的每个小li都注册事件，访问DOM次数过多会演唱整个页面的交互就绪时间。</p><p><strong>事件委托原理：</strong>不是给每个子节点单独设置事件监听器，而是设置在父节点上，利用冒泡影响每个子节点。</p><p>var ul &#x3D; document.querySelector(‘ul’); &#x2F;&#x2F;只需要获取一次</p><p>ul.addEventListener(‘click’, function(e) {</p><p>​alert(‘hhhhh’)})</p><h4>6. 常见的鼠标事件以及事件对象</h4><p><a href="/img/mouseEvent.jpg">常见的鼠标事件</a></p><p><a href="/img/%E9%BC%A0%E6%A0%87%E5%AF%B9%E8%B1%A1%E4%BA%8B%E4%BB%B6.jpg">常见的鼠标事件对象</a></p><h4>7. 常见的键盘事件以及事件对象</h4><p><a href="/img/keyEvent.jpg">常见的键盘事件</a></p><p><a href="/img/%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1.jpg">常见的键盘事件对象</a></p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    <content type="html"><![CDATA[<h2>DOM事件流</h2><h4>1. 事件流</h4><p>描述从页面中接收事件的顺序。</p><h4>2. DOM事件流</h4><p>事件发生时会在节点元素之间按照特定的顺序传播。此传播过程即为DOM事件流。</p><h4> 3. DOM事件流三阶段</h4><p><span class="red">捕获阶段</span>：从windows对象依次向下传播，到达目标节点。捕获阶段不会相应任何事件。</p><p><span class="red">当前目标阶段</span>：目标节点触发事件。</p><p><span class="red">冒泡阶段</span>：从当前节点依次向上传播，直到windows对象。</p><p><a href="/img/EventFlow.jpg">DOM事件流三阶段</a></p><h4><span class="red">4. 注意<span></h4><p>a. JS代码中只能执行捕获或者是冒泡其中的一个阶段</p><p>b. onclick只能得到冒泡阶段</p><p>c. addEventListener(type, listener[,useCapture])如果第三个参数不写默认false就是在冒泡阶段调用事件处理程序；若设置为true，则是在事件捕获阶段调用事件处理程序。</p><p>d. 但是在开发中，关注事件冒泡会更多。</p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
     
     
     <categories>
@@ -29,13 +29,25 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2023/06/05/jsDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
-    <url>/2023/06/05/jsDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
+    <title>js事件对象</title>
+    <link href="/2023/06/05/js%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"/>
+    <url>/2023/06/05/js%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/</url>
     
-    <content type="html"><![CDATA[<p>title: jsDOM事件流<br>date: 2023-06-05 10:43:36<br>categories: front-end<br>tags: js</p><h2>DOM事件流</h2><h4>1. 事件流</h4><p>描述从页面中接收事件的顺序。</p><h4>2. DOM事件流</h4><p>事件发生时会在节点元素之间按照特定的顺序传播。此传播过程即为DOM事件流。</p><h4> 3. DOM事件流三阶段</h4><p><span class="red">捕获阶段</span>：从windows对象依次向下传播，到达目标节点。捕获阶段不会相应任何事件。</p><p><span class="red">当前目标阶段</span>：目标节点触发事件。</p><p><span class="red">冒泡阶段</span>：从当前节点依次向上传播，直到windows对象。</p><p><a href="/img/EventFlow.jpg">DOM事件流三阶段</a></p><h4><span class="red">4. 注意<span></h4><p>a. JS代码中只能执行捕获或者是冒泡其中的一个阶段</p><p>b. onclick只能得到冒泡阶段</p><p>c. addEventListener(type, listener[,useCapture])如果第三个参数不写默认false就是在冒泡阶段调用事件处理程序；若设置为true，则是在事件捕获阶段调用事件处理程序。</p><p>d. 但是在开发中，关注事件冒泡会更多。</p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    <content type="html"><![CDATA[<h2>事件对象</h2><h4>1. 事件对象的定义与理解</h4><p>事件对象的官方定义：event事件对象代表事件的状态，比如按键的状态，鼠标的位置等等。</p><p><span class="red">理解</span>：当DOM树中某一个元素事件被触发的时候，会同时自动产生一个用来描述事件的所有相关信息的对象，这就是event（事件对象）。</p><h4>2. 事件对象的使用语法</h4><p>2.1 可以直接通过event来获取</p><p>2.2 可以通过函数传参数的方式获取： eventTarget.onclick &#x3D; function(<span class="red">e</span>) {…}</p><h4>3. 事件对象常见的属性和方法</h4>[事件对象常见的方法和属性](/img/event.jpg)<h4>4. 阻止事件冒泡</h4><p>利用事件对象中的stopPropagation（）方法！！</p><p>var son &#x3D; document.querySelector(‘.son’);</p><p>son.addEventListener(‘click’, function(e) {</p><p>​alert(‘son’);</p><p>​<span class="red">e.stopPropagation();</span>&#x2F;&#x2F;阻止事件冒泡，这样就不会弹出下面的father！！！</p><p>})</p><p>var father &#x3D; document.querySelector(‘.father’);</p><p>father.addEventListener(‘click’, function() {</p><p>​alert(‘father’)})</p><h4>5. 事件委托（委派、代理）</h4><p>问题引出：如果想给ul的每个小li都注册事件，访问DOM次数过多会演唱整个页面的交互就绪时间。</p><p><strong>事件委托原理：</strong>不是给每个子节点单独设置事件监听器，而是设置在父节点上，利用冒泡影响每个子节点。</p><p>var ul &#x3D; document.querySelector(‘ul’); &#x2F;&#x2F;只需要获取一次</p><p>ul.addEventListener(‘click’, function(e) {</p><p>​alert(‘hhhhh’)})</p><h4>6. 常见的鼠标事件以及事件对象</h4><p><a href="/img/mouseEvent.jpg">常见的鼠标事件</a></p><p><a href="/img/%E9%BC%A0%E6%A0%87%E5%AF%B9%E8%B1%A1%E4%BA%8B%E4%BB%B6.jpg">常见的鼠标事件对象</a></p><h4>7. 常见的键盘事件以及事件对象</h4><p><a href="/img/keyEvent.jpg">常见的键盘事件</a></p><p><a href="/img/%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1.jpg">常见的键盘事件对象</a></p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
     
     
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+    </tags>
     
   </entry>
   
