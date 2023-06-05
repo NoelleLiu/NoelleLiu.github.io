@@ -4,6 +4,135 @@
   
   
   <entry>
+    <title>确定元素位置总结</title>
+    <link href="/2023/06/05/%E7%A1%AE%E5%AE%9A%E5%85%83%E7%B4%A0%E4%BD%8D%E7%BD%AE%E6%80%BB%E7%BB%93/"/>
+    <url>/2023/06/05/%E7%A1%AE%E5%AE%9A%E5%85%83%E7%B4%A0%E4%BD%8D%E7%BD%AE%E6%80%BB%E7%BB%93/</url>
+    
+    <content type="html"><![CDATA[<h4>offsetX</h4><p>偏移量offsetX - 相对offsetParent偏移了多少？</p><p>注意offsetParent是指带有定位的父级节点</p><p>offsetWidth和offsetHeight指包含border，padding，content的宽高。</p><h4>scrollX</h4><p>滚动量scrollX - 文档相对于当前浏览器视口滚动了多少？</p><h4>clientX</h4><p>这个属性描述自身位置。</p><p>clientTop就是border-top的值，clientWidth不包含border</p><p>Reference: <a href="https://blog.csdn.net/lefex/article/details/104682178">(68条消息) 彻底搞懂 offsetX、scrollX、clientX 的区别_lefex的博客-CSDN博客</a></p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>PC端网页特效</title>
+    <link href="/2023/06/05/PC%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/"/>
+    <url>/2023/06/05/PC%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/</url>
+    
+    <content type="html"><![CDATA[<h2>元素偏移量offset系列</h2><h4>1. offset偏移量概述</h4><p>使用offset系列相关属性可以<span class="red">动态的</span>得到该元素的位置（偏移）、大小等。</p><h4>2. offset系列常用属性</h4><ul><li>element.offsetParent: 返回作为该元素带有定位的父级元素</li><li>element.offsetTop: 返回元素相对带有定位的父元素上方的偏移</li><li>element.offsetLeft: 同上，但是左边框的偏移</li><li>element.offsetWidth: 返回自身包括padding，边框，内容区的宽度，且不带单位</li></ul><h4>3. offset v.s. style</h4><p><img src="/img/offsetvsstyle.jpg" alt="offset v.s. style"></p><hr><h2>元素可视区client系列</h2><h4>1. client概述</h4><p>client本身是客户端的意思，使用client系列相关属性可以获取<u>元素可视区</u>的相关信息, 动态的得到该元素边框大小，元素大小等。</p><h4>2. client系列属性</h4><ul><li>element.clientTop: 返回元素上边框的大小</li><li>element.clientLeft: 返回元素左边框的大小</li><li>element.clientWidth: 返回元素自身包括padding，内容区的宽度，但是不包含边框（这是和offset最大的区别)</li></ul><hr><h2>元素滚动scroll系列</h2><h4>1. scroll系列属性</h4><ul><li>element.scrollTop: 返回被卷上去的距离</li><li>element.scrollLeft: 返回被卷去的左侧距离</li><li>element.scrollWidth: 返回自身实际宽度，不包含边框，返回数值不带单位</li></ul><h4>2. onscroll事件</h4><p>当浏览器的高或者宽度不足以显示整个页面的时候，会自动出现滚动条。滚动条在滚动时会触发onscroll事件。</p><hr><p>【这里总结一下以上三种的异同！！】</p><p><a href="">sum</a></p><hr><h2>动画函数封装</h2><p>通过setInterval（）不断移动盒子的位置就可以达到动画的效果。</p><h2><span class="red">节流阀</span></h2><p>目的：为了防止轮播图按钮连续点击造成播放太快</p><p>本质：当上一个函数动画内容执行完毕，再去执行下一个函数动画，让事件无法连续触发。</p><p><span class="red">核心实现思路</span>: 利用回调函数， 添加一个变量来控制，锁住和解锁函数。</p><p>伪代码：</p><p>​var flag&#x3D;true;&#x2F;&#x2F;默认水龙头开着</p><p>​if(flag) {</p><p>​flag &#x3D; false;</p><p>​        do something} &#x2F;&#x2F;为了确保无法连续触发， 关闭水龙头</p><p>​    callback，flag&#x3D;true；&#x2F;&#x2F;利用回调函数执行动画完毕后，打开水龙头</p><p>代码参考：</p><p><img src="/img/%E8%8A%82%E6%B5%81%E9%98%80%E4%BB%A3%E7%A0%81.png" alt="code"></p><p>Reference: <a href="https://blog.csdn.net/qq_36958206/article/details/109049938">(68条消息) JS的节流阀_前端节流阀_鹿小风的博客-CSDN博客</a></p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>BOM对象</title>
+    <link href="/2023/06/05/BOM%E5%AF%B9%E8%B1%A1/"/>
+    <url>/2023/06/05/BOM%E5%AF%B9%E8%B1%A1/</url>
+    
+    <content type="html"><![CDATA[<h2>Location对象</h2><h4>1. location对象的定义</h4><p>window对象给我们提供了一个location属性，用于<span class="red">获取或设置窗体的URL</span>，并且可以用于解析URL。因为这个属性返回的是一个对象，也称这个属性为location对象。</p><h4>2. URL: Uniform Resource Locator 统一资源定位符</h4><p>互联网上每个文件都有一个唯一的URL， 包含文件的位置以及浏览器应该如何处理等信息。</p><p><u>URL一般语法</u>： protocol:&#x2F;&#x2F;host[:port]&#x2F;path&#x2F;[?query]#fragment</p><h4>3. location对象的属性</h4><p><img src="/img/location.jpg" alt="location对象的属性"></p><hr><h2>Navigator对象</h2><p>navigator对象包含有关浏览器的信息，它有很多属性，最常用的是<span class="red">userAgent</span>, 该属性可以返回由客户机发送服务器的user-agent头部的值，用来判断用户在哪个终端打开页面。</p><hr><h2>History对象</h2><p>windows对象给我们提供了一个history对象，与浏览器历史记录进行交互。该对象包含用户（在浏览器窗口中）访问过的URL。</p><h4>history对象方法</h4><ul><li>back(): 后退</li><li>forward(): 前进</li><li>go(argument): 参数为正则前进argument个页面，负则后退。</li></ul><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+      <tag>BOM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>js执行队列</title>
+    <link href="/2023/06/05/js%E6%89%A7%E8%A1%8C%E9%98%9F%E5%88%97/"/>
+    <url>/2023/06/05/js%E6%89%A7%E8%A1%8C%E9%98%9F%E5%88%97/</url>
+    
+    <content type="html"><![CDATA[<h2>JS执行队列</h2><h4>1. JS是单线程</h4><p>JavaScript语言的一大特点就是<span class="red">单线程</span>，也就是同一个时间只能做一件事。这也就意味着所有任务需要排队，这就导致如果js执行的时间过长，会造成页面渲染不连贯，导致<span class="red">页面渲染加载阻塞</span>的感觉。</p><hr><p><i class="fa-solid fa-arrows-down-to-line" style="margin: 0 auto;"></i></p><hr><p>为了解决这个问题，利用多核cpu的计算能力，<span class="red">HTML5</span>允许JavaScript脚本创建多个线程，所以JS中出现了<span class="red">同步</span>和<span class="red">异步</span>。</p><h4>2. 同步</h4><p>前一个任务结束后再执行下一个任务，程序的执行顺序与任务的排队顺序一致。</p><h4>3. 异步</h4><p>在做一件事的同时还可以去处理其他事情。</p><h4>4. JS执行机制</h4><p>JS为了防止任务有排队等待时间过长的问题，把所有的任务分为两类。</p><ul><li><p>同步任务：都在主线程上执行，形成一个<span class="red">执行栈</span>。</p></li><li><p>异步任务：JS的异步是通过回调函数实现的，添加到<span class="red">任务队列（消息队列）</span>中。</p></li></ul><p>[<strong>JS执行机制</strong>]：先执行执行栈中的同步任务，异步任务（回调函数）放到任务队列中，一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，进行执行栈开始执行。</p><h4>5. 事件循环Event Loop</h4><p>由于主线程不断的重复获取任务，执行任务，再获取和执行任务，这种机制被称为<span class="red">事件循环</span></p><p><img src="/img/EventLoop.jpg" alt="Event Loop"> </p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>js-BOM</title>
+    <link href="/2023/06/05/js-BOM/"/>
+    <url>/2023/06/05/js-BOM/</url>
+    
+    <content type="html"><![CDATA[<h2>BOM</h2><h4>1. BOM的定义</h4><p>BOM ：Browser Object Model 浏览器对象模型</p><p>提供了独立于内容而与浏览器窗口进行交互的对象。BOM则由一系列相关的对象构成，并且每个对象提供了很多方法和属性。</p><p><verticalLine></verticalLine></p><p><img src="/img/DOMvsBOM.jpg" alt="DOM v.s. BOM"></p><h4>2. BOM的构成</h4><p>BOM： document，location, navigation, screen, history</p><p>[所以！！BOM包含了DOM]</p><h4>3. window对象的常见事件</h4><p>3.1 <strong>窗口加载事件</strong>：文档内容完全加载就会触发该事件，调用处理函数</p><p>window.onload &#x3D; function() {}&#x2F;&#x2F;传统方式注册</p><p>window.addEventListener(‘load’, function(){})&#x2F;&#x2F;方法监听方式注册</p><p>[好处]：有了window.onload就可以把js代码写到页面元素的上方，但是本质上还是等内容全部加载完毕再执行处理函数。</p><p>[ie9以上才支持的]：document.addEventListener(‘DOMContentLoaded’, function(){})，仅当DOM加载完成，就会触发执行函数。如果图片过多，onload触发需要较长的事件，DOMContentLoaded事件会比较合适。</p><p>3.2 <strong>调整窗口大小事件</strong>：常利用本事件完成响应式布局</p><p>window.onresize &#x3D; function() {}</p><p>window.addEventListener(‘resize’, function() {})</p><p>3.3 <strong>定时器</strong>：</p><ul><li><p>window.setTimeout(调用函数， [延迟毫秒数])：这是一个callback回调函数</p><p>var timer1 &#x3D; setTimeout(fn, 2000);</p><p>var timer2 &#x3D; setTimeout(fn, 5000);</p><hr><p>清除定时器的方式：window.clearTimeout(timeoutID)</p><p>e.g. 清除上面的timer1定时器</p><p>clearTimeout(timer1);</p></li><li><p>window.setInterval(回调函数，[间隔毫秒数]): 每隔一段时间就会反复调用</p><hr><p>清除定时器的方式：window.clearInterval(intervalID)</p></li></ul><p>3.4 <strong>this指向</strong>:</p><p>this的指向在函数定义的时候是确定不了的，只有在函数执行的时候才能确定this到底指向谁。一般this最终的指向的是调用它的对象。</p><ul><li>全局作用域下：this指向全局对象window</li><li>方法调用中：this指向调用的对象</li><li>构造函数中：this指向构造函数的实例</li></ul><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+      <tag>BOM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>js-DOM事件流</title>
     <link href="/2023/06/05/js-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
     <url>/2023/06/05/js-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>

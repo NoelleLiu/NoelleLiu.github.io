@@ -16,22 +16,25 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="DOM事件流  1. 事件流  描述从页面中接收事件的顺序。 2. DOM事件流  事件发生时会在节点元素之间按照特定的顺序传播。此传播过程即为DOM事件流。  3. DOM事件流三阶段  捕获阶段：从windows对象依次向下传播，到达目标节点。捕获阶段不会相应任何事件。 当前目标阶段：目标节点触发事件。 冒泡阶段：从当前节点依次向上传播，直到windows对象。 DOM事件流三阶段 4. 注意">
+    <meta name="description" content="BOM  1. BOM的定义  BOM ：Browser Object Model 浏览器对象模型 提供了独立于内容而与浏览器窗口进行交互的对象。BOM则由一系列相关的对象构成，并且每个对象提供了很多方法和属性。   2. BOM的构成  BOM： document，location, navigation, screen, history [所以！！BOM包含了DOM] 3. window对象的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js-DOM事件流">
-<meta property="og:url" content="http://example.com/2023/06/05/js-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/index.html">
+<meta property="og:title" content="js-BOM">
+<meta property="og:url" content="http://example.com/2023/06/05/js-BOM/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="DOM事件流  1. 事件流  描述从页面中接收事件的顺序。 2. DOM事件流  事件发生时会在节点元素之间按照特定的顺序传播。此传播过程即为DOM事件流。  3. DOM事件流三阶段  捕获阶段：从windows对象依次向下传播，到达目标节点。捕获阶段不会相应任何事件。 当前目标阶段：目标节点触发事件。 冒泡阶段：从当前节点依次向上传播，直到windows对象。 DOM事件流三阶段 4. 注意">
+<meta property="og:description" content="BOM  1. BOM的定义  BOM ：Browser Object Model 浏览器对象模型 提供了独立于内容而与浏览器窗口进行交互的对象。BOM则由一系列相关的对象构成，并且每个对象提供了很多方法和属性。   2. BOM的构成  BOM： document，location, navigation, screen, history [所以！！BOM包含了DOM] 3. window对象的">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-06-05T05:29:43.000Z">
-<meta property="article:modified_time" content="2023-06-05T05:30:24.412Z">
+<meta property="og:image" content="http://example.com/img/DOMvsBOM.jpg">
+<meta property="article:published_time" content="2023-06-05T05:48:27.000Z">
+<meta property="article:modified_time" content="2023-06-05T06:51:33.797Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="js">
+<meta property="article:tag" content="BOM">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/DOMvsBOM.jpg">
   
   
   
-  <title>js-DOM事件流 - 德芭贝贝同学今天code了吗</title>
+  <title>js-BOM - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="js-DOM事件流"></span>
+            <span id="subtitle" data-typed-text="js-BOM"></span>
           
         </div>
 
@@ -208,7 +211,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-05 13:29" pubdate>
+        <time datetime="2023-06-05 13:48" pubdate>
           June 5, 2023 pm
         </time>
       </span>
@@ -220,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          363 words
+          1.1k words
         
       </span>
     
@@ -231,7 +234,7 @@
         
         
         
-          4 mins
+          9 mins
         
       </span>
     
@@ -269,31 +272,55 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">js-DOM事件流</h1>
+            <h1 style="display: none">js-BOM</h1>
             
             
               <div class="markdown-body">
                 
-                <h2>DOM事件流</h2>
+                <h2>BOM</h2>
 
-<h4>1. 事件流</h4>
+<h4>1. BOM的定义</h4>
 
-<p>描述从页面中接收事件的顺序。</p>
-<h4>2. DOM事件流</h4>
+<p>BOM ：Browser Object Model 浏览器对象模型</p>
+<p>提供了独立于内容而与浏览器窗口进行交互的对象。BOM则由一系列相关的对象构成，并且每个对象提供了很多方法和属性。</p>
+<p><verticalLine></verticalLine></p>
+<p><img src="/img/DOMvsBOM.jpg" srcset="/img/loading.gif" lazyload alt="DOM v.s. BOM"></p>
+<h4>2. BOM的构成</h4>
 
-<p>事件发生时会在节点元素之间按照特定的顺序传播。此传播过程即为DOM事件流。</p>
-<h4> 3. DOM事件流三阶段</h4>
+<p>BOM： document，location, navigation, screen, history</p>
+<p>[所以！！BOM包含了DOM]</p>
+<h4>3. window对象的常见事件</h4>
 
-<p><span class="red">捕获阶段</span>：从windows对象依次向下传播，到达目标节点。捕获阶段不会相应任何事件。</p>
-<p><span class="red">当前目标阶段</span>：目标节点触发事件。</p>
-<p><span class="red">冒泡阶段</span>：从当前节点依次向上传播，直到windows对象。</p>
-<p><a href="/img/EventFlow.jpg">DOM事件流三阶段</a></p>
-<h4><span class="red">4. 注意<span></h4>
-
-<p>a. JS代码中只能执行捕获或者是冒泡其中的一个阶段</p>
-<p>b. onclick只能得到冒泡阶段</p>
-<p>c. addEventListener(type, listener[,useCapture])如果第三个参数不写默认false就是在冒泡阶段调用事件处理程序；若设置为true，则是在事件捕获阶段调用事件处理程序。</p>
-<p>d. 但是在开发中，关注事件冒泡会更多。</p>
+<p>3.1 <strong>窗口加载事件</strong>：文档内容完全加载就会触发该事件，调用处理函数</p>
+<p>window.onload &#x3D; function() {}&#x2F;&#x2F;传统方式注册</p>
+<p>window.addEventListener(‘load’, function(){})&#x2F;&#x2F;方法监听方式注册</p>
+<p>[好处]：有了window.onload就可以把js代码写到页面元素的上方，但是本质上还是等内容全部加载完毕再执行处理函数。</p>
+<p>[ie9以上才支持的]：document.addEventListener(‘DOMContentLoaded’, function(){})，仅当DOM加载完成，就会触发执行函数。如果图片过多，onload触发需要较长的事件，DOMContentLoaded事件会比较合适。</p>
+<p>3.2 <strong>调整窗口大小事件</strong>：常利用本事件完成响应式布局</p>
+<p>window.onresize &#x3D; function() {}</p>
+<p>window.addEventListener(‘resize’, function() {})</p>
+<p>3.3 <strong>定时器</strong>：</p>
+<ul>
+<li><p>window.setTimeout(调用函数， [延迟毫秒数])：这是一个callback回调函数</p>
+<p>var timer1 &#x3D; setTimeout(fn, 2000);</p>
+<p>var timer2 &#x3D; setTimeout(fn, 5000);</p>
+<hr>
+<p>清除定时器的方式：window.clearTimeout(timeoutID)</p>
+<p>e.g. 清除上面的timer1定时器</p>
+<p>clearTimeout(timer1);</p>
+</li>
+<li><p>window.setInterval(回调函数，[间隔毫秒数]): 每隔一段时间就会反复调用</p>
+<hr>
+<p>清除定时器的方式：window.clearInterval(intervalID)</p>
+</li>
+</ul>
+<p>3.4 <strong>this指向</strong>:</p>
+<p>this的指向在函数定义的时候是确定不了的，只有在函数执行的时候才能确定this到底指向谁。一般this最终的指向的是调用它的对象。</p>
+<ul>
+<li>全局作用域下：this指向全局对象window</li>
+<li>方法调用中：this指向调用的对象</li>
+<li>构造函数中：this指向构造函数的实例</li>
+</ul>
 <head>
     <style>
         .red {
@@ -301,7 +328,6 @@
     </style>
     <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script>
 </head>
-
 
                 
               </div>
@@ -337,6 +363,8 @@
       
         <a href="/tags/js/">#js</a>
       
+        <a href="/tags/BOM/">#BOM</a>
+      
     </div>
   
 </div>
@@ -347,8 +375,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>js-DOM事件流</div>
-      <div>http://example.com/2023/06/05/js-DOM事件流/</div>
+      <div>js-BOM</div>
+      <div>http://example.com/2023/06/05/js-BOM/</div>
     </div>
     <div class="license-meta">
       
@@ -392,9 +420,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/05/js-BOM/" title="js-BOM">
+                      <a href="/2023/06/05/js%E6%89%A7%E8%A1%8C%E9%98%9F%E5%88%97/" title="js执行队列">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js-BOM</span>
+                        <span class="hidden-mobile">js执行队列</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -402,8 +430,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/05/js%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" title="js事件对象">
-                        <span class="hidden-mobile">js事件对象</span>
+                      <a href="/2023/06/05/js-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/" title="js-DOM事件流">
+                        <span class="hidden-mobile">js-DOM事件流</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

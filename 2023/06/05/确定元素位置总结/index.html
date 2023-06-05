@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="DOM事件流  1. 事件流  描述从页面中接收事件的顺序。 2. DOM事件流  事件发生时会在节点元素之间按照特定的顺序传播。此传播过程即为DOM事件流。  3. DOM事件流三阶段  捕获阶段：从windows对象依次向下传播，到达目标节点。捕获阶段不会相应任何事件。 当前目标阶段：目标节点触发事件。 冒泡阶段：从当前节点依次向上传播，直到windows对象。 DOM事件流三阶段 4. 注意">
+    <meta name="description" content="offsetX  偏移量offsetX - 相对offsetParent偏移了多少？ 注意offsetParent是指带有定位的父级节点 offsetWidth和offsetHeight指包含border，padding，content的宽高。 scrollX  滚动量scrollX - 文档相对于当前浏览器视口滚动了多少？ clientX  这个属性描述自身位置。 clientTop就是bord">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js-DOM事件流">
-<meta property="og:url" content="http://example.com/2023/06/05/js-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/index.html">
+<meta property="og:title" content="确定元素位置总结">
+<meta property="og:url" content="http://example.com/2023/06/05/%E7%A1%AE%E5%AE%9A%E5%85%83%E7%B4%A0%E4%BD%8D%E7%BD%AE%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="DOM事件流  1. 事件流  描述从页面中接收事件的顺序。 2. DOM事件流  事件发生时会在节点元素之间按照特定的顺序传播。此传播过程即为DOM事件流。  3. DOM事件流三阶段  捕获阶段：从windows对象依次向下传播，到达目标节点。捕获阶段不会相应任何事件。 当前目标阶段：目标节点触发事件。 冒泡阶段：从当前节点依次向上传播，直到windows对象。 DOM事件流三阶段 4. 注意">
+<meta property="og:description" content="offsetX  偏移量offsetX - 相对offsetParent偏移了多少？ 注意offsetParent是指带有定位的父级节点 offsetWidth和offsetHeight指包含border，padding，content的宽高。 scrollX  滚动量scrollX - 文档相对于当前浏览器视口滚动了多少？ clientX  这个属性描述自身位置。 clientTop就是bord">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-06-05T05:29:43.000Z">
-<meta property="article:modified_time" content="2023-06-05T05:30:24.412Z">
+<meta property="article:published_time" content="2023-06-05T08:36:57.000Z">
+<meta property="article:modified_time" content="2023-06-05T08:56:17.309Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>js-DOM事件流 - 德芭贝贝同学今天code了吗</title>
+  <title>确定元素位置总结 - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="js-DOM事件流"></span>
+            <span id="subtitle" data-typed-text="确定元素位置总结"></span>
           
         </div>
 
@@ -208,7 +208,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-05 13:29" pubdate>
+        <time datetime="2023-06-05 16:36" pubdate>
           June 5, 2023 pm
         </time>
       </span>
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          363 words
+          293 words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          4 mins
+          3 mins
         
       </span>
     
@@ -269,31 +269,24 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">js-DOM事件流</h1>
+            <h1 style="display: none">确定元素位置总结</h1>
             
             
               <div class="markdown-body">
                 
-                <h2>DOM事件流</h2>
+                <h4>offsetX</h4>
 
-<h4>1. 事件流</h4>
+<p>偏移量offsetX - 相对offsetParent偏移了多少？</p>
+<p>注意offsetParent是指带有定位的父级节点</p>
+<p>offsetWidth和offsetHeight指包含border，padding，content的宽高。</p>
+<h4>scrollX</h4>
 
-<p>描述从页面中接收事件的顺序。</p>
-<h4>2. DOM事件流</h4>
+<p>滚动量scrollX - 文档相对于当前浏览器视口滚动了多少？</p>
+<h4>clientX</h4>
 
-<p>事件发生时会在节点元素之间按照特定的顺序传播。此传播过程即为DOM事件流。</p>
-<h4> 3. DOM事件流三阶段</h4>
-
-<p><span class="red">捕获阶段</span>：从windows对象依次向下传播，到达目标节点。捕获阶段不会相应任何事件。</p>
-<p><span class="red">当前目标阶段</span>：目标节点触发事件。</p>
-<p><span class="red">冒泡阶段</span>：从当前节点依次向上传播，直到windows对象。</p>
-<p><a href="/img/EventFlow.jpg">DOM事件流三阶段</a></p>
-<h4><span class="red">4. 注意<span></h4>
-
-<p>a. JS代码中只能执行捕获或者是冒泡其中的一个阶段</p>
-<p>b. onclick只能得到冒泡阶段</p>
-<p>c. addEventListener(type, listener[,useCapture])如果第三个参数不写默认false就是在冒泡阶段调用事件处理程序；若设置为true，则是在事件捕获阶段调用事件处理程序。</p>
-<p>d. 但是在开发中，关注事件冒泡会更多。</p>
+<p>这个属性描述自身位置。</p>
+<p>clientTop就是border-top的值，clientWidth不包含border</p>
+<p>Reference: <a target="_blank" rel="noopener" href="https://blog.csdn.net/lefex/article/details/104682178">(68条消息) 彻底搞懂 offsetX、scrollX、clientX 的区别_lefex的博客-CSDN博客</a></p>
 <head>
     <style>
         .red {
@@ -301,7 +294,6 @@
     </style>
     <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script>
 </head>
-
 
                 
               </div>
@@ -347,8 +339,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>js-DOM事件流</div>
-      <div>http://example.com/2023/06/05/js-DOM事件流/</div>
+      <div>确定元素位置总结</div>
+      <div>http://example.com/2023/06/05/确定元素位置总结/</div>
     </div>
     <div class="license-meta">
       
@@ -392,18 +384,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/05/js-BOM/" title="js-BOM">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js-BOM</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/05/js%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" title="js事件对象">
-                        <span class="hidden-mobile">js事件对象</span>
+                      <a href="/2023/06/05/PC%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" title="PC端网页特效">
+                        <span class="hidden-mobile">PC端网页特效</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
