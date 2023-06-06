@@ -4,6 +4,156 @@
   
   
   <entry>
+    <title>JQuery四-事件</title>
+    <link href="/2023/06/06/JQuery%E5%9B%9B-%E4%BA%8B%E4%BB%B6/"/>
+    <url>/2023/06/06/JQuery%E5%9B%9B-%E4%BA%8B%E4%BB%B6/</url>
+    
+    <content type="html"><![CDATA[<h2>JQuery事件</h2><h4>1. 事件注册</h4><p>element.事件(function() {xxx})</p><p>e.g.  $(‘div’).click(function() {xxx})</p><h4>2. 事件处理on()绑定事件</h4><p>事件处理on()方法在匹配元素上绑定一个或多个事件的事件处理函数</p><p>element.on(events, [selector], fn)</p><p><img src="/img/jq-on.png" alt="on方法"></p><hr><p>[on()的优势]：</p><ul><li>可以绑定多个事件，多个处理事件的处理程序；如果处理事件的处理程序相同，可以在events使用并集的写法</li><li>可以<span class="red">事件委派</span>操作，把原来加给子元素身上的事件绑定在父元素身上。</li><li>可以给动态创建的元素绑定事件。</li></ul><h4>3. 事件处理off()解绑事件</h4><p>$(“p”).off() &#x2F;&#x2F;解绑p元素所有的事件处理程序</p><p>$(“p”).off(“click”)  &#x2F;&#x2F;解绑p元素的点击事件</p><p>$(“p”).off(“click”, “li”)&#x2F;&#x2F;解绑事件委托</p><h4>4. jQuery事件对象</h4><p>element.on(envents, [selectors], function(<span class="red">event</span>) {xxx})</p><p>阻止默认行为： event.preventDefault()</p><p>阻止冒泡：event.stopPropagation()</p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>jquery</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JQuery三-动画</title>
+    <link href="/2023/06/06/JQuery%E4%B8%89-%E5%8A%A8%E7%94%BB/"/>
+    <url>/2023/06/06/JQuery%E4%B8%89-%E5%8A%A8%E7%94%BB/</url>
+    
+    <content type="html"><![CDATA[<h2>JQuery动画效果</h2><p>JQuery中封装了很多动画效果，如显示隐藏、滑动、淡入淡出、自定义动画等。</p><h4>1. 显示隐藏</h4><p>一般用的时候都很少带参数，直接显示或者隐藏即可。</p><ul><li><p>show([speed, [easing], [fn]])</p></li><li><p>hide([speed, [easing], [fn]])</p></li><li><p>toggle([speed, [easing], [fn]])</p></li></ul><h4>2. 滑动效果</h4><ul><li>下滑slideDown([speed, [easing], [fn]])</li><li>上滑slideUp([speed, [easing], [fn]])</li><li>滑动切换slideToggle([speed, [easing], [fn]])</li></ul><h4>3. 事件切换</h4><p>hover([over,]out)</p><p>over: 鼠标移动到元素上触发的函数</p><p>out：鼠标移出元素要触发的函数</p><p>但是多次触发会造成动画或者效果排队执行，引入<span class="red">停止排队stop</span></p><p>stop(): 停止动画或者效果</p><h4>4. 淡入淡出效果</h4><ul><li>fadeIn([speed, [easing], [fn]])</li><li>fadeOut([speed, [easing], [fn]])</li><li>fadeToggle([speed, [easing], [fn]])</li><li>fadeTo([[speed],opacity, [easing], [fn]])修改透明度</li></ul><h4>5. 自定义动画animate</h4><p>animate(params, [speed], [easing], [fn])</p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>jquery</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JQuery二-常用API</title>
+    <link href="/2023/06/06/JQuery%E4%BA%8C-%E5%B8%B8%E7%94%A8API/"/>
+    <url>/2023/06/06/JQuery%E4%BA%8C-%E5%B8%B8%E7%94%A8API/</url>
+    
+    <content type="html"><![CDATA[<h2>jQuery常用API</h2><h4>1. jQuery选择器</h4><ul><li><p>ID选择器   $(“id”)</p></li><li><p>全选选择器   $(“*”)</p></li><li><p>类选择器    $(“.class”)</p></li><li><p>标签选择器   $(“div”)</p></li><li><p>并集选择器    $(“div,p,li”)</p></li><li><p>交集选择器    $(“li.current”)</p></li><li><p>子代选择器  $(“ul&gt;li”)</p></li><li><p>后代选择器   $(“ul li”)</p></li></ul><h4><i class="fa-sharp fa-solid fa-marker"></i><span class="red">2.隐式迭代</span></h4><p>遍历内部DOM元素（伪数组形式存储）的过程称为<span class="red">隐式迭代</span></p><h4>3. jQuery筛选方法（函数）</h4><ul><li>parent()    最近的父级</li><li>children(selector)   </li><li>find(selector)   后代选择器</li><li>siblings()   查找兄弟节点</li><li>eq(n)   下标为n的</li></ul><h4>4. 排他思想</h4><p>想要多选一的效果，思想：当前元素设置样式，其他兄弟元素清除样式。</p><p>e.g.    $(this).css(‘color’, ‘red’);</p><p>​  $(this).siblings().css(‘color’, ‘’);</p><h4>5. 链式编程</h4><p><i class="fa-sharp fa-solid fa-thumbs-up"></i>尊滴优雅啊！！！</p><p>e.g.     $(this).css(‘color’,’red’).siblings().css(‘color’, ‘’);</p><h4>6. jQuery样式操作</h4><p>当需要操作的<span class="red">样式少</span>的情况下，可以使用<span>css方法</span></p><p>当需要操作的样式多的情况下，可以操作类修改多个样式</p><h5>6.1 操作css方法</h5><ul><li>$(this).css(‘color’);   参数只写属性名，则返回属性值</li><li>$(this).css(‘color’, ‘red’);   设置属性</li><li>$(this).css({‘color’: ‘red’, ‘font-size’: ‘20px’})； 参数为对象形式可以设置多组样式</li></ul><h5>6.2 设置类样式方式</h5><ul><li>添加类： $(‘div’).addClass(‘current’)</li><li>移除类:   $(‘div’).removeClass(‘current’)</li><li>切换类： $(‘div’).toggleClass(‘current’)</li></ul><p>[注： 类操作与原生js里的className的区别]原生js的className会覆盖原来的类名，jQuery的类操作不影响原来的类名。</p><h4>7. jQuery属性操作</h4><ul><li><p>设置或获取元素<span class="red">固有属性值</span>：</p><p>获取：element.prop(‘属性’)   #prop &#x3D; property</p><p>设置：element.prop(‘属性’，’属性值’)</p></li><li><p>设置或获取元素<span class="red">自定义属性值</span>：</p><p>获取：element.attr(‘属性’)   #attr &#x3D; attribute</p><p>设置：element.attr(‘属性’，’属性值’)</p></li></ul><h4>8. jQuery内容文本值</h4><ul><li>普通元素内容html()   &#x2F;&#x2F;但是还有标签</li><li>普通元素文本内容text()</li><li>表单的值val()</li></ul><h4>9. jQuery元素操作</h4><h5>9.1 遍历元素</h5><p>jQuery隐式迭代是对同一类的元素做相同的操作，但是若想做不同操作则需要进行遍历</p><ul><li><p>$(‘div’).each(function (index, domEle) {xxx;})</p></li><li><p>$.each(object, function(index, element) {xxx;})</p></li></ul><h5>9.2 创建元素</h5><p>$(‘<li></li>‘)动态创建一个li</p><h5>9.3 添加元素</h5><ul><li>element.append(‘content’) 类似原生appendChild</li><li>element.prepend(‘content’)把内容放入匹配元素内部的最前面</li><li>element.after(‘content’) 把内容放入目标元素后面</li><li>element.before(‘content’)把内容放入目标元素前面</li></ul><h5>9.4 删除元素</h5><p>element.remove()</p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>jquery</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JQuery一</title>
+    <link href="/2023/06/06/JQuery%E4%B8%80/"/>
+    <url>/2023/06/06/JQuery%E4%B8%80/</url>
+    
+    <content type="html"><![CDATA[<h2>JQuery入门</h2><p>JQuery是一个JavaScript库，封装了javascript常用的功能代码，为了<span class="red">更快速方便的操作DOM</span>。</p><h4>1. jQuery基本使用</h4><p><img src="/img/jQueryUse.jpg" alt="基本使用"></p><p><i class="fa-sharp fa-solid fa-hippo"></i>原生js如果想把script标签写到div的上面，需要通过窗口加载事件load或者DOMContentLoaded，那么JQuery呢？</p><h4>2. JQuery入口函数</h4><p><span class="red">就相当于原生js的DOMContentLoaded</span>，等DOM结构渲染完毕，不需要等所有外部资源加载完成就可以执行function。</p><p>$(function() {});</p><h4>3. JQuery顶级对象$</h4><p>注意：</p><ul><li>$是jQuery的别称，可以互为替代，但是为了方便还是用$</li><li>$是jQuery的顶级对象，相当于原生js的window</li><li>用$包装元素成jQuery对象，就可以调用jQuery方法。</li></ul><h4>4. JQuery对象和DOM对象的区别</h4><p>JQuery对象是用jQuery方法获取来的对象</p><p>DOM对象是用原生JS获取来的对象</p><p>但是jQuery对象的<span class="red">本质</span>是：利用$对DOM元素进行包装，以<span class="red">伪数组</span>形式存储。</p><p><img src="/img/jqvsjs.png" alt="jQuery对象和DOM对象的区别"></p><h4>5. DOM对象和JQuery对象的相互转换</h4><p>因为jQuery只封装了原生js中的最常用的那部分属性和方法，所以如果想要使用剩下没被封装的，还需要进行转换。</p><ol><li><p>DOM对象 -&gt; JQuery对象： <span class="red">$(DOM对象)</span></p></li><li><p>JQuery对象 -&gt; DOM对象：用<span class="red">伪数组</span>方式调用</p><p>$(‘div’)[index]</p></li></ol><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>jquery</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>本地存储</title>
+    <link href="/2023/06/06/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/"/>
+    <url>/2023/06/06/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/</url>
+    
+    <content type="html"><![CDATA[<h2>本地存储</h2><p>HTML5规范提出了需要本地存储大量数据的相关解决方案。</p><h4>1. window.sessionStorage</h4><p>[<span class="red">特点</span>]：</p><ul><li>生命周期为关闭浏览器窗口</li><li>在同一个窗口（页面）下数据可以共享</li><li>以键值对的形式存储</li></ul><p>[语法]：</p><ul><li>存储：sessionStorage.setItem(key, value)</li><li>获取：sessionStorage.getItem(key)</li><li>删除:   sessionStorage.removeItem(key)</li><li>删除全部数据: sessionStorage.clear()</li></ul><h4>2. window.localStorage</h4><p>[<span class="red">特点</span>]：</p><ul><li>生命周期永久有效，除非手动删除，不然关掉页面也会存在</li><li>可以多窗口（页面）共享数据，只要在同一浏览器中</li><li>也是以键值对的形式存储使用</li></ul><p>[语法]：</p><ul><li>存储：localStorage.setItem(key, value)</li><li>获取：localStorage.getItem(key)</li><li>删除：localStorage.removeItem(key)</li><li>删除全部数据: localStorage.clear()</li></ul><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>html</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>移动端网页特效</title>
+    <link href="/2023/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/"/>
+    <url>/2023/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/</url>
+    
+    <content type="html"><![CDATA[<h2>触屏事件touch</h2><p>touch对象代表一个触摸点，触屏事件可相应用户对屏幕或者触控板的操作。</p><h4>1. 常见的touch事件</h4><ul><li>touchstart - 手指触摸到一个DOM元素时触发</li><li>touchmove - 手指在一个DOM元素上滑动时触发</li><li>touchend - 手指从一个DOM元素上移开时触发</li></ul><h4>2. 触摸事件对象</h4><p>TouchEvent是一类描述手指在触摸平面状态变化的事件。常见的触摸事件对象列表</p><ul><li>touches： 正在触摸屏幕的所有手指的列表</li><li>targetTouches：正在触摸当前DOM元素上的手指列表</li><li>changedTouches：手指状态发生改变的列表（从有到无&#x2F; 由无到有）</li></ul><h4>3. 移动端拖动元素</h4><p>思想：</p><p>step1： 触摸元素touchstart，计算手指的初始坐标，同时获得盒子原来的位置。</p><p>step2： 移动手指touchmove，计算手指的滑动距离，移动盒子。</p><p>step3： 离开手指touchend。</p><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>js</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>确定元素位置总结</title>
     <link href="/2023/06/05/%E7%A1%AE%E5%AE%9A%E5%85%83%E7%B4%A0%E4%BD%8D%E7%BD%AE%E6%80%BB%E7%BB%93/"/>
     <url>/2023/06/05/%E7%A1%AE%E5%AE%9A%E5%85%83%E7%B4%A0%E4%BD%8D%E7%BD%AE%E6%80%BB%E7%BB%93/</url>

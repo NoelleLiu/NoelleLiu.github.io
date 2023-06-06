@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="offsetX  偏移量offsetX - 相对offsetParent偏移了多少？ 注意offsetParent是指带有定位的父级节点 offsetWidth和offsetHeight指包含border，padding，content的宽高。 scrollX  滚动量scrollX - 文档相对于当前浏览器视口滚动了多少？ clientX  这个属性描述自身位置。 clientTop就是bord">
+    <meta name="description" content="本地存储  HTML5规范提出了需要本地存储大量数据的相关解决方案。 1. window.sessionStorage  [特点]：  生命周期为关闭浏览器窗口 在同一个窗口（页面）下数据可以共享 以键值对的形式存储  [语法]：  存储：sessionStorage.setItem(key, value) 获取：sessionStorage.getItem(key) 删除:   sessionS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="确定元素位置总结">
-<meta property="og:url" content="http://example.com/2023/06/05/%E7%A1%AE%E5%AE%9A%E5%85%83%E7%B4%A0%E4%BD%8D%E7%BD%AE%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="本地存储">
+<meta property="og:url" content="http://example.com/2023/06/06/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="offsetX  偏移量offsetX - 相对offsetParent偏移了多少？ 注意offsetParent是指带有定位的父级节点 offsetWidth和offsetHeight指包含border，padding，content的宽高。 scrollX  滚动量scrollX - 文档相对于当前浏览器视口滚动了多少？ clientX  这个属性描述自身位置。 clientTop就是bord">
+<meta property="og:description" content="本地存储  HTML5规范提出了需要本地存储大量数据的相关解决方案。 1. window.sessionStorage  [特点]：  生命周期为关闭浏览器窗口 在同一个窗口（页面）下数据可以共享 以键值对的形式存储  [语法]：  存储：sessionStorage.setItem(key, value) 获取：sessionStorage.getItem(key) 删除:   sessionS">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-06-05T08:36:57.000Z">
-<meta property="article:modified_time" content="2023-06-05T08:56:17.309Z">
+<meta property="article:published_time" content="2023-06-06T02:37:36.000Z">
+<meta property="article:modified_time" content="2023-06-06T02:51:36.160Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="html">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>确定元素位置总结 - 德芭贝贝同学今天code了吗</title>
+  <title>本地存储 - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="确定元素位置总结"></span>
+            <span id="subtitle" data-typed-text="本地存储"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-05 16:36" pubdate>
-          June 5, 2023 pm
+        <time datetime="2023-06-06 10:37" pubdate>
+          June 6, 2023 am
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          293 words
+          460 words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          3 mins
+          4 mins
         
       </span>
     
@@ -269,24 +269,44 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">确定元素位置总结</h1>
+            <h1 style="display: none">本地存储</h1>
             
             
               <div class="markdown-body">
                 
-                <h4>offsetX</h4>
+                <h2>本地存储</h2>
 
-<p>偏移量offsetX - 相对offsetParent偏移了多少？</p>
-<p>注意offsetParent是指带有定位的父级节点</p>
-<p>offsetWidth和offsetHeight指包含border，padding，content的宽高。</p>
-<h4>scrollX</h4>
+<p>HTML5规范提出了需要本地存储大量数据的相关解决方案。</p>
+<h4>1. window.sessionStorage</h4>
 
-<p>滚动量scrollX - 文档相对于当前浏览器视口滚动了多少？</p>
-<h4>clientX</h4>
+<p>[<span class="red">特点</span>]：</p>
+<ul>
+<li>生命周期为关闭浏览器窗口</li>
+<li>在同一个窗口（页面）下数据可以共享</li>
+<li>以键值对的形式存储</li>
+</ul>
+<p>[语法]：</p>
+<ul>
+<li>存储：sessionStorage.setItem(key, value)</li>
+<li>获取：sessionStorage.getItem(key)</li>
+<li>删除:   sessionStorage.removeItem(key)</li>
+<li>删除全部数据: sessionStorage.clear()</li>
+</ul>
+<h4>2. window.localStorage</h4>
 
-<p>这个属性描述自身位置。</p>
-<p>clientTop就是border-top的值，clientWidth不包含border</p>
-<p>Reference: <a target="_blank" rel="noopener" href="https://blog.csdn.net/lefex/article/details/104682178">(68条消息) 彻底搞懂 offsetX、scrollX、clientX 的区别_lefex的博客-CSDN博客</a></p>
+<p>[<span class="red">特点</span>]：</p>
+<ul>
+<li>生命周期永久有效，除非手动删除，不然关掉页面也会存在</li>
+<li>可以多窗口（页面）共享数据，只要在同一浏览器中</li>
+<li>也是以键值对的形式存储使用</li>
+</ul>
+<p>[语法]：</p>
+<ul>
+<li>存储：localStorage.setItem(key, value)</li>
+<li>获取：localStorage.getItem(key)</li>
+<li>删除：localStorage.removeItem(key)</li>
+<li>删除全部数据: localStorage.clear()</li>
+</ul>
 <head>
     <style>
         .red {
@@ -327,7 +347,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/js/">#js</a>
+        <a href="/tags/html/">#html</a>
       
     </div>
   
@@ -339,8 +359,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>确定元素位置总结</div>
-      <div>http://example.com/2023/06/05/确定元素位置总结/</div>
+      <div>本地存储</div>
+      <div>http://example.com/2023/06/06/本地存储/</div>
     </div>
     <div class="license-meta">
       
@@ -352,7 +372,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>June 5, 2023</div>
+          <div>June 6, 2023</div>
         </div>
       
       
@@ -384,9 +404,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" title="移动端网页特效">
+                      <a href="/2023/06/06/JQuery%E4%B8%80/" title="JQuery一">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">移动端网页特效</span>
+                        <span class="hidden-mobile">JQuery一</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -394,8 +414,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/05/PC%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" title="PC端网页特效">
-                        <span class="hidden-mobile">PC端网页特效</span>
+                      <a href="/2023/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" title="移动端网页特效">
+                        <span class="hidden-mobile">移动端网页特效</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

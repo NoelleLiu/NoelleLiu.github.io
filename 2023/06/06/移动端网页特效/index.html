@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="offsetX  偏移量offsetX - 相对offsetParent偏移了多少？ 注意offsetParent是指带有定位的父级节点 offsetWidth和offsetHeight指包含border，padding，content的宽高。 scrollX  滚动量scrollX - 文档相对于当前浏览器视口滚动了多少？ clientX  这个属性描述自身位置。 clientTop就是bord">
+    <meta name="description" content="触屏事件touch  touch对象代表一个触摸点，触屏事件可相应用户对屏幕或者触控板的操作。 1. 常见的touch事件   touchstart - 手指触摸到一个DOM元素时触发 touchmove - 手指在一个DOM元素上滑动时触发 touchend - 手指从一个DOM元素上移开时触发  2. 触摸事件对象   TouchEvent是一类描述手指在触摸平面状态变化的事件。常见的触摸事件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="确定元素位置总结">
-<meta property="og:url" content="http://example.com/2023/06/05/%E7%A1%AE%E5%AE%9A%E5%85%83%E7%B4%A0%E4%BD%8D%E7%BD%AE%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="移动端网页特效">
+<meta property="og:url" content="http://example.com/2023/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="offsetX  偏移量offsetX - 相对offsetParent偏移了多少？ 注意offsetParent是指带有定位的父级节点 offsetWidth和offsetHeight指包含border，padding，content的宽高。 scrollX  滚动量scrollX - 文档相对于当前浏览器视口滚动了多少？ clientX  这个属性描述自身位置。 clientTop就是bord">
+<meta property="og:description" content="触屏事件touch  touch对象代表一个触摸点，触屏事件可相应用户对屏幕或者触控板的操作。 1. 常见的touch事件   touchstart - 手指触摸到一个DOM元素时触发 touchmove - 手指在一个DOM元素上滑动时触发 touchend - 手指从一个DOM元素上移开时触发  2. 触摸事件对象   TouchEvent是一类描述手指在触摸平面状态变化的事件。常见的触摸事件">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-06-05T08:36:57.000Z">
-<meta property="article:modified_time" content="2023-06-05T08:56:17.309Z">
+<meta property="article:published_time" content="2023-06-06T02:19:26.000Z">
+<meta property="article:modified_time" content="2023-06-06T02:36:40.038Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>确定元素位置总结 - 德芭贝贝同学今天code了吗</title>
+  <title>移动端网页特效 - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="确定元素位置总结"></span>
+            <span id="subtitle" data-typed-text="移动端网页特效"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-05 16:36" pubdate>
-          June 5, 2023 pm
+        <time datetime="2023-06-06 10:19" pubdate>
+          June 6, 2023 am
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          293 words
+          403 words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          3 mins
+          4 mins
         
       </span>
     
@@ -269,24 +269,36 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">确定元素位置总结</h1>
+            <h1 style="display: none">移动端网页特效</h1>
             
             
               <div class="markdown-body">
                 
-                <h4>offsetX</h4>
+                <h2>触屏事件touch</h2>
 
-<p>偏移量offsetX - 相对offsetParent偏移了多少？</p>
-<p>注意offsetParent是指带有定位的父级节点</p>
-<p>offsetWidth和offsetHeight指包含border，padding，content的宽高。</p>
-<h4>scrollX</h4>
+<p>touch对象代表一个触摸点，触屏事件可相应用户对屏幕或者触控板的操作。</p>
+<h4>1. 常见的touch事件</h4>
 
-<p>滚动量scrollX - 文档相对于当前浏览器视口滚动了多少？</p>
-<h4>clientX</h4>
+<ul>
+<li>touchstart - 手指触摸到一个DOM元素时触发</li>
+<li>touchmove - 手指在一个DOM元素上滑动时触发</li>
+<li>touchend - 手指从一个DOM元素上移开时触发</li>
+</ul>
+<h4>2. 触摸事件对象
+</h4>
 
-<p>这个属性描述自身位置。</p>
-<p>clientTop就是border-top的值，clientWidth不包含border</p>
-<p>Reference: <a target="_blank" rel="noopener" href="https://blog.csdn.net/lefex/article/details/104682178">(68条消息) 彻底搞懂 offsetX、scrollX、clientX 的区别_lefex的博客-CSDN博客</a></p>
+<p>TouchEvent是一类描述手指在触摸平面状态变化的事件。常见的触摸事件对象列表</p>
+<ul>
+<li>touches： 正在触摸屏幕的所有手指的列表</li>
+<li>targetTouches：正在触摸当前DOM元素上的手指列表</li>
+<li>changedTouches：手指状态发生改变的列表（从有到无&#x2F; 由无到有）</li>
+</ul>
+<h4>3. 移动端拖动元素</h4>
+
+<p>思想：</p>
+<p>step1： 触摸元素touchstart，计算手指的初始坐标，同时获得盒子原来的位置。</p>
+<p>step2： 移动手指touchmove，计算手指的滑动距离，移动盒子。</p>
+<p>step3： 离开手指touchend。</p>
 <head>
     <style>
         .red {
@@ -339,8 +351,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>确定元素位置总结</div>
-      <div>http://example.com/2023/06/05/确定元素位置总结/</div>
+      <div>移动端网页特效</div>
+      <div>http://example.com/2023/06/06/移动端网页特效/</div>
     </div>
     <div class="license-meta">
       
@@ -352,7 +364,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>June 5, 2023</div>
+          <div>June 6, 2023</div>
         </div>
       
       
@@ -384,9 +396,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" title="移动端网页特效">
+                      <a href="/2023/06/06/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/" title="本地存储">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">移动端网页特效</span>
+                        <span class="hidden-mobile">本地存储</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -394,8 +406,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/05/PC%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" title="PC端网页特效">
-                        <span class="hidden-mobile">PC端网页特效</span>
+                      <a href="/2023/06/05/%E7%A1%AE%E5%AE%9A%E5%85%83%E7%B4%A0%E4%BD%8D%E7%BD%AE%E6%80%BB%E7%BB%93/" title="确定元素位置总结">
+                        <span class="hidden-mobile">确定元素位置总结</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
