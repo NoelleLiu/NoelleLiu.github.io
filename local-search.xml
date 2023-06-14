@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>ECharts项目-可视化展板随想</title>
+    <link href="/2023/06/08/ECharts%E9%A1%B9%E7%9B%AE-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B1%95%E6%9D%BF%E9%9A%8F%E6%83%B3/"/>
+    <url>/2023/06/08/ECharts%E9%A1%B9%E7%9B%AE-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B1%95%E6%9D%BF%E9%9A%8F%E6%83%B3/</url>
+    
+    <content type="html"><![CDATA[<h2>ECharts项目-可视化展板</h2><h4>1. 用到的技术栈</h4><ul><li>基于flexible.js + rem智能大屏适配</li><li>flex布局</li><li>less - 使用easy less插件直接将less转换为css引入</li><li>基于Echarts数据可视化展示</li><li>Echarts柱状图、饼状图</li><li>Echarts地图</li></ul><h4>2. 适配方案 - flexible.js + rem</h4><h5>2.1 flexible.js</h5><p>flexible.js是专门为了解决不同设备间显示适配方案的，根据可视区大小，默认除以10，也就是可视区的1&#x2F;10就是1rem的大小，设置为font-size，使得每个使用rem单位的元素都可以自动适应屏幕的大小。</p><p>因为我们的项目希望只在pc端进行显示，按照默认十份进行划分1rem有点大了，修改flexible.js改成24等分。</p><h5>2.2 px to rem插件</h5><p>为了省掉换算，使用插件px to rem，但是要将设置里的font-size改成我们的1920&#x2F;24&#x3D;80</p><h4>3. 布局</h4><h5>3.1 header部分</h5><p>里面用一个h1标题居中显示，一个时间模块靠右侧定位。</p><h5>3.2 主体部分</h5><p>给主体大盒子设置display：flex，提供flex布局，其中三个小盒子分别占比3：5：3。</p><p>准备一个公共的面板样式panel，设置公共的样式，其中上下两个角的样式按照伪元素before、after的border进行设计；下面两个角选择在panel里加个定位的盒子再继续使用这个新底部盒子的伪元素的border加两个角。每个panel里分为一个h2标题做图表的标题，一个chart图表部分。</p><p>中间的地球bg图片想要定位在水平垂直居中的位置：</p><p>position: absolute;</p><p>left: 50%;</p><p>top: 50%;</p><p>transform: translate(-50%, -50%);</p><p>在地球bg图片上覆盖一个可以做<u>不停旋转</u>动画的图片，利用index压住bg图片。</p><h4>4. 交互</h4><h5>4.1 header部分</h5><p>header中的时间模块的innerHTML显示为当前的时间代码：</p><p>var t &#x3D; null;</p><p>   t &#x3D; setTimeout(time, 1000);&#x2F;&#x2F;定时器：每1000ms执行time函数</p><p>   function time() {</p><p>​    clearTimeout(t);</p><p>​    dt &#x3D; new Date();</p><p>​    var y &#x3D; dt.getFullYear();</p><p>​    var m &#x3D; dt.getMonth() + 1;</p><p>​    var d &#x3D; dt.getDate();</p><p>​    var h &#x3D; dt.getHours();</p><p>​    var min &#x3D; dt.getMinutes();</p><p>​    var s &#x3D; dt.getSeconds();</p><p>​    document.querySelector(“.showTime”).innerHTML &#x3D; “当前时间：” + y + “年” + m + “月” + d + “日-“ + h + “时” + min + “分” + s + “秒”;</p><p>​    t &#x3D; setTimeout(time, 1000);</p><p>   }</p><h5>4.2 主体部分</h5><p>因为在主体部分我们已经准备好了很多图表的容器，但是在ECharts的使用过程中需要获取并且给每一个图表做不一样的配置，为了避免这样带来的变量污染，减少命名冲突，采取<span class="red">立即执行函数</span>的写法，这样里面的变量均为<span class="red">局部变量</span>。</p><h4>5. 字体样式</h4><p>在中间column的数字展示模块，引用图标字体electonicFont美化数字展示方式。</p><p>首先，要在css或者less最上面声明字体@font-face！然后就可以在li中使用了，将font-family属性值设置为‘electonicFont’。</p><h4>6. ECharts使用步骤总结</h4><ul><li><p>下载并引用echarts.js</p></li><li><p>为需要用Echarts的图表准备一个定义宽高的DOM容器</p></li><li><p>通过echarts.init方法初始化一个echarts实例</p></li><li><p>通过setOption方法指定配置项和相关数据使其生效</p><p>其中<u>配置项和数据</u>是使用的重难点。</p></li></ul><h4>7. ECharts配置</h4><ul><li><p>tooltip: 提示框</p></li><li><p>legend：图例。若series中有name值，则legend的data可以省略。</p></li><li><p>grid：网格</p><p>【注意：DOM容器时整个图表的大小，而grid是只有最中间的大小】</p><p><img src="/img/echartsGrid.png" alt="DOM v.s. grid"></p></li><li><p>series：系列图表，决定显示哪种类型的图表。这是<strong>数组</strong>的形式，里面包含了n个对象，每一个对象对应一条线。</p></li><li><p>color: 设置线条的颜色，注意也是数组的形式和series对应。</p></li></ul><h4>8. ECharts随着屏幕的自适应</h4><p>  window.addEventListener(“resize”, function() {<br>    myChart.resize();<br>  });</p><hr><p>最后做出来的效果belike！！！</p><p><img src="/img/EchartsProjFinal.png" alt="final version"></p><hr><head>    <style>        .red {            color: red;}    </style>    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script></head>]]></content>
+    
+    
+    <categories>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>projects</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>jQuery项目-todolist随想</title>
     <link href="/2023/06/06/jQuery%E9%A1%B9%E7%9B%AE-todolist%E9%9A%8F%E6%83%B3/"/>
     <url>/2023/06/06/jQuery%E9%A1%B9%E7%9B%AE-todolist%E9%9A%8F%E6%83%B3/</url>

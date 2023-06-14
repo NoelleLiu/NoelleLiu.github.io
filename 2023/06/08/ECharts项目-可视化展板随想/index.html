@@ -16,27 +16,25 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="JQuery项目-todolist  1. 布局  body里主要分三个部分：header头部，footer底部和中间部分我用section包裹。 1.1 header结构  我希望可以将ToDoList和后面的输入框绑定， 所以选择使用label包围ToDoList， 这样就可以点击文字的时候同时选中输入框。 对于输入框input，需要注意id要和label的for的值一样才能绑定；对于想要默认">
+    <meta name="description" content="ECharts项目-可视化展板  1. 用到的技术栈   基于flexible.js + rem智能大屏适配 flex布局 less - 使用easy less插件直接将less转换为css引入 基于Echarts数据可视化展示 Echarts柱状图、饼状图 Echarts地图  2. 适配方案 - flexible.js + rem  2.1 flexible.js  flexible.js是专">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery项目-todolist随想">
-<meta property="og:url" content="http://example.com/2023/06/06/jQuery%E9%A1%B9%E7%9B%AE-todolist%E9%9A%8F%E6%83%B3/index.html">
+<meta property="og:title" content="ECharts项目-可视化展板随想">
+<meta property="og:url" content="http://example.com/2023/06/08/ECharts%E9%A1%B9%E7%9B%AE-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B1%95%E6%9D%BF%E9%9A%8F%E6%83%B3/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="JQuery项目-todolist  1. 布局  body里主要分三个部分：header头部，footer底部和中间部分我用section包裹。 1.1 header结构  我希望可以将ToDoList和后面的输入框绑定， 所以选择使用label包围ToDoList， 这样就可以点击文字的时候同时选中输入框。 对于输入框input，需要注意id要和label的for的值一样才能绑定；对于想要默认">
+<meta property="og:description" content="ECharts项目-可视化展板  1. 用到的技术栈   基于flexible.js + rem智能大屏适配 flex布局 less - 使用easy less插件直接将less转换为css引入 基于Echarts数据可视化展示 Echarts柱状图、饼状图 Echarts地图  2. 适配方案 - flexible.js + rem  2.1 flexible.js  flexible.js是专">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/jq-1.png">
-<meta property="og:image" content="http://example.com/img/jq-2.png">
-<meta property="og:image" content="http://example.com/img/jq-3.png">
-<meta property="og:image" content="http://example.com/img/jq-4.png">
-<meta property="article:published_time" content="2023-06-06T08:10:44.000Z">
-<meta property="article:modified_time" content="2023-06-08T03:00:36.680Z">
+<meta property="og:image" content="http://example.com/img/echartsGrid.png">
+<meta property="og:image" content="http://example.com/img/EchartsProjFinal.png">
+<meta property="article:published_time" content="2023-06-08T03:15:41.000Z">
+<meta property="article:modified_time" content="2023-06-14T14:55:00.722Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="projects">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/jq-1.png">
+<meta name="twitter:image" content="http://example.com/img/echartsGrid.png">
   
   
   
-  <title>jQuery项目-todolist随想 - 德芭贝贝同学今天code了吗</title>
+  <title>ECharts项目-可视化展板随想 - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="jQuery项目-todolist随想"></span>
+            <span id="subtitle" data-typed-text="ECharts项目-可视化展板随想"></span>
           
         </div>
 
@@ -213,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-06 16:10" pubdate>
-          June 6, 2023 pm
+        <time datetime="2023-06-08 11:15" pubdate>
+          June 8, 2023 am
         </time>
       </span>
     
@@ -225,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k words
+          1.9k words
         
       </span>
     
@@ -236,7 +234,7 @@
         
         
         
-          15 mins
+          16 mins
         
       </span>
     
@@ -274,85 +272,109 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">jQuery项目-todolist随想</h1>
+            <h1 style="display: none">ECharts项目-可视化展板随想</h1>
             
             
               <div class="markdown-body">
                 
-                <h2>JQuery项目-todolist</h2>
+                <h2>ECharts项目-可视化展板</h2>
 
-<h4>1. 布局</h4>
+<h4>1. 用到的技术栈</h4>
 
-<p>body里主要分三个部分：header头部，footer底部和中间部分我用section包裹。</p>
-<h5>1.1 header结构</h5>
+<ul>
+<li>基于flexible.js + rem智能大屏适配</li>
+<li>flex布局</li>
+<li>less - 使用easy less插件直接将less转换为css引入</li>
+<li>基于Echarts数据可视化展示</li>
+<li>Echarts柱状图、饼状图</li>
+<li>Echarts地图</li>
+</ul>
+<h4>2. 适配方案 - flexible.js + rem</h4>
 
-<p>我希望可以将ToDoList和后面的输入框<strong><u>绑定</u></strong>， 所以选择使用label包围ToDoList， 这样就可以点击文字的时候同时选中输入框。</p>
-<p>对于输入框input，需要注意id要和label的for的值一样才能绑定；对于想要默认展示的文字，需要使用placeholder属性；将autocomplete设置为”off”避免自动记录之前的历史；required&#x3D; “required”设置不能提交空表单。</p>
-<h5>1.2 footer结构</h5>
+<h5>2.1 flexible.js</h5>
 
-<p>文字就可以，但是注意版权符号需要转义使用&amp;copy;</p>
-<h5>1.3 主体结构</h5>
+<p>flexible.js是专门为了解决不同设备间显示适配方案的，根据可视区大小，默认除以10，也就是可视区的1&#x2F;10就是1rem的大小，设置为font-size，使得每个使用rem单位的元素都可以自动适应屏幕的大小。</p>
+<p>因为我们的项目希望只在pc端进行显示，按照默认十份进行划分1rem有点大了，修改flexible.js改成24等分。</p>
+<h5>2.2 px to rem插件</h5>
 
-<p>再分成两部分：正在进行和已经完成。</p>
-<p>这里选择也用section包围，因为这样的话就可以达到和header内容的版心对齐效果。</p>
-<p>其中每部分的结构都是一样的，h2标题和数量在一行，下一行是list。</p>
+<p>为了省掉换算，使用插件px to rem，但是要将设置里的font-size改成我们的1920&#x2F;24&#x3D;80</p>
+<h4>3. 布局</h4>
+
+<h5>3.1 header部分</h5>
+
+<p>里面用一个h1标题居中显示，一个时间模块靠右侧定位。</p>
+<h5>3.2 主体部分</h5>
+
+<p>给主体大盒子设置display：flex，提供flex布局，其中三个小盒子分别占比3：5：3。</p>
+<p>准备一个公共的面板样式panel，设置公共的样式，其中上下两个角的样式按照伪元素before、after的border进行设计；下面两个角选择在panel里加个定位的盒子再继续使用这个新底部盒子的伪元素的border加两个角。每个panel里分为一个h2标题做图表的标题，一个chart图表部分。</p>
+<p>中间的地球bg图片想要定位在水平垂直居中的位置：</p>
+<p>position: absolute;</p>
+<p>left: 50%;</p>
+<p>top: 50%;</p>
+<p>transform: translate(-50%, -50%);</p>
+<p>在地球bg图片上覆盖一个可以做<u>不停旋转</u>动画的图片，利用index压住bg图片。</p>
+<h4>4. 交互</h4>
+
+<h5>4.1 header部分</h5>
+
+<p>header中的时间模块的innerHTML显示为当前的时间代码：</p>
+<p>var t &#x3D; null;</p>
+<p>   t &#x3D; setTimeout(time, 1000);&#x2F;&#x2F;定时器：每1000ms执行time函数</p>
+<p>   function time() {</p>
+<p>​    clearTimeout(t);</p>
+<p>​    dt &#x3D; new Date();</p>
+<p>​    var y &#x3D; dt.getFullYear();</p>
+<p>​    var m &#x3D; dt.getMonth() + 1;</p>
+<p>​    var d &#x3D; dt.getDate();</p>
+<p>​    var h &#x3D; dt.getHours();</p>
+<p>​    var min &#x3D; dt.getMinutes();</p>
+<p>​    var s &#x3D; dt.getSeconds();</p>
+<p>​    document.querySelector(“.showTime”).innerHTML &#x3D; “当前时间：” + y + “年” + m + “月” + d + “日-“ + h + “时” + min + “分” + s + “秒”;</p>
+<p>​    t &#x3D; setTimeout(time, 1000);</p>
+<p>   }</p>
+<h5>4.2 主体部分</h5>
+
+<p>因为在主体部分我们已经准备好了很多图表的容器，但是在ECharts的使用过程中需要获取并且给每一个图表做不一样的配置，为了避免这样带来的变量污染，减少命名冲突，采取<span class="red">立即执行函数</span>的写法，这样里面的变量均为<span class="red">局部变量</span>。</p>
+<h4>5. 字体样式</h4>
+
+<p>在中间column的数字展示模块，引用图标字体electonicFont美化数字展示方式。</p>
+<p>首先，要在css或者less最上面声明字体@font-face！然后就可以在li中使用了，将font-family属性值设置为‘electonicFont’。</p>
+<h4>6. ECharts使用步骤总结</h4>
+
+<ul>
+<li><p>下载并引用echarts.js</p>
+</li>
+<li><p>为需要用Echarts的图表准备一个定义宽高的DOM容器</p>
+</li>
+<li><p>通过echarts.init方法初始化一个echarts实例</p>
+</li>
+<li><p>通过setOption方法指定配置项和相关数据使其生效</p>
+<p>其中<u>配置项和数据</u>是使用的重难点。</p>
+</li>
+</ul>
+<h4>7. ECharts配置</h4>
+
+<ul>
+<li><p>tooltip: 提示框</p>
+</li>
+<li><p>legend：图例。若series中有name值，则legend的data可以省略。</p>
+</li>
+<li><p>grid：网格</p>
+<p>【注意：DOM容器时整个图表的大小，而grid是只有最中间的大小】</p>
+<p><img src="/img/echartsGrid.png" srcset="/img/loading.gif" lazyload alt="DOM v.s. grid"></p>
+</li>
+<li><p>series：系列图表，决定显示哪种类型的图表。这是<strong>数组</strong>的形式，里面包含了n个对象，每一个对象对应一条线。</p>
+</li>
+<li><p>color: 设置线条的颜色，注意也是数组的形式和series对应。</p>
+</li>
+</ul>
+<h4>8. ECharts随着屏幕的自适应</h4>
+
+<p>  window.addEventListener(“resize”, function() {<br>    myChart.resize();<br>  });</p>
 <hr>
-<p>最后，刚写完html的初版网页belike：</p>
-<p><img src="/img/jq-1.png" srcset="/img/loading.gif" lazyload alt="v1"></p>
+<p>最后做出来的效果belike！！！</p>
+<p><img src="/img/EchartsProjFinal.png" srcset="/img/loading.gif" lazyload alt="final version"></p>
 <hr>
-<h4>2. 样式</h4>
-
-<h5>2.1 整体样式</h5>
-
-<p>去除body默认的padding和margin，将背景颜色改为#CDCDCD</p>
-<p>去除ol和ul默认的list-style和padding</p>
-<h5>2.2 header样式</h5>
-
-<p>固定高度，要不然由内容撑起来显得太窄了；将版心固定宽度然后居中对齐。</p>
-<p>label的文字ToDoList垂直居中，需要设置line-height的大小和height一样大，并且左浮动。</p>
-<p>input输入框使用border-radius设为圆角, 里面默认的字离左边框太近了，使用text-indent让文字往后缩进；当选定input输入框时，将outline-width设为0去掉；向右浮动。</p>
-<h5>2.3 footer样式</h5>
-
-<p>文字水平居中使用text-align：center；</p>
-<h5>2.4 主体样式</h5>
-
-<p>因为我的html结构里，把count写在h2里面了，所以给h2一个相对定位，count一个绝对定位来摆放他们的位置；我的count在结构里是用span包裹的，因为span是行内元素，想要改变大小，还需要将display设置为inline-block；</p>
-<h5>2.5 响应式布局</h5>
-
-<p>为了页面可以随着屏幕尺寸做自适应的拉伸，将版心section设定的固定的宽度注销掉，在媒体查询里定义。</p>
-<hr>
-<p>加上了css的v2版网页belike：</p>
-<p><img src="/img/jq-2.png" srcset="/img/loading.gif" lazyload alt="v2"></p>
-<hr>
-<h4>3. 交互</h4>
-
-<p>因为我们希望可以达到刷新或者关掉页面也不会丢失数据的效果，需要用到本地存储localStorage</p>
-<h5>3.1 todo1: 按下回车将完整的数据存储到本地存储里</h5>
-
-<p>首先先给输入框绑定一个keydown的事件。在处理函数中要先通过事件对象e.keyCode判断按键是否为回车键，若是再判断是否为空，若空则alert提示。</p>
-<p>若非空则先读取本地存储原来的数据，再将新数据合并再更新存储到本地存储。最后渲染到页面上再将输入框的值置空。</p>
-<p>其中，读取数据的操作比较频繁就封装个函数，由于本地存储的数据都是<u>字符串格式</u>，需要<span class="red">JSON.parse()</span>转换为<u>javascipt对象</u>。同理，将数据存储到成本地存储也封装成函数，需要将javascipt对象data使用JSON.stringify(data)转换为本地存储的字符串格式。</p>
-<p>将本地存储的所有数据渲染到页面上的功能也封装成函数。调用读取数据的方法，对data进行遍历，遍历的时候通过判断值的done属性值来判断是添加到哪个list。添加的方法选择使用prepend在内部的前面添加，添加的内容就是li标签。</p>
-<h5>3.2 todo2: 删除操作</h5>
-
-<p>并集选择ol和ul两个list中的a，如果点击就将data进行splice然后再存再渲染。</p>
-<h5>3.3 todo3: 选项操作</h5>
-
-<p>并集选择ol和ul两个list中的input，如果点击就将对应的数据的done属性进行修改，然后再存再渲染。</p>
-<p>这里需要注意的是要通过$(this)的siblings找到a再找到id属性值。</p>
-<hr>
-<p>加上了js的v3版网页belike：</p>
-<p><img src="/img/jq-3.png" srcset="/img/loading.gif" lazyload alt="v3"></p>
-<hr>
-<h4>4. 再休整一下样式</h4>
-
-<h5>4.1动态添加的li</h5>
-
-<p>给两个list不同颜色左边框，圆角一点，左右padding把内容挤到中间一点；</p>
-<p>给li加相对定位，这样给里面包含的input和a绝对定位就可以固定位置了；</p>
-<hr>
-<p>最后的final version!!!</p>
-<p><img src="/img/jq-4.png" srcset="/img/loading.gif" lazyload alt="v4"></p>
 <head>
     <style>
         .red {
@@ -405,8 +427,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>jQuery项目-todolist随想</div>
-      <div>http://example.com/2023/06/06/jQuery项目-todolist随想/</div>
+      <div>ECharts项目-可视化展板随想</div>
+      <div>http://example.com/2023/06/08/ECharts项目-可视化展板随想/</div>
     </div>
     <div class="license-meta">
       
@@ -418,7 +440,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>June 6, 2023</div>
+          <div>June 8, 2023</div>
         </div>
       
       
@@ -450,18 +472,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/08/ECharts%E9%A1%B9%E7%9B%AE-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B1%95%E6%9D%BF%E9%9A%8F%E6%83%B3/" title="ECharts项目-可视化展板随想">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ECharts项目-可视化展板随想</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/06/JQuery%E5%9B%9B-%E4%BA%8B%E4%BB%B6/" title="JQuery四-事件">
-                        <span class="hidden-mobile">JQuery四-事件</span>
+                      <a href="/2023/06/06/jQuery%E9%A1%B9%E7%9B%AE-todolist%E9%9A%8F%E6%83%B3/" title="jQuery项目-todolist随想">
+                        <span class="hidden-mobile">jQuery项目-todolist随想</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
