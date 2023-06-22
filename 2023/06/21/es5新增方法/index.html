@@ -16,29 +16,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="JavaScript面向对象  1.面向对象编程   两大编程思想：  面向过程编程(POP) - Process-oriented Programming 这种编程思想需要分析出解决问题所需的步骤，然后利用函数将每一步实现，在使用时依次调用。  面向对象编程(OOP) - Object-oriented Programming 这种编程思想需要把事务分解成一个个对象，然后由对象之间分工与合作。">
+    <meta name="description" content="es5新增方法  1. 数组  注意以下回调函数callback均只有currentVal是必须的参数  forEach(): 遍历数组 array.forEach(callbackFn(currentVal, index,arr) )  filter()：筛选数组并返回新数组 array.filter(callbackFn(currentVal, index,arr))  some(): 查找数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js面向对象">
-<meta property="og:url" content="http://example.com/2023/06/15/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:title" content="es5新增方法">
+<meta property="og:url" content="http://example.com/2023/06/21/es5%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="JavaScript面向对象  1.面向对象编程   两大编程思想：  面向过程编程(POP) - Process-oriented Programming 这种编程思想需要分析出解决问题所需的步骤，然后利用函数将每一步实现，在使用时依次调用。  面向对象编程(OOP) - Object-oriented Programming 这种编程思想需要把事务分解成一个个对象，然后由对象之间分工与合作。">
+<meta property="og:description" content="es5新增方法  1. 数组  注意以下回调函数callback均只有currentVal是必须的参数  forEach(): 遍历数组 array.forEach(callbackFn(currentVal, index,arr) )  filter()：筛选数组并返回新数组 array.filter(callbackFn(currentVal, index,arr))  some(): 查找数">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/proto.jpg">
-<meta property="og:image" content="http://example.com/img/constructor.jpg">
-<meta property="og:image" content="http://example.com/img/protoobj.jpg">
-<meta property="og:image" content="http://example.com/img/%E5%8E%9F%E5%9E%8B%E9%93%BE.jpg">
-<meta property="og:image" content="http://example.com/img/call.png">
-<meta property="og:image" content="http://example.com/img/%E7%BB%A7%E6%89%BF.jpg">
-<meta property="article:published_time" content="2023-06-15T08:33:36.000Z">
-<meta property="article:modified_time" content="2023-06-21T13:41:39.204Z">
+<meta property="og:image" content="http://example.com/img/defineProperty.png">
+<meta property="article:published_time" content="2023-06-21T13:57:55.000Z">
+<meta property="article:modified_time" content="2023-06-22T05:51:11.461Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/proto.jpg">
+<meta name="twitter:image" content="http://example.com/img/defineProperty.png">
   
   
   
-  <title>js面向对象 - 德芭贝贝同学今天code了吗</title>
+  <title>es5新增方法 - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="js面向对象"></span>
+            <span id="subtitle" data-typed-text="es5新增方法"></span>
           
         </div>
 
@@ -215,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-15 16:33" pubdate>
-          June 15, 2023 pm
+        <time datetime="2023-06-21 21:57" pubdate>
+          June 21, 2023 pm
         </time>
       </span>
     
@@ -227,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k words
+          398 words
         
       </span>
     
@@ -238,7 +233,7 @@
         
         
         
-          31 mins
+          4 mins
         
       </span>
     
@@ -276,186 +271,43 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">js面向对象</h1>
+            <h1 style="display: none">es5新增方法</h1>
             
             
               <div class="markdown-body">
                 
-                <h2>JavaScript面向对象</h2>
+                <h2>es5新增方法</h2>
 
-<h4>1.面向对象编程 </h4>
+<h3>1. 数组</h3>
 
-<p>两大编程思想：</p>
+<p>注意以下回调函数callback均只有currentVal是必须的参数</p>
 <ul>
-<li><p>面向<span class="red">过程</span>编程(POP) - Process-oriented Programming</p>
-<p>这种编程思想需要分析出解决问题所需的步骤，然后利用函数将每一步实现，在使用时依次调用。</p>
+<li><p>forEach(): 遍历数组</p>
+<p>array.forEach(callbackFn(currentVal, index,arr) )</p>
 </li>
-<li><p>面向<span class="red">对象</span>编程(OOP) - Object-oriented Programming</p>
-<p>这种编程思想需要把事务分解成一个个对象，然后由对象之间分工与合作。</p>
-<p>每一个对象都是功能中心且分工明确，OOP具有<span style="color: #22a2c3">灵活、代码可复用、容易维护和开发</span>的优点。</p>
+<li><p>filter()：筛选数组并返回新数组</p>
+<p>array.filter(callbackFn(currentVal, index,arr))</p>
+</li>
+<li><p>some(): 查找数组中是否有满足条件的元素，返回布尔值</p>
+<p>array.some(callbackFn(currentVal, index,arr))</p>
 </li>
 </ul>
-<h4>2.ES6中的类和对象 - ES6新增了类的概念 </h4>
-
-<p>当用面向对象的思想描述现实事物的时候，事物可以分为具体事务和抽象事物。</p>
-<p>面向对象的思维特点：</p>
-<ul>
-<li>抽取抽象对象的公共属性和方法封装成一个<span style="color: #22a2c3">类</span></li>
-<li>对类进行实例化，得到一个具体的<span style="color: #22a2c3">对象</span></li>
-</ul>
-<h4>3.创建类和实例的方法</h4>
-
-<p>class Name {}；&#x2F;&#x2F;创建类</p>
-<p>var obj &#x3D;  <span class="red">new</span> Name();  &#x2F;&#x2F;创建实例</p>
-<h4>4.类constructor构造函数</h4>
-
-<p>constructor()构造函数(方法)是一种用于创建和初始化创建的对象的特殊方法，并没有返回值。在new命令生成实例对象的时候自动调用该方法，如果没有显示的定义，类的内部会自动创一个constructor(),用于传递参数，返回实例对象。</p>
-<p>class Person {</p>
-<p>   constructor(name, age) {</p>
-<p>​      this.name &#x3D; name;</p>
-<p>​	  this.age &#x3D; age;}</p>
-<p>}</p>
-<p>当创建刘昕瑶实例 var lxy &#x3D; Person(‘刘昕瑶’，25)的时候，会自动调用并且给刘昕瑶实例添加name和age属性。</p>
-<p><i class="fa-regular fa-face-thinking"></i>【思考】：所以类中的共有<span class="red">属性</span>可以添加到constructor构造函数中，那么<span class="red">方法</span>呢？</p>
-<h4>5.类添加方法</h4>
-
-<p>在类中，所有的方法不需要function关键字也不能加逗号分割</p>
-<p>e.g.  还拿4中的Person类举例</p>
-<p>class Person {</p>
-<p>   constructor(name, age) {</p>
-<p>​      this.name &#x3D; name;</p>
-<p>​	  this.age &#x3D; age;}</p>
-<p>​	say() {</p>
-<p>​	  console.log( ‘hi’ + this.name )}</p>
-<p>}</p>
-<h4>6.类的继承</h4>
-
-<p><span class="red"><strong>继承</strong></span>：子类可以继承父类的一些属性和方法，通过<span class="red"><strong>extends</strong></span>关键字</p>
-<p>class Father {}</p>
-<p>class Son <span class="red">entends</span> Father {&#x2F;&#x2F;子类继承父类</p>
-<p>}</p>
-<p>【问题：如果父类里某个方法是sum(){this.x+this.y},子类在继承的时候也想使用sum方法，<strong>如何调用父类的构造函数呢？</strong>】</p>
-<h5>6.1 super关键字</h5>
-
-<p>super关键字用于访问和调用对象父类上的函数，且<span class="red">可以调用父类的构造函数</span>，也可以调用普通函数。</p>
-<p>class Father {</p>
-<p>​	constructor(x,y) {</p>
-<p>​	  this.x &#x3D; x;</p>
-<p>​	  this.y &#x3D; y;}</p>
-<p>​	sum() {</p>
-<p>​	  console.log(this.x + this.y)}</p>
-<p>}</p>
-<p>class Son extends Father{</p>
-<p>​	constructor(x,y) {</p>
-<p>​		super(x,y);&#x2F;&#x2F;调用父类的构造函数</p>
-<p>​		}</p>
-<p>}</p>
-<p>var son &#x3D; new Son(1,2)</p>
-<p>son.sum()</p>
-<h4>7. 构造函数</h4>
-
-<p>引入：在es6之前，js中并没有引入类的概念，所以在es6之前对象都是用<span class="red">构造函数</span>来定义对象和他们的特征</p>
-<p>回忆：创建对象的三种方式：</p>
-<ul>
-<li><p>字面量： var obj1 &#x3D; {}</p>
-</li>
-<li><p>new关键字：var obj2 &#x3D; new Object()</p>
-</li>
-<li><p>自定义<u>构造函数</u>： function Star(uname, age) {</p>
-<p>​										this.name &#x3D; uname;</p>
-<p>​										this.age &#x3D; age;</p>
-<p>​										this.sing &#x3D; function() {</p>
-<p>​											console.log(‘llalalalala’)}}</p>
-</li>
-</ul>
-<h5>7.1 构造函数</h5>
-
-<p>构造函数是一种特殊的函数，没有返回值。主要用于初始化对象，他总与new一起使用。</p>
-<p>我们可以把对象中一些公共的属性和方法抽象出来，封装到这个函数中。</p>
-<h5>7.2 new关键字执行时操作</h5>
-
-<p>new在执行时会：</p>
-<ol>
-<li>在内存中创建一个新的空对象</li>
-<li>让this指向这个新的对象</li>
-<li>执行构造函数里的代码，给这个对象添加属性和方法</li>
-<li>返回这个新的对象（故不需要return）</li>
-</ol>
-<h5>7.3 成员</h5>
-
-<p>在构造函数中的属性和方法我们称为成员，成员可以在构造函数本身上添加，也可可以在构造函数内部this上添加。</p>
-<p>function Star(uname, age) {</p>
-<p>​	this.name &#x3D; uname;</p>
-<p>​	this.age &#x3D; age;}</p>
-<p>Star.sex &#x3D; ‘女’;</p>
-<ul>
-<li><p>在构造函数本身上添加的成员称为<strong><span class="red">静态成员</span></strong>，只能由构造函数本身来访问</p>
-<p>console.log(Star.sex)</p>
-</li>
-<li><p>在构造函数内部创建的成员称为<strong><span class="red">实例成员</span></strong>，只能由实例化的对象来访问</p>
-<p>var lxy &#x3D; Star(‘Lxy’, 25);</p>
-<p>console.log(lxy.name)</p>
-</li>
-</ul>
-<p>【问题：浪费内存】</p>
-<h4>8. 构造函数原型 prototype</h4>
-
-<p>在2中构造函数存在一个问题，两个不同的对象中相同的function会占用两份内存空间，造成内存的浪费，如何将不同对象使用同一个函数？</p>
-<h5>8.1 构造函数原型 prototype</h5>
-
-<p><span class="red">原型</span>：构造函数通过原型分配的函数是所有对象共享的。js规定， 每一个构造函数都有一个prototype属性，指向另一个对象。这个对象所有的属性和方法都会被构造函数所拥有。</p>
-<p>故，我们可以把不变的方法直接定义在prototype对象上，这样所有的对象实例可以共享这些方法。</p>
-<p>【一般，<span class="red">公共属性</span>定义在<strong>构造函数</strong>里，<span class="red">公共方法</span>定义在<strong>原型对象</strong>中】</p>
-<p>还是以上面的Star构造函数为例：</p>
-<p>Star.<span class="red">prototype.sing</span> &#x3D; function() {</p>
-<p>​	console.log(‘lalalala’)}</p>
-<p>var ldh &#x3D; Star(‘刘德华’， 18)；</p>
-<p>var zxy &#x3D; Star(‘张学友’， 19)；</p>
-<p>console.log(ldh.sing &#x3D;&#x3D;&#x3D; zxy.sing);&#x2F;&#x2F;true</p>
-<h5>8.2 原型对象 __proto__</h5>
-
-<p>对象都会有一个属性 __ proto __，指向构造函数的prototype原型对象。</p>
-<p>之所以对象可以使用构造函数中的prototype原型对象的属性和方法，就是因为对象中__ proto __原型的存在。</p>
-<p><img src="/img/proto.jpg" srcset="/img/loading.gif" lazyload alt="prototype和__ proto __ 的关系"></p>
-<p> 对象原型存在的意义就是为对象的查找机制提供一个方向，在实际开发中不可以使用这个属性，只用来在内部指向prototype原型对象。</p>
-<h4>9. constructor构造函数</h4>
-
-<p>对象原型__ proto __ 和构造函数原型对象prototype里都有一个属性：constructor构造函数，指回构造函数本身。</p>
-<p>constructor主要用于记录该对象引用于哪个构造函数，并让原型对象指向原来的构造函数。</p>
-<p>一般情况下，对象的方法都在构造函数的原型对象中设置。</p>
-<p>但是如果有多个对象的方法，我们可以给原型对象采取对象形式赋值，但是这样就会覆盖构造函数原型对象原来的内容，这样修改后的原型对象的constructor就不再指向当前的构造函数了。</p>
-<p>此时，可以在修改后的原型对象中，添加一个constructor指向原来的构造函数。</p>
-<p><img src="/img/constructor.jpg" srcset="/img/loading.gif" lazyload alt="constructor"></p>
-<hr>
-<p>总结：<strong>构造函数</strong>Star、<strong>实例</strong>ldh、<strong>原型对象</strong>Star.prototype之间的关系</p>
-<p><img src="/img/protoobj.jpg" srcset="/img/loading.gif" lazyload alt="关系图"></p>
-<h4>10. 原型链</h4>
-
-<p>当访问一个对象的某个属性时，会现在这个对象本身属性上找，如果没找到就会通过__ proto __ 隐形属性找到它的构造函数的原型对象，如果还没有，就继续在构造函数的prototype(也是对象，也有__ proto __ ) 中的__ proto __里去找。这样一层层向上查找就会形成一个链式结构，称为<span class="red">原型链</span>。</p>
-<p><img src="/img/%E5%8E%9F%E5%9E%8B%E9%93%BE.jpg" srcset="/img/loading.gif" lazyload alt="原型链"></p>
-<p>javascript的成员查找机制：<span class="red">按照原型链</span>，一直找到null</p>
-<p>所以说__ proto __ 对象原型的意义就是在于为对象成员查找机制提供一个方向。</p>
-<p>reference：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6984678359275929637">一文搞懂JS原型与原型链（超详细，建议收藏） - 掘金 (juejin.cn)</a></p>
-<h4>11. 原型对象中的this指向问题</h4>
+<h3>2. 字符串</h3>
 
 <ul>
-<li>构造函数中的this指向实例对象。</li>
-<li>原型对象里面放的是方法，方法里的this指向的是方法的调用者，也就是实例对象。</li>
+<li><p>trim(): 删除字符串两端的空白字符，返回新的字符串</p>
+<p><i class="fa-sharp fa-light fa-truck-fast"></i>可以用来防止输入空格</p>
+</li>
 </ul>
-<h4>12. es6之前的继承</h4>
+<h3>3. 对象方法</h3>
 
-<p>es6之前并没有extends继承，但是我们可以通过构造函数+原型对象这种<span class="red">组合继承</span>的方式模拟实现继承</p>
-<h5>12.1 call()：调用，修改函数运行时的this指向</h5>
-
-<p><img src="/img/call.png" srcset="/img/loading.gif" lazyload alt="call"></p>
-<h5>12.2 借助构造函数继承父类<span class="red">属性</span></h5>
-
-<p><span class="red">核心原理</span>：通过call()将父类的this指向子类的this从而实现继承。</p>
-<p><img src="/img/%E7%BB%A7%E6%89%BF.jpg" srcset="/img/loading.gif" lazyload alt="继承"></p>
-<h5>12.3 借助原型对象继承父类<span class="red">方法</span></h5>
-
-<p><span class="red">核心原理</span>：将子类的共享方法提取出来，让子类的prototype原型对象 &#x3D; new 父类(),将子类的constructor重新指向子类的构造函数。</p>
-<p>reference：[(70条消息) 借用原型对象继承父类型方法_susu1198的博客-CSDN博客](</p>
+<ul>
+<li><p>Object.keys(obj): 获取obj对象自身的所有属性</p>
+</li>
+<li><p>Object.defineProperty(obj, prop, descriptor): 定义对象中新属性或者修改原有属性</p>
+<p><img src="/img/defineProperty.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+</li>
+</ul>
 <head>
     <style>
         .red {
@@ -508,8 +360,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>js面向对象</div>
-      <div>http://example.com/2023/06/15/js面向对象/</div>
+      <div>es5新增方法</div>
+      <div>http://example.com/2023/06/21/es5新增方法/</div>
     </div>
     <div class="license-meta">
       
@@ -521,7 +373,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>June 15, 2023</div>
+          <div>June 21, 2023</div>
         </div>
       
       
@@ -553,9 +405,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/21/es5%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95/" title="es5新增方法">
+                      <a href="/2023/06/21/es6%E6%96%B0%E5%A2%9E%E7%89%B9%E6%80%A7/" title="es6新增特性">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">es5新增方法</span>
+                        <span class="hidden-mobile">es6新增特性</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -563,8 +415,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/08/ECharts%E9%A1%B9%E7%9B%AE-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B1%95%E6%9D%BF%E9%9A%8F%E6%83%B3/" title="ECharts项目-可视化展板随想">
-                        <span class="hidden-mobile">ECharts项目-可视化展板随想</span>
+                      <a href="/2023/06/15/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="js面向对象">
+                        <span class="hidden-mobile">js面向对象</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
