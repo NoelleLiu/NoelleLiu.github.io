@@ -16,36 +16,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Vue基础  1. Vue简介  官方的定义：一套用于构建用户界面的前端框架。 1.1 Vue特性   数据驱动视图：Vue会监听数据的变化，从而自动重新渲染页面结构 双向数据绑定：不操作DOM的前提下，自动将表单内容同步到数据源中  1.2 MVVM  MVVM: Model, View, ViewModel MVVM是Vue实现数据驱动视图和双向数据绑定的核心原理，它把每个HTML页面都拆成了">
+    <meta name="description" content="1. ajax原生js方法下数据的请求与发送  1.1 ajax的简介  ajax: Asynchronous Javascript And XML     异步JavaScript和XML Ajax本身并不是一种技术，而是将现有的一些技术结合起来使用的方法：HTML、JS、XML、及其最重要的XMLHttpRequest对象。 使用Ajax后，异步特性使得它与服务器通信、交换数据并更新页面而无需">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue基础">
-<meta property="og:url" content="http://example.com/2023/06/24/Vue%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="数据的请求与发送">
+<meta property="og:url" content="http://example.com/2023/07/08/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%8F%91%E9%80%81/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="Vue基础  1. Vue简介  官方的定义：一套用于构建用户界面的前端框架。 1.1 Vue特性   数据驱动视图：Vue会监听数据的变化，从而自动重新渲染页面结构 双向数据绑定：不操作DOM的前提下，自动将表单内容同步到数据源中  1.2 MVVM  MVVM: Model, View, ViewModel MVVM是Vue实现数据驱动视图和双向数据绑定的核心原理，它把每个HTML页面都拆成了">
+<meta property="og:description" content="1. ajax原生js方法下数据的请求与发送  1.1 ajax的简介  ajax: Asynchronous Javascript And XML     异步JavaScript和XML Ajax本身并不是一种技术，而是将现有的一些技术结合起来使用的方法：HTML、JS、XML、及其最重要的XMLHttpRequest对象。 使用Ajax后，异步特性使得它与服务器通信、交换数据并更新页面而无需">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/MVVM.jpg">
-<meta property="og:image" content="http://example.com/img/vue-use.png">
-<meta property="og:image" content="http://example.com/img/v-text.png">
-<meta property="og:image" content="http://example.com/img/v-html.png">
-<meta property="og:image" content="http://example.com/img/v-bind.png">
-<meta property="og:image" content="http://example.com/img/v-on.png">
-<meta property="og:image" content="http://example.com/img/v-model.png">
-<meta property="og:image" content="http://example.com/img/v-key.png">
-<meta property="og:image" content="http://example.com/img/filters.png">
-<meta property="og:image" content="http://example.com/img/%E5%85%A8%E5%B1%80%E8%BF%87%E6%BB%A4%E5%99%A8.png">
-<meta property="og:image" content="http://example.com/img/watch.png">
-<meta property="og:image" content="http://example.com/img/%E5%8D%95%E4%B8%80%E5%B1%9E%E6%80%A7%E5%80%BC%E4%BE%A6%E5%90%AC.png">
-<meta property="og:image" content="http://example.com/img/computed.png">
-<meta property="article:published_time" content="2023-06-24T09:33:28.000Z">
-<meta property="article:modified_time" content="2023-07-07T08:37:22.706Z">
+<meta property="og:image" content="http://example.com/img/ajax-get.png">
+<meta property="article:published_time" content="2023-07-08T00:34:55.000Z">
+<meta property="article:modified_time" content="2023-07-09T02:30:38.747Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/MVVM.jpg">
+<meta name="twitter:image" content="http://example.com/img/ajax-get.png">
   
   
   
-  <title>Vue基础 - 德芭贝贝同学今天code了吗</title>
+  <title>数据的请求与发送 - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Vue基础"></span>
+            <span id="subtitle" data-typed-text="数据的请求与发送"></span>
           
         </div>
 
@@ -222,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-24 17:33" pubdate>
-          June 24, 2023 pm
+        <time datetime="2023-07-08 08:34" pubdate>
+          July 8, 2023 am
         </time>
       </span>
     
@@ -234,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k words
+          1.1k words
         
       </span>
     
@@ -245,7 +233,7 @@
         
         
         
-          25 mins
+          10 mins
         
       </span>
     
@@ -283,201 +271,74 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Vue基础</h1>
+            <h1 style="display: none">数据的请求与发送</h1>
             
             
               <div class="markdown-body">
                 
-                <h2>Vue基础</h2>
+                <h2>1. ajax原生js方法下数据的请求与发送</h2>
 
-<h3>1. Vue简介</h3>
+<h3>1.1 ajax的简介</h3>
 
-<p>官方的定义：一套用于<span class="red">构建用户界面</span>的前端<span class="red">框架</span>。</p>
-<h4><i class="fa-sharp fa-solid fa-stars"></i>1.1 Vue特性</h4>
-
-<ul>
-<li><span class="red">数据驱动视图</span>：Vue会监听数据的变化，从而自动重新渲染页面结构</li>
-<li><span class="red">双向数据绑定</span>：不操作DOM的前提下，自动将表单内容同步到数据源中</li>
-</ul>
-<h4><i class="fa-sharp fa-solid fa-stars"></i>1.2 MVVM</h4>
-
-<p><span class="red"><strong>MVVM</strong>: Model, View, ViewModel</span></p>
-<p>MVVM是Vue实现数据驱动视图和双向数据绑定的核心原理，它把每个HTML页面都拆成了三部分：<mark>Model</mark>表示当前页面渲染时所依赖的数据源；<mark>View</mark>表示当前页面渲染的DOM结构；<mark>ViewModel</mark>表示<span class="red">vue的实例</span>，是MVVM的核心！</p>
-<p><img src="/img/MVVM.jpg" srcset="/img/loading.gif" lazyload alt="MVVM"></p>
-<h3>2. Vue的基本使用</h3>
-
-<h4>2.1 基本使用步骤</h4>
+<p><span class="red">ajax: Asynchronous Javascript And XML</span>     异步JavaScript和XML</p>
+<p>Ajax本身并不是一种技术，而是将现有的一些技术结合起来使用的方法：HTML、JS、XML、及其最重要的<span class="red">XMLHttpRequest对象</span>。</p>
+<p>使用Ajax后，<mark>异步</mark>特性使得它与服务器通信、交换数据并更新页面而无需刷新页面。</p>
+<p><span class="red">注</span>：尽管Ajax中的x代表XML，但是<span class="red">轻量的JSON</span>是首选。在Ajax中，JSON和XML都被用来包装信息。</p>
+<h3>1.2 发送HTTP请求</h3>
 
 <ul>
-<li>导入Vue.js的脚本文件，就会在window全局有Vue构造函数</li>
-<li>在页面中声明一个将要被vue控制的DOM区域</li>
-<li>创建vm实例对象（vue实例对象）</li>
-</ul>
-<p><img src="/img/vue-use.png" srcset="/img/loading.gif" lazyload alt="Vue初试用"></p>
-<h4>2.2 Vue的调式工具</h4>
-
-<p>Vue.js devtools</p>
-<h3>3. Vue指令</h3>
-
-<h4>3.1 指令的概念</h4>
-
-<p>指令Directives：是Vue为开发者提供的模板语法，用于辅助开发者渲染页面的基本结构。v-xxx</p>
-<p>按照<u>不同的用途</u>可以分为：</p>
-<ul>
-<li>内容渲染指令：v-text, 插值表达式双花括号，v-html</li>
-<li>属性绑定指定：v-bind</li>
-<li>事件绑定指令：v-on</li>
-<li>双向绑定指令：v-model</li>
-<li>条件渲染指定：v-if，v-show，v-else，v-else-if</li>
-<li>列表渲染指令：v-for</li>
-</ul>
-<h4>3.2 内容渲染指令</h4>
-
-<p>用来辅助开发者渲染DOM元素的文本内容。</p>
-<ul>
-<li>v-text：将文本渲染到标签中，但是会<span class="red">覆盖元素内默认的值</span></li>
-</ul>
-<p><img src="/img/v-text.png" srcset="/img/loading.gif" lazyload alt="v-text"></p>
-<p>如何解决？</p>
-<p><i class="fa-solid fa-arrow-down"></i></p>
-<ul>
-<li><p><i class="fa-light fa-star-christmas"></i> 插值表达式Mustache</p>
+<li><p>为了使用js向服务器发送一个HTTP请求，我们需要一个包含必要函数功能的对象实例。</p>
+<p>const httpRequest &#x3D; new XMLHttpRequest();</p>
 </li>
-<li><p>v-html: 可以渲染包含html标签的字符串</p>
+<li><p>为了将请求发送到服务器，我们需要调用<mark>实例对象的<span class="red">open()</span>和<span class="red">send()</span>方法</mark>。</p>
+<p><strong>httpRequest.open</strong>(method,url,async)用来<span class="red">创建http请求</span></p>
+<p><strong>httpRequest.send</strong>(string)用来<span class="red">发送请求给服务器</span></p>
+</li>
+<li><p>为了将请求发送到服务器，我们还需要调用<mark>实例对象的<span class="red">onreadystatechange</span>属性</mark></p>
+<p><u>readyState</u>变化时就会触发这个事件</p>
+<p>redayState共有5个状态值，重点是最后一个<span class="red">readyStare&#x3D;&#x3D;4</span>状态，此时ajax异步对象完全接收到服务器的响应信息，但响应状态码未必是正确的。</p>
+<p>status &#x3D;&#x3D; 200 &#x2F; 404 &#x2F; 500</p>
 </li>
 </ul>
-<p><img src="/img/v-html.png" srcset="/img/loading.gif" lazyload alt="插值表达式&amp;v-html"></p>
 <hr>
-<p>问题：插值表达式可以解决文本内容，但是属性是没办法用插值表达式的怎么办呢？</p>
-<p><i class="fa-solid fa-arrow-down"></i></p>
-<h4>3.3 属性绑定指令 <span class="red">v-bind:(:)</span></h4>
-
-<p>为元素的属性动态绑定属性值</p>
-<p><img src="/img/v-bind.png" srcset="/img/loading.gif" lazyload alt="v-bind"></p>
+<p><img src="/img/ajax-get.png" srcset="/img/loading.gif" lazyload alt="ajax-get请求"></p>
+<p>遇到的问题：跨域出现了error</p>
+<p>解决办法：使用插件Live server</p>
 <hr>
-<p>经常会和布尔型Attribute联用：</p>
-<p>button :disabled&#x3D;”isButtonDisabled”</p>
-<h4>3.4 事件绑定指令 <span class="red">v-on:(@)</span></h4>
+<h2>2. jQuery封装后的ajax数据的请求与发送</h2>
 
-<p>辅助为DOM元素绑定事件监听</p>
-<p><span class="red">注</span>：原生DOM对象有onclick、onkeyup等原生事件，替换为vue事件绑定形式后，为：<span class="red">v-on:click、v-on:keyup</span>或者简写形式：@click、@keyup</p>
-<h5>3.4.1 事件对象event </h5>
+<h3>2.1 语法</h3>
 
-<p>在原生的DOM事件绑定中，可以在事件处理函数的形参中，接收事件参数对象event。同理，在v-on指令所绑定的事件处理函数中，也可以接收事件对象event。</p>
-<p><img src="/img/v-on.png" srcset="/img/loading.gif" lazyload alt="$event"></p>
-<h5>3.4.2 事件修饰符 </h5>
+<p>$.ajax({</p>
+<p>​	url：”发送请求的地址”，</p>
+<p>​	dataType: “预期服务器返回的数据类型”，</p>
+<p>​	type：”请求方式”,</p>
+<p>​	async: “异步方式”，</p>
+<p>​	success：’成功情况下的处理函数’，</p>
+<p>​	error：’失败情况下的处理函数‘})</p>
+<h3>2.2 发送HTTP请求</h3>
 
-<p>在事件处理函数中调用<span class="red">event.preventDefault()</span>或者<span class="red">event.stopPropogation()</span>是很常见的需求。</p>
-<p>Vue中提供了<span class="red">事件修饰符</span>的概念辅助对事件的触发进行控制。</p>
-<ul>
-<li><p><i class="fa-regular fa-star"></i><span class="red">event.stop</span>: 阻止事件冒泡</p>
-</li>
-<li><p><i class="fa-regular fa-star"></i><span class="red">event.prevent</span>: 阻止默认行为（比如a链接的跳转、表单的提交等）</p>
-<p>e.g. a href&#x3D;”某度的网址嘻嘻” @click.prevent&#x3D;”事件处理函数”，就可以阻止默认的跳转行为</p>
-</li>
-</ul>
-<h5>3.4.3 按键修饰符 </h5>
 
-<p>监听键盘事件，常常需要判断详细的按键</p>
-<ul>
-<li>@keyup.enter&#x3D;”xx”：只有在按键为enter键时调用处理函数xx</li>
-<li>@keyup.esc&#x3D;”yy”:  只有在按键为esc键时调用处理函数yy</li>
-</ul>
-<h4>3.5 <i class="fa-solid fa-star"></i>双向绑定指令 <span class="red">v-model</span></h4>
 
-<p><span class="red">注意，v-model只能配合<mark>表单</mark>元素一起使用</span></p>
-<p>vue中的v-model双向数据绑定指令，可以辅助在不操作DOM的前提下，快速获取表单的数据</p>
-<p><img src="/img/v-model.png" srcset="/img/loading.gif" lazyload alt="v-model"></p>
-<h5>3.5.1 v-model指令的修饰符 </h5>
 
-<p>为了方便对用户输入的内容进行处理，vue为v-model指令提供了以下修饰符</p>
-<ul>
-<li>.number: 自动将用户的输入值转为数值类型</li>
-<li>.trim: 自动过滤用户输入的首尾空白字符</li>
-<li>.lazy: 默认情况下v-model会在每次input事件后更新数据，添加lazy修饰符会在每次change事件后更新数据</li>
-</ul>
-<h4>3.6 条件渲染指令 </h4>
 
-<p>按条件控制DOM的显示与隐藏，只有在指令表达式返回true时才被渲染</p>
-<p><span class="red">v-if和v-show的区别</span>：</p>
-<p><mark>实现原理不同：</mark></p>
-<ul>
-<li>v-if指令会<span class="red">动态的创建或者移除DOM元素</span>，从而控制元素在页面上的显示与隐藏；</li>
-<li>v-show指定会动态的为元素<span class="red">添加或移除style&#x3D;”display:none”样式</span>，从而控制元素在页面上的显示与隐藏；</li>
-</ul>
-<p><mark>性能消耗不同：</mark></p>
-<ul>
-<li>v-if具有<span class="red">更高的切换开销</span>：如果需要频繁的切换还是用v-show好一点</li>
-<li>v-show具有<span class="red">更高的初始渲染开销</span>，在运行时条件改变很少使用v-if好一点</li>
-</ul>
-<h4>3.7 条件渲染指令 </h4>
 
-<p>v-for&#x3D;”(item,index) in list”</p>
-<p>但是当列表数据变化的时候，vue默认会尽可能的复用已经存在的Dom元素，从而提升渲染的性能，但是有可能会导致有一些有状态的列表无法正确的被更新，<span class="red">vue官方建议用id作为key值</span>，方便追踪每个节点</p>
-<p><mark>v-for使用时建议都指定key的值，既能提升性能，又可以防止列表状态紊乱</mark></p>
-<p><img src="/img/v-key.png" srcset="/img/loading.gif" lazyload alt="v-for&amp;key"></p>
-<h3>4. *Vue2.x中的过滤器Filters</h3>
 
-<p>了解即可，常用于文本的格式化，且以<span class="red">管道符</span>的形式进行调用</p>
-<ul>
-<li><p>在插值表达式中使用过滤器：</p>
 
-</li>
-<li><p>在v-bind属性绑定中使用过滤器：</p>
-<p>div v-bind:id&#x3D;”rawId | formatId”</p>
-</li>
-</ul>
-<p><img src="/img/filters.png" srcset="/img/loading.gif" lazyload alt="filters"></p>
-<p><strong>注意</strong>：</p>
-<ul>
-<li><p>methods v.s. filters：定义事件处理函数是定义在methods中，定义过滤器函数是在filters</p>
-</li>
-<li><p>私有过滤器 v.s. 全局过滤器：</p>
-<p>私有过滤器：定义在filters节点下的过滤器，只能在vm实例控制的el区域内使用，但是不能在多个vue实例中共享</p>
-<p>全局过滤器：独立于每个vm实例之外，用Vue.filter(名字，处理函数)进行定义</p>
-<p><img src="/img/%E5%85%A8%E5%B1%80%E8%BF%87%E6%BB%A4%E5%99%A8.png" srcset="/img/loading.gif" lazyload alt="全局过滤器 v.s. 私有过滤器"></p>
-</li>
-</ul>
-<h3>5. 侦听器Watch</h3>
 
-<p>用于<span class="red">监视数据变化</span></p>
-<h4>5.1 定义 </h4>
 
-<p>watch侦听器：用于监视数据的变化，从而针对数据的变化做特定的操作。</p>
-<p>watch是以方法形式对被侦听对象的变化进行侦听。</p>
-<p><span class="red">注意参数的顺序：newVal， oldVal！</span></p>
-<p><img src="/img/watch.png" srcset="/img/loading.gif" lazyload alt="watch的用法"></p>
-<p>但是watch方法默认不会对对象的<u>初始值</u>进行侦听，有变化才会侦听，那么如果相对被侦听对象的初始值也侦听怎么办呢？</p>
-<p><i class="fa-solid fa-arrow-down"></i></p>
-<h4>5.2 immediate选项 </h4>
 
-<p>默认的watch都是方法的形式，为了加入immediate选项，需要改造成<span class="red">对象</span>的形式</p>
-<p>watch: {</p>
-<p>​	username: {</p>
-<p>​		handler: function(newVal, oldVal) {xxx},</p>
-<p>​		immediate: true</p>
-<p>}}</p>
-<p>但是watch侦听的对象如果是一个对象，对象中的属性值变化是侦听不到的怎么办？</p>
-<p><i class="fa-solid fa-arrow-down"></i></p>
-<h4>5.3 deep选项 </h4>
 
-<p>还是在上述对象的形式的基础上，加入deep: true就会对对象中所有属性的属性值变化进行侦听</p>
-<p>但是我只想侦听某个属性值的变化怎么办呢？</p>
-<p><i class="fa-solid fa-arrow-down"></i></p>
-<h4>5.4 侦听对象单个属性的变化 </h4>
 
-<p>注意引号的使用！</p>
-<p><img src="/img/%E5%8D%95%E4%B8%80%E5%B1%9E%E6%80%A7%E5%80%BC%E4%BE%A6%E5%90%AC.png" srcset="/img/loading.gif" lazyload alt="单个属性的变化"></p>
-<h3>6. 计算属性Computed</h3>
 
-<p>以<span class="red">function函数</span>形式声明到computed节点中，实时监听data，经过一系列的运算后最终<span class="red">通过return</span>返回一个属性值。</p>
-<p>虽然计算属性在声明的时候被定义为方法，但是本质是一个属性，调用的使用也是通过属性的方式进行调用。</p>
-<p><img src="/img/computed.png" srcset="/img/loading.gif" lazyload alt="computed"></p>
-<p><span class="red"><strong>计算属性 v.s. 侦听器</strong></span>： 侧重的应用场景不同</p>
-<ul>
-<li>计算属性侧重于监听多个值的变化，最终计算并返回一个新值</li>
-<li>侦听器侧重于监听单个数据的变化，执行特定的业务处理并没有返回值</li>
-</ul>
+
+
+
+
+
+
+
+<p>reference：[(70条消息) 前端数据请求方式总结（前端数据请求方式，原生JS发送请求， axios， jQuery AJAX，同源策略，跨域）_前端发送请求的方式_魔术师ID的博客-CSDN博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45585640/article/details/122728992#:~:text=%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F">https://blog.csdn.net/qq_45585640/article/details/122728992#:~:text=前端数据请求方式</a> 1  使用 form 表单的 action 向指定,的形式展示 5  使用 <script> 标签的 src 属性发__GET__请求，只能以脚本形式运行，JSONP)</p>
 <head>
     <style>
         .red {
@@ -530,8 +391,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Vue基础</div>
-      <div>http://example.com/2023/06/24/Vue基础/</div>
+      <div>数据的请求与发送</div>
+      <div>http://example.com/2023/07/08/数据的请求与发送/</div>
     </div>
     <div class="license-meta">
       
@@ -543,7 +404,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>June 24, 2023</div>
+          <div>July 8, 2023</div>
         </div>
       
       
@@ -575,9 +436,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/08/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%8F%91%E9%80%81/" title="数据的请求与发送">
+                      <a href="/2023/07/09/vue%E8%84%9A%E6%89%8B%E6%9E%B6vue-cli/" title="vue脚手架vue-cli">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数据的请求与发送</span>
+                        <span class="hidden-mobile">vue脚手架vue-cli</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -585,8 +446,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B8%8Ewebpack/" title="前端工程化与webpack">
-                        <span class="hidden-mobile">前端工程化与webpack</span>
+                      <a href="/2023/06/24/Vue%E5%9F%BA%E7%A1%80/" title="Vue基础">
+                        <span class="hidden-mobile">Vue基础</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
