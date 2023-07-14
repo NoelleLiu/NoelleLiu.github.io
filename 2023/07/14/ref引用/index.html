@@ -16,26 +16,25 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="组件间的数据共享  1. 父子组件间的数据共享  1.1 父组件向子组件：使用自定义属性  核心思想：在父组件中通过自定义属性和v-bind传递，在子组件中用props接收并使用 1.2 子组件向父组件：使用自定义事件  核心思想：在子组件中通过$emit(事件名称，参数)来触发这个自定义事件    2. 兄弟组件间的数据共享:通过EventBus  兄弟组件之间的数据共享方案是EventBus，">
+    <meta name="description" content="Vue中的ref引用  Vue中一个很大的优势就是不用操作DOM，只需要把数据维护好，但是如果想要在vue中拿到页面中某个DOM元素或者组件的引用就需要使用ref引用。 1. $refs  所以$开头的都是vue内置成员。 在每个vue的组件实例上，都包含一个$refs对象，里面存储着对应的DOM元素或者组件的引用，默认组件的$refs指向一个空对象。 2. 使用ref引用DOM元素   为DOM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="组件间的数据共享">
-<meta property="og:url" content="http://example.com/2023/07/14/%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB/index.html">
+<meta property="og:title" content="ref引用">
+<meta property="og:url" content="http://example.com/2023/07/14/ref%E5%BC%95%E7%94%A8/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="组件间的数据共享  1. 父子组件间的数据共享  1.1 父组件向子组件：使用自定义属性  核心思想：在父组件中通过自定义属性和v-bind传递，在子组件中用props接收并使用 1.2 子组件向父组件：使用自定义事件  核心思想：在子组件中通过$emit(事件名称，参数)来触发这个自定义事件    2. 兄弟组件间的数据共享:通过EventBus  兄弟组件之间的数据共享方案是EventBus，">
+<meta property="og:description" content="Vue中的ref引用  Vue中一个很大的优势就是不用操作DOM，只需要把数据维护好，但是如果想要在vue中拿到页面中某个DOM元素或者组件的引用就需要使用ref引用。 1. $refs  所以$开头的都是vue内置成员。 在每个vue的组件实例上，都包含一个$refs对象，里面存储着对应的DOM元素或者组件的引用，默认组件的$refs指向一个空对象。 2. 使用ref引用DOM元素   为DOM">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE.png">
-<meta property="og:image" content="http://example.com/img/eventbus.png">
-<meta property="og:image" content="http://example.com/img/%E5%AD%90%E5%AD%99%E8%8A%82%E7%82%B9%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB.png">
-<meta property="article:published_time" content="2023-07-14T04:54:03.000Z">
-<meta property="article:modified_time" content="2023-07-14T07:47:07.915Z">
+<meta property="og:image" content="http://example.com/img/ref.png">
+<meta property="og:image" content="http://example.com/img/nextTick.png">
+<meta property="article:published_time" content="2023-07-14T08:19:18.000Z">
+<meta property="article:modified_time" content="2023-07-14T09:33:19.954Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE.png">
+<meta name="twitter:image" content="http://example.com/img/ref.png">
   
   
   
-  <title>组件间的数据共享 - 德芭贝贝同学今天code了吗</title>
+  <title>ref引用 - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="组件间的数据共享"></span>
+            <span id="subtitle" data-typed-text="ref引用"></span>
           
         </div>
 
@@ -212,7 +211,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-14 12:54" pubdate>
+        <time datetime="2023-07-14 16:19" pubdate>
           July 14, 2023 pm
         </time>
       </span>
@@ -224,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          638 words
+          447 words
         
       </span>
     
@@ -235,7 +234,7 @@
         
         
         
-          6 mins
+          4 mins
         
       </span>
     
@@ -273,44 +272,42 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">组件间的数据共享</h1>
+            <h1 style="display: none">ref引用</h1>
             
             
               <div class="markdown-body">
                 
-                <h2>组件间的数据共享</h2>
+                <h2>Vue中的ref引用</h2>
 
-<h3>1. 父子组件间的数据共享</h3>
+<p>Vue中一个很大的优势就是不用操作DOM，只需要把数据维护好，但是如果<u>想要在vue中拿到页面中某个DOM元素或者组件的引用</u>就需要使用ref引用。</p>
+<h3>1. $refs</h3>
 
-<h4>1.1 <mark>父组件向子组件：使用自定义属性</mark></h4>
+<p>所以$开头的都是vue内置成员。</p>
+<p>在每个vue的组件实例上，都包含一个<span class="red"><mark>$refs对象</mark></span>，里面存储着对应的DOM元素或者组件的引用，默认组件的$refs指向一个空对象。</p>
+<h3>2. 使用ref引用DOM元素</h3>
 
-<p>核心思想：在父组件中通过自定义属性和v-bind传递，在子组件中用props接收并使用</p>
-<h4>1.2 <mark>子组件向父组件：使用自定义事件</mark></h4>
-
-<p>核心思想：在子组件中通过<span class="red"><strong>$emit(事件名称，参数)</strong></span>来触发这个自定义事件</p>
-<hr>
-<p><img src="/img/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE.png" srcset="/img/loading.gif" lazyload alt="父子之间的数据传递"></p>
-<hr>
-<h3>2. <mark>兄弟组件间的数据共享:通过EventBus</mark></h3>
-
-<p>兄弟组件之间的数据共享方案是EventBus，可以借助第三方的js库<span class="red">mitt</span>来创建eventbus对象从而实现数据共享。</p>
-<p><mark>接收方调用on方法，声明自定义事件，通过事件的回调接收数据</mark></p>
-<p><mark>发送方调用emit方法，发送数据</mark></p>
-<p><img src="/img/eventbus.png" srcset="/img/loading.gif" lazyload alt="eventbus"></p>
-<h3>2. <mark>后代组件间的数据共享:通过provide和inject</mark></h3>
-
-<p>后代组件：<u>父组件向子孙组件共享数据</u></p>
-<p><img src="/img/%E5%AD%90%E5%AD%99%E8%8A%82%E7%82%B9%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB.png" srcset="/img/loading.gif" lazyload alt="父组件向子孙组件共享数据"></p>
-<h3>3. vuex</h3>
-
-<p>对于小型应用或者是简单状态管理需求，使用上述机制即可，但是对于中大型复杂应用需要更强大的状态管理能力，需要借助vuex。</p>
-<p>vuex的优点：</p>
 <ul>
-<li>集中式状态管理：Vuex提供了一个全局的状态树（store）来存储应用程序的状态，而不是将状态分散在各个组件中。</li>
-<li>状态共享和访问：vuex允许在任何组件中直接访问和修改状态数据，而不需要通过props或事件传递</li>
-<li>响应式更新： 当状态发生变化时，使用Vuex的组件会自动响应状态的更新</li>
-<li>状态的改变是可追踪的：在Vuex中，所有对状态的修改都通过提交(mutations)来进行，这使得可以清楚地追踪状态的变化历史。对于调试和故障排除非常有帮助，并且可以通过时间旅行工具来回退到先前的状态。</li>
+<li>为DOM元素添加ref属性，命名为引用名称</li>
+<li>通过<span class="red">this</span>就能操作这个对象了</li>
 </ul>
+<h3>3. 使用ref引用组件实例</h3>
+
+<ul>
+<li>为组件添加ref属性，命名为引用名称</li>
+<li>通过<span class="red">this</span>就能引用，可以调methods中的方法</li>
+</ul>
+<hr>
+<p><img src="/img/ref.png" srcset="/img/loading.gif" lazyload alt="ref"></p>
+<hr>
+<h3>4. this.$nextTick(callback)方法</h3>
+
+<h4>4.1 背景</h4>
+
+<p>组件的$nextTick(callback)方法，会把callback回调函数<span class="red">推迟到下一个DOM更新周期之后再执行</span></p>
+<p>也就是，等组件的DOM更新完成之后，再执行callback回调函数，从而<span class="red">保证callback可以操作到最新的DOM元素</span>。</p>
+<h4>4.2 实例</h4>
+
+<p><img src="/img/nextTick.png" srcset="/img/loading.gif" lazyload alt="$nextTick"></p>
 <head>
     <style>
         .red {
@@ -363,8 +360,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>组件间的数据共享</div>
-      <div>http://example.com/2023/07/14/组件间的数据共享/</div>
+      <div>ref引用</div>
+      <div>http://example.com/2023/07/14/ref引用/</div>
     </div>
     <div class="license-meta">
       
@@ -408,18 +405,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/14/ref%E5%BC%95%E7%94%A8/" title="ref引用">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ref引用</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/14/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="生命周期">
-                        <span class="hidden-mobile">生命周期</span>
+                      <a href="/2023/07/14/%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB/" title="组件间的数据共享">
+                        <span class="hidden-mobile">组件间的数据共享</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
