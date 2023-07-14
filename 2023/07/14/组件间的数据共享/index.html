@@ -16,26 +16,26 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前端工程化与webpack  1. 前端工程化  实际上的前端开发：  模块化（js模块化，css模块化，资源模块化） 组件化（复用现有的UI结构、样式、行为） 规范化（编码规范、接口规范、文档规范、Git分支管理） 自动化（自动化构建、自动部署、自动化测试）  1.1 前端工程化是什么？  前端工程化：在企业及的前端项目开发中，把前端开发所需的工具、技术、流程、经验等进行规范化和标准化。  早期">
+    <meta name="description" content="组件间的数据共享  1. 父子组件间的数据共享  1.1 父组件向子组件：使用自定义属性  核心思想：在父组件中通过自定义属性和v-bind传递，在子组件中用props接收并使用 1.2 子组件向父组件：使用自定义事件  核心思想：在子组件中通过$emit(事件名称，参数)来触发这个自定义事件    2. 兄弟组件间的数据共享:通过EventBus  兄弟组件之间的数据共享方案是EventBus，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端工程化与webpack">
-<meta property="og:url" content="http://example.com/2023/06/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B8%8Ewebpack/index.html">
+<meta property="og:title" content="组件间的数据共享">
+<meta property="og:url" content="http://example.com/2023/07/14/%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB/index.html">
 <meta property="og:site_name" content="德芭贝贝同学今天code了吗">
-<meta property="og:description" content="前端工程化与webpack  1. 前端工程化  实际上的前端开发：  模块化（js模块化，css模块化，资源模块化） 组件化（复用现有的UI结构、样式、行为） 规范化（编码规范、接口规范、文档规范、Git分支管理） 自动化（自动化构建、自动部署、自动化测试）  1.1 前端工程化是什么？  前端工程化：在企业及的前端项目开发中，把前端开发所需的工具、技术、流程、经验等进行规范化和标准化。  早期">
+<meta property="og:description" content="组件间的数据共享  1. 父子组件间的数据共享  1.1 父组件向子组件：使用自定义属性  核心思想：在父组件中通过自定义属性和v-bind传递，在子组件中用props接收并使用 1.2 子组件向父组件：使用自定义事件  核心思想：在子组件中通过$emit(事件名称，参数)来触发这个自定义事件    2. 兄弟组件间的数据共享:通过EventBus  兄弟组件之间的数据共享方案是EventBus，">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/mode.jpg">
-<meta property="og:image" content="http://example.com/img/html-webpack-plugin.jpg">
-<meta property="og:image" content="http://example.com/img/loader%E8%B0%83%E7%94%A8.png">
-<meta property="article:published_time" content="2023-06-23T04:58:24.000Z">
-<meta property="article:modified_time" content="2023-06-24T09:31:18.644Z">
+<meta property="og:image" content="http://example.com/img/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="http://example.com/img/eventbus.png">
+<meta property="og:image" content="http://example.com/img/%E5%AD%90%E5%AD%99%E8%8A%82%E7%82%B9%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB.png">
+<meta property="article:published_time" content="2023-07-14T04:54:03.000Z">
+<meta property="article:modified_time" content="2023-07-14T07:47:07.915Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/mode.jpg">
+<meta name="twitter:image" content="http://example.com/img/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE.png">
   
   
   
-  <title>前端工程化与webpack - 德芭贝贝同学今天code了吗</title>
+  <title>组件间的数据共享 - 德芭贝贝同学今天code了吗</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="前端工程化与webpack"></span>
+            <span id="subtitle" data-typed-text="组件间的数据共享"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-23 12:58" pubdate>
-          June 23, 2023 pm
+        <time datetime="2023-07-14 12:54" pubdate>
+          July 14, 2023 pm
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.9k words
+          638 words
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          41 mins
+          6 mins
         
       </span>
     
@@ -273,215 +273,44 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">前端工程化与webpack</h1>
+            <h1 style="display: none">组件间的数据共享</h1>
             
             
               <div class="markdown-body">
                 
-                <h2>前端工程化与webpack</h2>
+                <h2>组件间的数据共享</h2>
 
-<h3>1. 前端工程化</h3>
+<h3>1. 父子组件间的数据共享</h3>
 
-<p>实际上的前端开发：</p>
-<ul>
-<li>模块化（js模块化，css模块化，资源模块化）</li>
-<li>组件化（复用现有的UI结构、样式、行为）</li>
-<li>规范化（编码规范、接口规范、文档规范、Git分支管理）</li>
-<li>自动化（自动化构建、自动部署、自动化测试）</li>
-</ul>
-<h4>1.1 前端工程化是什么？</h4>
+<h4>1.1 <mark>父组件向子组件：使用自定义属性</mark></h4>
 
-<p>前端工程化：在企业及的前端项目开发中，把前端开发所需的工具、技术、流程、经验等进行规范化和标准化。</p>
-<p><i class="fa-solid fa-arrow-down"></i></p>
-<p>早期的前端工程化解决方案：gulp、grunt等</p>
-<p><span class="red">目前主流的</span>前端工程化解决方案：<span class="red">webpack</span>、parcel</p>
-<h3>2. webpack的基本使用</h3>
+<p>核心思想：在父组件中通过自定义属性和v-bind传递，在子组件中用props接收并使用</p>
+<h4>1.2 <mark>子组件向父组件：使用自定义事件</mark></h4>
 
-<h4>2.1 webpack是什么？</h4>
-
-<p>webpack: 是前端工程化的具体解决方案。</p>
-<p><strong>主要功能</strong>：提供了友好的前端模块化开发支持，以及<u>代码压缩混淆，处理浏览器端JavaScript的兼容性，性能优化</u>等强大的功能。</p>
-<p><strong>好处</strong>：让技术人员将工作重心放在具体功能的实现上，提高了前端开发的效率和项目的可维护性</p>
-<h4>2.2 webpack安装</h4>
-
-<p>当我们在项目中想用ES6语法引入jQuery会报语法错误，有兼容性问题，想用webpack解决</p>
-<ul>
-<li><p>在项目中安装webpack： npm install webpack webpack-cli -D</p>
-<p><strong>dependencies节点</strong>：开发+上线  -S   –save</p>
-<p><strong>devDependencies节点</strong>:  仅开发阶段  -D    –save-dev</p>
-</li>
-</ul>
-<h4>2.3 webpack配置</h4>
-
-<ul>
-<li><p>在项目根目录下创建<span class="red">webpack.config.js</span>的webpack配置文件，并初始化</p>
-<p>module.exports &#x3D; {</p>
-<p>​	mode: ‘development’</p>
-<p>}</p>
+<p>核心思想：在子组件中通过<span class="red"><strong>$emit(事件名称，参数)</strong></span>来触发这个自定义事件</p>
 <hr>
-<p>*mode的可选值</p>
-<p><img src="/img/mode.jpg" srcset="/img/loading.gif" lazyload alt="mode"></p>
+<p><img src="/img/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE.png" srcset="/img/loading.gif" lazyload alt="父子之间的数据传递"></p>
 <hr>
-</li>
-<li><p>在<span class="red">package.json</span>的<span class="red">scripts</span>节点下新增dev脚本</p>
-<p>“scripts”: {</p>
-<p>​	“dev”: “webpack”</p>
-<p>}</p>
-<p>scripts节点下的脚本可以通过npm run执行， 比如这里定义dev脚本，就是npm run dev</p>
-</li>
-<li><p>在终端运行我们定义好的脚本命令：npm run dev，启动webpack对项目进行打包构建</p>
-</li>
-<li><p>最后将打包构建好的main文件导入，删掉有兼容性问题的文件</p>
-</li>
-</ul>
-<h4>2.4 webpack默认约定</h4>
+<h3>2. <mark>兄弟组件间的数据共享:通过EventBus</mark></h3>
 
-<p>在webpack4.x和5.x的版本中，有以下的<strong>默认约定</strong>：</p>
+<p>兄弟组件之间的数据共享方案是EventBus，可以借助第三方的js库<span class="red">mitt</span>来创建eventbus对象从而实现数据共享。</p>
+<p><mark>接收方调用on方法，声明自定义事件，通过事件的回调接收数据</mark></p>
+<p><mark>发送方调用emit方法，发送数据</mark></p>
+<p><img src="/img/eventbus.png" srcset="/img/loading.gif" lazyload alt="eventbus"></p>
+<h3>2. <mark>后代组件间的数据共享:通过provide和inject</mark></h3>
+
+<p>后代组件：<u>父组件向子孙组件共享数据</u></p>
+<p><img src="/img/%E5%AD%90%E5%AD%99%E8%8A%82%E7%82%B9%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB.png" srcset="/img/loading.gif" lazyload alt="父组件向子孙组件共享数据"></p>
+<h3>3. vuex</h3>
+
+<p>对于小型应用或者是简单状态管理需求，使用上述机制即可，但是对于中大型复杂应用需要更强大的状态管理能力，需要借助vuex。</p>
+<p>vuex的优点：</p>
 <ul>
-<li>默认的打包入口文件为：<span class="red">src -&gt; index.js</span></li>
-<li>默认的输出文件路径为：<span class="red">dist -&gt; main.js</span></li>
+<li>集中式状态管理：Vuex提供了一个全局的状态树（store）来存储应用程序的状态，而不是将状态分散在各个组件中。</li>
+<li>状态共享和访问：vuex允许在任何组件中直接访问和修改状态数据，而不需要通过props或事件传递</li>
+<li>响应式更新： 当状态发生变化时，使用Vuex的组件会自动响应状态的更新</li>
+<li>状态的改变是可追踪的：在Vuex中，所有对状态的修改都通过提交(mutations)来进行，这使得可以清楚地追踪状态的变化历史。对于调试和故障排除非常有帮助，并且可以通过时间旅行工具来回退到先前的状态。</li>
 </ul>
-<p>这个约定对名字很敏感，如果想要修改就需要通过webpack.config.js配置文件来修改</p>
-<p><i class="fa-solid fa-arrow-down"></i></p>
-<h4>2.5 自定义打包的入口和出口</h4>
-
-<p>在webpack.config.js中，通过<span class="red">entry</span>节点指定打包的<span class="red">入口</span>，通过<span class="red">output</span>节点指定打包的<span class="red">出口</span></p>
-<p>entry: path.join(__dirname, ‘.&#x2F;src&#x2F;index.js’),</p>
-<p>output: {</p>
-<p>​	path: path.join(__dirname, ‘.&#x2F;dist’),</p>
-<p>​	filename: ‘bundle.js’</p>
-<p>}</p>
-<p>那么，每次修改代码都需要重新运行npm run dev很麻烦</p>
-<p><i class="fa-solid fa-arrow-down"></i></p>
-<h3>3. webpack插件</h3>
-
-<p>通过安装和配置第三方的插件，可以拓展webpack的能力，从而用起来更加的方便</p>
-<h4>3.1 webpack-dev-server</h4>
-
-<ul>
-<li><p>安装：npm install <a href="mailto:&#x77;&#101;&#x62;&#x70;&#97;&#x63;&#107;&#45;&#x64;&#101;&#x76;&#45;&#115;&#101;&#114;&#x76;&#101;&#x72;&#64;&#x33;&#46;&#49;&#49;&#46;&#x32;">&#x77;&#101;&#x62;&#x70;&#97;&#x63;&#107;&#45;&#x64;&#101;&#x76;&#45;&#115;&#101;&#114;&#x76;&#101;&#x72;&#64;&#x33;&#46;&#49;&#49;&#46;&#x32;</a> -D</p>
-</li>
-<li><p>配置：将package.json -&gt; scripts中的dev命令修改</p>
-<p>“dev”: “webpack serve”</p>
-<p>再次运行npm run dev的命令</p>
-<p>可以在localhost:8080查看自动打包效果</p>
-</li>
-</ul>
-<p><i class="fa-solid fa-question"></i>问题：为什么页面并不会自动显示变化？</p>
-<p><mark>答</mark>：webpack-dev-server并不能读取webpack.config.js中配置的output属性，<span class="red">默认</span>打包的文件名是<span class="red">bundle.js</span>,且不会出现在项目目录中。所以将index.html中引入js文件的路径直接换成’bundle.js’即可！</p>
-<h4>3.2 html-webpack-plugin</h4>
-
-<ul>
-<li><p>安装：npm install <a href="mailto:&#104;&#x74;&#x6d;&#x6c;&#45;&#119;&#x65;&#x62;&#112;&#x61;&#x63;&#x6b;&#45;&#112;&#x6c;&#117;&#103;&#x69;&#110;&#x40;&#53;&#x2e;&#51;&#46;&#50;">&#104;&#x74;&#x6d;&#x6c;&#45;&#119;&#x65;&#x62;&#112;&#x61;&#x63;&#x6b;&#45;&#112;&#x6c;&#117;&#103;&#x69;&#110;&#x40;&#53;&#x2e;&#51;&#46;&#50;</a> -D</p>
-</li>
-<li><p>配置：在webpack.config.js中</p>
-<p><img src="/img/html-webpack-plugin.jpg" srcset="/img/loading.gif" lazyload alt="配置"></p>
-</li>
-</ul>
-<h3>4. webpack中的loader</h3>
-
-<p>引入：在实际开发中，webpack默认只能打包处理以.js后缀名结尾的模块。所以打包其他非js文件比如图片、css、字体等其他类型的资源文件均是基于<span class="red">Loader机制</span>来实现的。</p>
-<h4>4.1 loader加载器的作用</h4>
-
-<p><span class="red">协助webpack打包处理特定的文件模块</span>，如：</p>
-<ul>
-<li>css-loader：打包处理.css相关的文件</li>
-<li>less-loader:   打包处理.less相关的文件</li>
-<li>babel-loader:   打包处理webpack无法处理的高级js语法</li>
-</ul>
-<h4>4.2 loader的调用过程</h4>
-
-<p><img src="/img/loader%E8%B0%83%E7%94%A8.png" srcset="/img/loading.gif" lazyload alt="loader"></p>
-<h4>4.3 打包处理css文件</h4>
-
-<p>webpack允许用户为某些资源文件配置多个不同的loader，在处理 .css文件的时候，用到了style-loader和css-loader</p>
-<ul>
-<li><p>安装： npm i <a href="mailto:&#x73;&#116;&#121;&#108;&#x65;&#x2d;&#x6c;&#111;&#x61;&#x64;&#x65;&#114;&#x40;&#51;&#46;&#x30;&#46;&#x30;">&#x73;&#116;&#121;&#108;&#x65;&#x2d;&#x6c;&#111;&#x61;&#x64;&#x65;&#114;&#x40;&#51;&#46;&#x30;&#46;&#x30;</a> <a href="mailto:&#99;&#115;&#115;&#x2d;&#x6c;&#111;&#x61;&#x64;&#101;&#114;&#64;&#53;&#46;&#x32;&#46;&#54;">&#99;&#115;&#115;&#x2d;&#x6c;&#111;&#x61;&#x64;&#101;&#114;&#64;&#53;&#46;&#x32;&#46;&#54;</a> -D</p>
-</li>
-<li><p>配置： webpack.config.js中<span class="red">module -&gt; rules数组</span>中添加loader规则</p>
-<p>rules: [</p>
-<p>​	{ test: &#x2F; \ .css$&#x2F;, use: [‘style-loader’, ‘css-loader’]}&#x2F;&#x2F;注意顺序是固定的！</p>
-<p>]</p>
-<p>其中test是要匹配的文件类型，use是要对应调用的loader</p>
-<p><span class="red">多个loader的调用顺序是：从后往前调用</span></p>
-<p>过程：webpack先将.css后缀的文件交给use的最后一个loader(css-loader)处理完毕后，交给倒数第二个loader(style-loader)处理后，发现没有别的loader了就交给webpack,最终合并到main.js中。</p>
-</li>
-</ul>
-<h4>4.3 打包处理less文件</h4>
-
-<ul>
-<li><p>安装： npm i <a href="mailto:&#x6c;&#x65;&#115;&#115;&#x2d;&#108;&#111;&#x61;&#x64;&#101;&#114;&#x40;&#49;&#48;&#x2e;&#x30;&#46;&#x31;">&#x6c;&#x65;&#115;&#115;&#x2d;&#108;&#111;&#x61;&#x64;&#101;&#114;&#x40;&#49;&#48;&#x2e;&#x30;&#46;&#x31;</a> <a href="mailto:&#108;&#101;&#115;&#115;&#64;&#x34;&#x2e;&#49;&#46;&#49;">&#108;&#101;&#115;&#115;&#64;&#x34;&#x2e;&#49;&#46;&#49;</a> -D</p>
-</li>
-<li><p>配置： webpack.config.js中<span class="red">module -&gt; rules数组</span>中添加loader规则</p>
-<p>rules: [</p>
-<p>​	{ test: &#x2F; \ .less$&#x2F;, use: [‘style-loader’, ‘css-loader’, ‘less-loader’]}</p>
-<p>]</p>
-</li>
-</ul>
-<h4>4.4 打包处理样式表中与url路径相关的文件</h4>
-
-<ul>
-<li><p>安装： npm i <a href="mailto:&#x75;&#114;&#x6c;&#x2d;&#108;&#111;&#x61;&#100;&#101;&#114;&#x40;&#x34;&#x2e;&#49;&#46;&#49;">&#x75;&#114;&#x6c;&#x2d;&#108;&#111;&#x61;&#100;&#101;&#114;&#x40;&#x34;&#x2e;&#49;&#46;&#49;</a> <a href="mailto:&#x66;&#105;&#x6c;&#101;&#45;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#x40;&#x36;&#x2e;&#50;&#x2e;&#x30;">&#x66;&#105;&#x6c;&#101;&#45;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#x40;&#x36;&#x2e;&#50;&#x2e;&#x30;</a> -D</p>
-</li>
-<li><p>配置： webpack.config.js中<span class="red">module -&gt; rules数组</span>中添加loader规则</p>
-<p>rules: [</p>
-<p>​	{ test: &#x2F; \ .jpg|png|gif$&#x2F;, use: ‘url-loader?limit&#x3D;22229’}</p>
-<p>]</p>
-<p>?后面是loader的参数，limit指定图片的大小，也就是说只有&lt;&#x3D;limit大小的图片才会被转为<a target="_blank" rel="noopener" href="https://blog.csdn.net/sunyctf/article/details/125527656">base64格式</a>的图片。</p>
-</li>
-</ul>
-<h4>4.5 打包处理js文件中的高级语法</h4>
-
-<p>webpack只能打包处理一部分高级的js语法，对于webpack不能处理的，需要借助babel-loader进行打包处理。</p>
-<ul>
-<li><p>安装： npm i <a href="mailto:&#x62;&#97;&#98;&#101;&#x6c;&#45;&#x6c;&#x6f;&#97;&#x64;&#101;&#x72;&#x40;&#x38;&#x2e;&#x32;&#46;&#50;">&#x62;&#97;&#98;&#101;&#x6c;&#45;&#x6c;&#x6f;&#97;&#x64;&#101;&#x72;&#x40;&#x38;&#x2e;&#x32;&#46;&#50;</a> @babel&#x2F;<a href="mailto:&#99;&#x6f;&#x72;&#101;&#x40;&#x37;&#x2e;&#49;&#52;&#46;&#54;">&#99;&#x6f;&#x72;&#101;&#x40;&#x37;&#x2e;&#49;&#52;&#46;&#54;</a> @babel&#x2F;<a href="mailto:&#x70;&#108;&#x75;&#103;&#x69;&#110;&#x2d;&#112;&#x72;&#111;&#x70;&#111;&#115;&#97;&#108;&#45;&#100;&#101;&#99;&#x6f;&#x72;&#97;&#x74;&#x6f;&#x72;&#x73;&#64;&#55;&#46;&#49;&#x34;&#x2e;&#x35;">&#x70;&#108;&#x75;&#103;&#x69;&#110;&#x2d;&#112;&#x72;&#111;&#x70;&#111;&#115;&#97;&#108;&#45;&#100;&#101;&#99;&#x6f;&#x72;&#97;&#x74;&#x6f;&#x72;&#x73;&#64;&#55;&#46;&#49;&#x34;&#x2e;&#x35;</a> -D</p>
-</li>
-<li><p>配置： webpack.config.js中<span class="red">module -&gt; rules数组</span>中添加loader规则</p>
-<p>rules: [</p>
-<p>​	{ test: &#x2F; \ .js$&#x2F;, use: ‘babel-loader’, exclude: &#x2F;node_modules&#x2F;}&#x2F;&#x2F;node_modules目录下的第三方包不需要被打包</p>
-<p>]</p>
-</li>
-<li><p>配置：在项目根目录下创建 babel.config.js 并配置</p>
-<p>module.exports &#x3D; {</p>
-<p> &#x2F;&#x2F;声明babel可用插件</p>
-<p> plugins: [[‘@babel&#x2F;plugin-proposal-decorator’, {legacy: true}]]</p>
-<p>}</p>
-</li>
-</ul>
-<h3>5. 打包发布</h3>
-
-<h4>5.1 为什么要用webpack进行打包发布？</h4>
-
-<p>项目开发完成之后，需要使用webpack打包发布的原因有如下两条：</p>
-<ul>
-<li>开发环境下，打包生成的文件<span class="red">存放在内存中</span>，无法获取到最终打包生成的文件</li>
-<li>开发环境下，打包生成的文件不会进行代码的压缩和性能的优化。</li>
-</ul>
-<h4>5.2 webpack打包发布的配置</h4>
-
-<p>在package.json文件中的Scripts节点下，新建build命令：</p>
-<p>“build”: “webpack –mode production”</p>
-<h3>6. source map</h3>
-
-<p>在已经压缩混淆之后的代码进行debug是一件及其困难的事情，因为所有的空格和注释都被删除并且变量被替换成没有任何语义的名称</p>
-<p><i class="fa-solid fa-arrow-down"></i></p>
-<h4>6.1 什么是SourceMap？</h4>
-
-<p>SourceMap是一个信息文件，里面存储了<span class="red">位置信息</span>：压缩混淆后的代码与源代码的对应关系。</p>
-<p>在出错的时候，除错工具直接显示原始代码，而不是压缩后的代码，方便调试。</p>
-<h4>6.2 webpack开发环境下的SourceMap</h4>
-
-<ul>
-<li>在开发环境下，webpack默认启用了sourcemap功能。</li>
-</ul>
-<p><strong>问题</strong>： 开发环境下默认生成的SourceMap记录的是<span class="red">生成后的代码位置</span>，会导致报错的位置和源代码的位置不一样。</p>
-<p><strong>解决方案</strong>：在webpack.config.js中配置在开发环境下的devtool</p>
-<p>devtool: ‘eval-source-map’</p>
-<ul>
-<li>在生产环境下，应该省略devtool选项，防止泄露源代码</li>
-</ul>
-<p><strong>问题</strong>：可是我还想找到出问题的源码</p>
-<p><strong>解决方案</strong>：将devtool的值设置为nosources-source-map，就可以只定位报错的具体行数而不暴露源代码</p>
 <head>
     <style>
         .red {
@@ -522,7 +351,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/js/">#js</a>
+        <a href="/tags/vue/">#vue</a>
       
     </div>
   
@@ -534,8 +363,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>前端工程化与webpack</div>
-      <div>http://example.com/2023/06/23/前端工程化与webpack/</div>
+      <div>组件间的数据共享</div>
+      <div>http://example.com/2023/07/14/组件间的数据共享/</div>
     </div>
     <div class="license-meta">
       
@@ -547,7 +376,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>June 23, 2023</div>
+          <div>July 14, 2023</div>
         </div>
       
       
@@ -579,18 +408,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/24/Vue%E5%9F%BA%E7%A1%80/" title="Vue基础">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Vue基础</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/22/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">
-                        <span class="hidden-mobile">正则表达式</span>
+                      <a href="/2023/07/14/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="生命周期">
+                        <span class="hidden-mobile">生命周期</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
