@@ -1,0 +1,1155 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 网络层的几个重要概念  1.1 网络层提供的两种服务  【背景】：在计算机网络领域，网络层应该向传输层提供怎样的服务（面向连接还是无连接）曾引起长期的争论，其中争论的焦点的实质就是：在计算机通信中，可靠交付应当交给谁来负责？是网络还是端系统？  虚电路服务：（想让网络负责可靠传输观点）认为计算机网络应该模仿电信网络，使用面向连接的通信方式。在通信之前先建立虚电路以保证双方通信所需的一切网络资">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络Chap4-网络层">
+<meta property="og:url" content="http://example.com/2023/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9CChap4-%E7%BD%91%E7%BB%9C%E5%B1%82/index.html">
+<meta property="og:site_name" content="德芭贝贝同学今天code了吗">
+<meta property="og:description" content="1. 网络层的几个重要概念  1.1 网络层提供的两种服务  【背景】：在计算机网络领域，网络层应该向传输层提供怎样的服务（面向连接还是无连接）曾引起长期的争论，其中争论的焦点的实质就是：在计算机通信中，可靠交付应当交给谁来负责？是网络还是端系统？  虚电路服务：（想让网络负责可靠传输观点）认为计算机网络应该模仿电信网络，使用面向连接的通信方式。在通信之前先建立虚电路以保证双方通信所需的一切网络资">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/%E8%99%9A%E7%94%B5%E8%B7%AF.png">
+<meta property="og:image" content="http://example.com/img/%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%9C%8D%E5%8A%A1.png">
+<meta property="og:image" content="http://example.com/img/IP%E5%8D%8F%E8%AE%AE%E4%B8%8E%E9%85%8D%E5%A5%97%E5%8D%8F%E8%AE%AE.png">
+<meta property="og:image" content="http://example.com/img/%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C%E5%92%8C%E8%99%9A%E6%8B%9F%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.png">
+<meta property="og:image" content="http://example.com/img/IP%E5%9C%B0%E5%9D%80.png">
+<meta property="og:image" content="http://example.com/img/IP%E5%9C%B0%E5%9D%80%E4%B8%AD%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8F%B7%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%8F%B7%E5%AD%97%E6%AE%B5.jpg">
+<meta property="og:image" content="http://example.com/img/%E5%88%86%E7%B1%BB%E7%9A%84IP%E5%9C%B0%E5%9D%80.png">
+<meta property="og:image" content="http://example.com/img/IP%E5%9C%B0%E5%9D%80%E7%9A%84%E6%8C%87%E6%B4%BE%E8%8C%83%E5%9B%B4.png">
+<meta property="og:image" content="http://example.com/img/%E4%B8%89%E7%BA%A7IP%E5%9C%B0%E5%9D%80.png">
+<meta property="og:image" content="http://example.com/img/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%BB%83%E4%B9%A0%E9%A2%98.png">
+<meta property="og:image" content="http://example.com/img/%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E4%B8%8B%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BD%AC%E5%8F%91%E5%88%86%E7%BB%84%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="http://example.com/img/IP%E5%9C%B0%E5%9D%80%E4%B8%8E%E7%A1%AC%E4%BB%B6%E5%9C%B0%E5%9D%80.png">
+<meta property="og:image" content="http://example.com/img/ARP%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%BD%9C%E7%94%A8.png">
+<meta property="og:image" content="http://example.com/img/IP%E6%95%B0%E6%8D%AE%E6%8A%A5.png">
+<meta property="og:image" content="http://example.com/img/%E5%81%8F%E7%A7%BB%E4%B8%BE%E4%BE%8B.png">
+<meta property="og:image" content="http://example.com/img/ICMP%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F.png">
+<meta property="og:image" content="http://example.com/img/ICMP%E5%B7%AE%E9%94%99%E6%8A%A5%E5%91%8A%E6%8A%A5%E6%96%87.png">
+<meta property="og:image" content="http://example.com/img/%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE.png">
+<meta property="og:image" content="http://example.com/img/%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="http://example.com/img/%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95eg.png">
+<meta property="og:image" content="http://example.com/img/%E4%B8%93%E7%94%A8IP%E5%9C%B0%E5%9D%80%E5%9D%97.png">
+<meta property="og:image" content="http://example.com/img/IP%E9%9A%A7%E9%81%93%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0VPN.png">
+<meta property="og:image" content="http://example.com/img/NAT%E8%BF%87%E7%A8%8B.png">
+<meta property="article:published_time" content="2023-07-25T12:35:38.000Z">
+<meta property="article:modified_time" content="2023-08-02T06:57:49.075Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/%E8%99%9A%E7%94%B5%E8%B7%AF.png">
+  
+  
+  
+  <title>计算机网络Chap4-网络层 - 德芭贝贝同学今天code了吗</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>德芭贝贝同学今天code了吗</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="计算机网络Chap4-网络层"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-25 20:35" pubdate>
+          July 25, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          10k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          87 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">计算机网络Chap4-网络层</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2>1. 网络层的几个重要概念</h2>
+
+<h3>1.1 网络层提供的两种服务</h3>
+
+<p>【背景】：在计算机网络领域，网络层应该向传输层提供怎样的服务（面向连接还是无连接）曾引起长期的争论，其中争论的焦点的实质就是：<mark>在计算机通信中，可靠交付应当交给谁来负责？是网络还是端系统？</mark></p>
+<ul>
+<li><p>虚电路服务：（想让网络负责可靠传输观点）认为计算机网络应该模仿电信网络，使用面向连接的通信方式。在通信之前先建立<strong>虚电路</strong>以保证双方通信所需的一切网络资源；再使用可靠传输的网络协议就可以可靠传输</p>
+<p><img src="/img/%E8%99%9A%E7%94%B5%E8%B7%AF.png" srcset="/img/loading.gif" lazyload alt="虚电路服务"></p>
+<p>但是，虚电路是指一条逻辑上的连接，分组只是都按照这条逻辑连接按照存储转发的方式传送，而不是真正的建立一条物理连接。</p>
+</li>
+<li><p><mark>数据报服务</mark>.：（想让端系统来负责可靠传输的观点）认为<mark>网络层向上只提供简单灵活的、无连接的、尽最大努力交付的数据报服务</mark>。网络在发送分组时不需要先建立连接，每一个分组独立发送且网络层不提供服务质量的承诺，这就让网络的造价大大降低，运行方式灵活能够适应多种应用。</p>
+<p><img src="/img/%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%9C%8D%E5%8A%A1.png" srcset="/img/loading.gif" lazyload alt="数据报服务"></p>
+</li>
+</ul>
+<h2><i class="fa-solid fa-star"></i>2. 网际协议IP</h2>
+
+<p><mark>网际协议IP（Internet Protocol）是TCP&#x2F;IP体系中最主要的协议之一，也是互联网标准协议之一</mark>。</p>
+<p>与协议IP配套使用的还有三个协议：</p>
+<ul>
+<li><strong>地址解析协议ARP</strong>：Address Resolution Protocol</li>
+<li><strong>网际控制报文协议ICMP</strong>：Internet Control Message Protocol</li>
+<li><strong>网际组管理协议IGMP</strong>：Internet Group Management Protocol</li>
+</ul>
+<p>这三个协议和网际协议IP的关系如图：</p>
+<p><img src="/img/IP%E5%8D%8F%E8%AE%AE%E4%B8%8E%E9%85%8D%E5%A5%97%E5%8D%8F%E8%AE%AE.png" srcset="/img/loading.gif" lazyload alt="网络层IP协议与配套协议"></p>
+<p>ARP在最下面表示IP协议经常用它；ICMP和IGMP在上面表示他们要使用IP协议。</p>
+<h3>2.1 网络互联的设备</h3>
+
+<p><strong>中间设备</strong>：又称中间系统或者中继系统。</p>
+<ul>
+<li><p><strong>物理层</strong>的<strong>中继系统</strong>：转发器</p>
+</li>
+<li><p><strong>数据链路层</strong>的<strong>中继系统</strong>：网桥或桥接器</p>
+</li>
+<li><p><strong>网络层</strong>的<strong>中继系统</strong>：路由器</p>
+</li>
+<li><p><strong>网络层以上</strong>的<strong>中继系统</strong>：网关</p>
+</li>
+</ul>
+<h3>2.2 网络互联的问题</h3>
+
+<p>互联在一起的网络要进行通信会遇到很多问题：</p>
+<p>1.不同的寻址方案</p>
+<p>2.不同的最大分组长度</p>
+<p>3.不同的网络接入机制</p>
+<p>4.不同的超时控制</p>
+<p>5.不同的差错恢复方法</p>
+<p>6.不同的状态报告方法</p>
+<p>7.不同的路由选择技术</p>
+<p>8.不同的用户接入控制</p>
+<p>9.不同的服务（面向连接服务和无连接服务）</p>
+<p>10.不同的管理与控制方式等</p>
+<p>所以，<strong>没有一种单一的网络可以适应所有用户的需求</strong>。</p>
+<h3>2.3 互连网络和虚拟互连网络</h3>
+
+<p><img src="/img/%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C%E5%92%8C%E8%99%9A%E6%8B%9F%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.png" srcset="/img/loading.gif" lazyload alt="互连网络和虚拟互连网络"></p>
+<p>由于参加互连的计算机网络（a）都使用<strong>相同的网际协议IP</strong>，因此可以把互连以后的计算机网络看成（b）所示的<strong>虚拟互连网络</strong>。</p>
+<p>虚拟互连网络也就是逻辑互连，<strong>互连起来的各种物理网络的<span class="red">异构性本来是客观存在的</span></strong>,但是<mark>利用协议IP就可以使这些性能各异的网络在网络层上看起来好像是一个统一的网络</mark>。</p>
+<p>使用协议IP的虚拟互连网络可以简称为<strong>IP网</strong>。</p>
+<p>在IP网上的主机进行通信的时候就好像在一个单个网络上通信一样，它们看不到互连的各个网络的具体异构细节（2.2提到的）。</p>
+<p><mark>如果在这种覆盖全球的IP网的上层使用TCP协议，就是现在的互联网</mark>。</p>
+<h3>2.4 IP地址</h3>
+
+<p>在TCP&#x2F;IP体系中，IP地址使一个最基本的概念，一个连接在互联网上的设备如果没有IP地址就无法和网上的其他设备进行通信。</p>
+<h4>2.4.1 IP地址及其表示方法</h4>
+
+<p>整个互联网就是一个<strong>单一的、抽象的</strong>网络，<strong>IP地址</strong>就是给连接到互联网上的每一台主机（或路由器）的每一个<strong>接口</strong>，分配一个全球范围内唯一的32位的标识符，就可以方便我们在互联网上寻址。</p>
+<p>IP地址现在由<strong>互联网名字和数字分配机构ICANN</strong>（Internet Corporation for Assigned Names and Numbers）进行分配。</p>
+<p>IP地址举例如图：</p>
+<p><img src="/img/IP%E5%9C%B0%E5%9D%80.png" srcset="/img/loading.gif" lazyload alt="IP地址"></p>
+<p>对于<strong>主机（或者路由器）</strong>，IP地址使<strong>32位的二进制代码</strong></p>
+<p><strong>为了提高可读性</strong>，我们常常把32位的IP地址<strong>每隔8位插入一个空格</strong></p>
+<p><strong>为了便于人们书写和记忆</strong>，常用等效的十进制数字表示并且在每段数字中间加上一个小数点，这就是<mark><strong>点分十进制法</strong></mark></p>
+<hr>
+<p>上述的IP地址不但标志了这个主机（或路由器）还标志了此接口所连接的网络。所以<mark><strong>32位的IP地址采用两级结构</strong></mark>，由两个字段组成：</p>
+<p><img src="/img/IP%E5%9C%B0%E5%9D%80%E4%B8%AD%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8F%B7%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%8F%B7%E5%AD%97%E6%AE%B5.jpg" srcset="/img/loading.gif" lazyload alt="IP地址中的网络号和主机号字段"></p>
+<ul>
+<li>第一个字段是<strong>网络号</strong>：标志主机或者路由器所连接到的网络，n位</li>
+<li>第二个字段是<strong>主机号</strong>：标志主机或路由器，剩下的（32-n）位</li>
+</ul>
+<p>那么很关键的问题是：<span class="red">当我们看到一个IP地址时我们怎么知道网络号的位数n是多少</span>？</p>
+<h4>2.4.2 分类的IP地址</h4>
+
+<p><span class="red">在互联网发展早期采用的是分类的IP地址，也就是上述问题中n是固定的几个数之一</span>。32位的IP地址空间总有2^32(约43亿)个地址。</p>
+<p><img src="/img/%E5%88%86%E7%B1%BB%E7%9A%84IP%E5%9C%B0%E5%9D%80.png" srcset="/img/loading.gif" lazyload alt="分类的IP地址"></p>
+<ul>
+<li><strong>A类地址（n &#x3D; 8）</strong>：A类地址空间有2^31个地址（除了第一位是0固定），占整个IP地址空间的50%。<ul>
+<li>A类地址范围：1.0.0.1 -  126.255.255.254</li>
+<li>A类地址中的私有地址：10.0.0.0到10.255.255.255，不在互联上使用，在局域网中的地址</li>
+<li>A类地址中的保留地址：127.0.0.0 - 127.255.255.255，做循环测试用的</li>
+</ul>
+</li>
+<li><strong>B类地址（n &#x3D; 16）</strong>：B类地址空间有2^30个地址（除了前两位是10固定），占整个IP地址空间的25%<ul>
+<li>B类地址范围：128.0.0.1 - 191.255.255.254</li>
+<li>B类地址中的私有地址：172.16.0.0 - 172.31.255.255</li>
+<li>B类地址中的保留地址：169.254.0.0  - 169.254.255.255</li>
+</ul>
+</li>
+<li><strong>C类地址（n &#x3D; 24）</strong>：C类地址空间有2^29个地址（除了前三位是110固定），占整个IP地址空间的12.5%<ul>
+<li>C类地址范围：192.0.0.1 - 223.255.255.254</li>
+<li>C类地址中的私有地址：192.168.0.0 - 192.168.255.255</li>
+</ul>
+</li>
+<li><strong>D类地址（多播地址）</strong>：C类地址空间有2^28个地址（除了前四位是1110固定），占整个IP地址空间的6.25%</li>
+<li><strong>E类地址（保留地址）</strong>：D类地址空间有2^28个地址（除了前四位是1111固定），占整个IP地址空间的6.25%</li>
+</ul>
+<hr>
+<p><mark>常用的三种类别的IP地址</mark></p>
+<p><img src="/img/IP%E5%9C%B0%E5%9D%80%E7%9A%84%E6%8C%87%E6%B4%BE%E8%8C%83%E5%9B%B4.png" srcset="/img/loading.gif" lazyload alt="IP地址的指派范围"></p>
+<h4>2.4.3 子网划分和子网掩码</h4>
+
+<p>使用2.4.2中的分类的IP地址的空间利用率有时很低，且两级的IP地址不够灵活，故在1985年IP地址中又增加了一个“<span class="red">子网号字段</span>“，**使得两级的IP地址变成为三级的IP地址。这种做法叫<mark>划分子网</mark>。</p>
+<p><img src="/img/%E4%B8%89%E7%BA%A7IP%E5%9C%B0%E5%9D%80.png" srcset="/img/loading.gif" lazyload alt="三级IP地址"></p>
+<p>子网号是从主机号中借用若干位，从而主机号就会相应减少若干位。</p>
+<p><strong>问题</strong>：从一个IP数据报的首部<span class="red">无法</span>判断源主机或目的主机所连接的网络是否进行了子网划分。</p>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<p>引出一个概念：<mark>子网掩码</mark>，使用子网掩码就可以找出IP地址中的网络和子网部分。</p>
+<p><mark>子网掩码的规则</mark>：</p>
+<ul>
+<li>子网掩码的长度为32位</li>
+<li>子网掩码左边部分的一连串1：对应网络号和子网号</li>
+<li>子网掩码右边部分的一连串0：对应主机号</li>
+</ul>
+<p><strong>子网掩码的作用</strong>: 二进制地址和二进制子网掩码做<strong>与运算</strong>,就可以得到网络地址。</p>
+<p><img src="/img/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%BB%83%E4%B9%A0%E9%A2%98.png" srcset="/img/loading.gif" lazyload alt="子网掩码练习题"></p>
+<hr>
+<p>我们知道在不划分子网的两级IP地址下，从IP地址得出网络地址是个很简单的事情。</p>
+<p>但是在划分子网的情况下，IP地址不能唯一的得出网络地址，其取决于网络采用的子网掩码，但是<strong>数据报的首部并没有提供子网掩码的信息</strong>，所以分组转发的算法也做了相应的调整。</p>
+<p><img src="/img/%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E4%B8%8B%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BD%AC%E5%8F%91%E5%88%86%E7%BB%84%E7%AE%97%E6%B3%95.png" srcset="/img/loading.gif" lazyload alt="划分子网下路由器转发分组算法"></p>
+<h4>2.4.3 无分类编址CIDR</h4>
+
+<p>虽然划分子网的方法在一定程度上减少了些地址资源的浪费，但是对于IP地址枯竭的问题，还是不够。</p>
+<p>下面是普遍采用的无分类编址，虽然也无法解决IP地址枯竭的问题，但是可以推迟这一天的到来。</p>
+<p><strong>无分类域间路由选择CIDR</strong>：Classless Inter-Domain Routing，取消了分类地址和划分子网的概念，可以更有效的分配IPv4的地址空间。</p>
+<p>CIDR使用各种长度的<strong>网络前缀</strong>来代替分类地址中的网络号和子网号，所以IP地址又变回两级编址：网络前缀 + 主机号</p>
+<p>CIDR使用斜线记法&#x2F;CIDR记法，后面跟的数字代表网络前缀的位数（相当于三级编址中子网掩码中1的个数）</p>
+<p>使用CIDR时，路由表中的每个项目由“网络前缀”和“下一跳地址”组成。在查找路由表时可能会得到不止一个匹配结果。应当从匹配结果中选择具有最长网络前缀的路由：<strong>最长前缀匹配</strong>。</p>
+<p>网络前缀越长，其地址块就越小，因而路由就越具体。最长前缀匹配又称为<strong>最长匹配</strong>或<strong>最佳匹配</strong>。</p>
+<h4>2.4.4 IP地址的特点</h4>
+
+<ul>
+<li><span class="red">IP地址是一种分等级的地址结构</span>。这样的好处是：<ul>
+<li>IP地址管理机构在分配IP地址时只分配网络号即可，方便IP地址的管理</li>
+<li>路由器仅根据目的主机所连接的网络号来转发分组，而不用考虑主机号，这样就可以大幅减少路由表中的项目数，减小路由表所占的存储空间</li>
+</ul>
+</li>
+<li><span class="red">实际上IP地址是标志一个主机（或路由器）和一条链路的接口</span><ul>
+<li>当一个主机同时连接两个网络上时就必须又两个相应的IP地址</li>
+<li>由于路由器至少应当连接到两个网络及以上（这样才能把IP数据报从一个网络转发到另一个网络），故路由器至少应当有两个IP地址</li>
+</ul>
+</li>
+<li><span class="red">用转发器或网桥连接起来的若干局域网仍为一个网络，这些局域网都具有同样的网络号</span></li>
+</ul>
+<h4>2.4.5 IP地址与MAC硬件地址</h4>
+
+<p>首先明确，<mark>IP地址和MAC地址是不同的地址！</mark></p>
+<p><img src="/img/IP%E5%9C%B0%E5%9D%80%E4%B8%8E%E7%A1%AC%E4%BB%B6%E5%9C%B0%E5%9D%80.png" srcset="/img/loading.gif" lazyload alt="IP地址与硬件地址"></p>
+<ul>
+<li><span class="red">从层次的角度看</span>：<ul>
+<li>硬件地址（物理地址）是数据链路层和物理层使用的地址</li>
+<li>IP地址是网络层和以上各层使用的地址，是一种逻辑地址</li>
+</ul>
+</li>
+<li><span class="red">从添加的位置来看</span>：<ul>
+<li>IP地址是放在IP数据报的首部</li>
+<li>硬件地址则放在MAC数据帧的首部</li>
+</ul>
+</li>
+<li><span class="red">从在通信过程中的作用来看</span>：<ul>
+<li>IP地址决定数据包的起点和终点</li>
+<li>MAC地址决定数据帧的下一跳是哪个设备接收</li>
+</ul>
+</li>
+</ul>
+<p>【梳理一下通信的过程】：</p>
+<p>在发送数据时，数据从高层到低层，然后才到通信链路上传输。使用IP地址的IP数据报一旦交给数据链路层，就会被封装成MAC帧。MAC帧在传送时使用的源地址和目的地址都是MAC地址，且这两个MAC地址都写在MAC帧的首部中。</p>
+<p>连接在通信链路上的设备收到MAC帧时，根据MAC帧的首部中的MAC地址决定丢弃或收下。只有在剥去MAC帧首部和尾部把MAC层数据上交给网络层后，网络层才能在IP数据报的首部中找到源IP地址和目的IP地址。</p>
+<h3>2.5 地址解析协议ARP</h3>
+
+<p>从上述2.4.5中我们知道了在通信时，会涉及到两个地址：网络层地址 - IP地址和数据链路层地址 - MAC地址。</p>
+<p><span class="red">问题</span>：在实际应用中，无论网络层使用的什么协议，在实际网络的链路上传输数据帧时，最终还是必须使用硬件地址，那么<mark>已知一个机器（主机或者路由器）的IP地址，如何找到其相应的MAC地址？</mark></p>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<p><mark>地址解析协议ARP就是来解决这个问题滴~~~</mark></p>
+<p><img src="/img/ARP%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%BD%9C%E7%94%A8.png" srcset="/img/loading.gif" lazyload alt="ARP协议的作用"></p>
+<h4>2.5.1 ARP协议的要点</h4>
+
+<ul>
+<li><p>每一个主机都设有一个<span class="red"><strong>ARP高速缓存</strong></span>, 里面有所在的局域网上各个主机和路由器的IP地址到硬件地址的映射表。</p>
+</li>
+<li><p>且ARP对保存在高速缓存中的每一个映射地址项目都设置<strong>生存时间</strong>，凡超过生存时间的项目就从高速缓存中删除。</p>
+</li>
+<li><p>当主机A想向<mark>本局域网上</mark>的主机B发送IP数据报时，就现在其ARP告诉缓存中查看有无B的IP地址</p>
+</li>
+<li><p>若有：就查出其对应的MAC地址，将该硬件地址写入MAC帧中，通过局域网将该MAC帧发往此硬件地址</p>
+</li>
+<li><p>若无：ARP就在本局域网上<mark>广播发送一个ARP请求分组</mark>。收到<mark>ARP响应分组</mark>后，将得到的IP地址到硬件地址的映射写入ARP高速缓存</p>
+</li>
+<li><p><span class="red">ARP用于解决<strong>同一个局域网</strong>上的主机或路由器的IP地址和硬件地址的映射问题</span></p>
+<p>那么如果目的主机和源主机<u>不在一个局域网上</u>呢？</p>
+</li>
+</ul>
+<p>  需要通过ARP找到一个位于本局域网上的某个路由器的硬件地址，然后将分组发送给这个路由器，再由路由器将分组转发给下一个网络，以此类推直到找到目的主机。</p>
+<p>  由于全世界存在着各种各样的网络，他们使用不同的MAC地址，要使这些异构网络能够相互通信就必须进行非常复杂的MAC地址转换，由用户或者主机来完成是不可能的。</p>
+<p>  但IP编址使得连接到互联网的主机只需要各自拥有一个IP地址，就使得通信像是连接在同一个网络上那样简单方便。<strong>即使需要多次调用ARP来找到MAC地址，但这个过程都是计算机软件自动进行的，对用户是看不到的</strong>。</p>
+<h3>2.6 IP数据报的格式</h3>
+
+<p><img src="/img/IP%E6%95%B0%E6%8D%AE%E6%8A%A5.png" srcset="/img/loading.gif" lazyload alt="IP数据报"></p>
+<p><span class="red">一个IP数据报由两部分组成</span>：</p>
+<ul>
+<li><p><span class="red">首部</span>：首部的前一部分长度固定为20字节（一行表示32位&#x3D;4字节，五行一共20字节），是所有IP数据报必须有的。后面是一些可选字段，长度可变。</p>
+<ul>
+<li><p>版本：4位，指IP协议的版本。通信双方使用的IP协议版本必须一致。这里讨论的版本是4（IPv4）</p>
+</li>
+<li><p>首部长度：4位，来指明首部有多长（固定+可变部分），最小是5个单位（5 * 4字节）&#x3D;20字节，这就全是固定部分；最大是15个单位（15*4字节）&#x3D;60字节，因为2进制的4位最大只能表示15啦~~</p>
+</li>
+<li><p>区分服务：8位，用来说明数据报是不是很紧急很优先</p>
+</li>
+<li><p>总长度：16位，这里是首部+数据的总长度，所以最大是2^16-1&#x3D;65535字节。</p>
+<p><strong>总长度必须不超过最大传送单元MTU</strong></p>
+</li>
+<li><p>标识：16位，是一个计数器，用来产生IP数据报的标识。如果数据报长度超过MTU需要分片，那么标识字段就被复制到所有的数据报片的标识字段中，使得最后能被正确的重装为原来的数据报。</p>
+</li>
+<li><p>标志：3位，只有前两位有意义。最低位位MF（more fragment）：MF&#x3D;1表示后面还有分片；MF&#x3D;0表示最后一片；中间位是DF（don’t fragment): DF&#x3D;0时才能分片。</p>
+</li>
+<li><p>片偏移：13位，指出较长的分组在分片后，某片在原分组中的相对位置，且以<strong>8个字节为偏移单位</strong>。</p>
+<p><img src="/img/%E5%81%8F%E7%A7%BB%E4%B8%BE%E4%BE%8B.png" srcset="/img/loading.gif" lazyload alt="偏移举例"></p>
+</li>
+<li><p>生存时间：8位，TTL（Time To Live), 表示数据报在网络中<strong>可通过的路由器数的最大值</strong>。</p>
+<p>本来单位是秒，但随着路由器处理数据报的时间逐渐缩短到小于1s，单位就改为“跳数”</p>
+</li>
+<li><p>协议：8位，指出此数据报携带的数据使用哪种协议，方便使目的主机的IP层直到应该将数据部分上交给哪个协议进行处理</p>
+</li>
+<li><p>首部校验和：16位，只检验数据报的首部，不包括数据部分</p>
+</li>
+<li><p>源地址：32位，发送IP数据报的主机的IP地址</p>
+</li>
+<li><p>目的地址：32位，接收IP数据报的主机的IP地址</p>
+</li>
+</ul>
+</li>
+<li><p><span class="red">数据</span></p>
+</li>
+</ul>
+<h2>3. IP层转发分组的过程</h2>
+
+<ul>
+<li><p>基于终点的转发：分组在互联网上传送和转发是基于分组首部的<strong>目的地址</strong>的，所以分组每到一个路由器，路由器就会根据分组中的目的地址（终点）查找转发表。</p>
+<p><u>问题</u>:  分组的首部也没有地方指明下一跳路由器的IP地址呀，那分组怎么找到下一跳路由器呢？</p>
+<p><u>ans</u>:  当路由器接收到一个待转发的分组，在从转发表得出下一跳路由器的IP地址后，不是把这个地址写入分组的首部，而是<strong>送交数据链路层的网络接口软件</strong>，它来负责使用ARP将路由器的IP地址转换成MAC地址，并将MAC地址放在链路层的MAC帧的首部，最后利用MAC地址传送给下一跳的路由器的链路层~~</p>
+</li>
+<li><p>特定主机路由：虽然互联网所有的分组转发都是基于目的主机所在的网络，但是也允许有特例，为特定的目的主机指定一个路由。</p>
+</li>
+<li><p>默认路由：路由器还可采用默认路由以减少路由表所占用的空间和搜索路由表所用的时间，</p>
+</li>
+</ul>
+<h2>4. 网际控制报文协议ICMP</h2>
+
+<p>为了更有效的转发IP数据报和提高交付成功的机会，在网际层使用忘记控制报协议ICMP。</p>
+<p>ICMP允许主机或者路由器报告差错情况和提供有关异常情况的报告。</p>
+<p>且<mark>ICMP报文装在IP数据报的数据部分</mark>。</p>
+<h3>4.1 ICMP报文的格式</h3>
+
+<p><img src="/img/ICMP%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F.png" srcset="/img/loading.gif" lazyload alt="ICMP报文格式"></p>
+<p>ICMP报文的前四个字节是统一的格式：类型、代码、检验和。</p>
+<p>接着4字节与ICMP的类型有关</p>
+<h3>4.2 ICMP报文的种类</h3>
+
+<ul>
+<li><p>ICMP差错报告报文:</p>
+<ul>
+<li>终点不可到达 - 3</li>
+<li>时间超过 - 11</li>
+<li>参数问题 - 12</li>
+<li>改变路由（重定向） - 5</li>
+</ul>
+<hr>
+<p><img src="/img/ICMP%E5%B7%AE%E9%94%99%E6%8A%A5%E5%91%8A%E6%8A%A5%E6%96%87.png" srcset="/img/loading.gif" lazyload alt="ICMP差错报告报文"></p>
+</li>
+<li><p>ICMP询问报文: </p>
+<ul>
+<li>回送请求或回送回答 - 8或0</li>
+<li>时间戳请求或时间戳回答 - 13或14</li>
+</ul>
+</li>
+</ul>
+<h3>4.3 ICMP报文的应用</h3>
+
+<p><mark>PING: 用来测试两个主机之间的连通性</mark>。</p>
+<p>PING使用了ICMP回送请求与回送回答报文。且直接使用网络层ICMP，没有通过运输层的TCP或UDP。</p>
+<h2>5. 互联网的路由选择协议</h2>
+
+<p>这是用来解决<strong>转发表中的路由是怎样得出的</strong>。</p>
+<h3>5.1 有关路由选择协议的几个基本概念</h3>
+
+<h4>5.1.1 分层次的路由选择协议</h4>
+
+<p>互联网采用的是<strong>分层次的路由选择协议</strong>，原因：</p>
+<ul>
+<li>互联网规模巨大，若想让所有路由器知道所有的网络如何到达，路由表将巨大</li>
+<li>许多单位不愿意外界了解自己单位网络的布局细节和采用的路由选择协议，但还想连接互联网</li>
+</ul>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<p>所以，使用分层次的路由选择方法，可以将整个互联网或分为许多<mark>自治系统AS</mark>（autonomous system）。</p>
+<p><strong>自治系统</strong>：在单一的技术管理下的一组路由器，这些路由器使用一种<strong>AS内部</strong>的路由选择协议和共同的度量以确定分组在该AS内的路由，同时还使用一种<strong>AS之间</strong>的路由选择协议来确定分组在AS之间的路由。<span class="red">一个AS对其他的AS表现出的是一个单一的和一致的路由选择策略</span>。</p>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<p>这样，互联网就把路由选择协议划分为两大类：</p>
+<ul>
+<li><mark>内部网关协议IGP</mark>：Interior Gateway Protocol，在一个自治系统内部使用的路由选择协议。<span class="red">目前使用的最多的是RIP（小规模网络）和OSPF协议（大规模网络）</span>。这种在自治系统内部的路由选择叫做<strong>域内路由选择</strong></li>
+<li><mark>外部网关协议EGP</mark>：External Gateway Protocol，在不同的自治系统之间的路由选择协议。<span class="red">目前使用的最多的BGP-4</span>。这种在自治系统之间的路由选择叫做<strong>域间路由选择</strong></li>
+</ul>
+<p><img src="/img/%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE.png" srcset="/img/loading.gif" lazyload alt="路由选择协议"></p>
+<h3>5.2 内部网关协议 - RIP</h3>
+
+<h4>5.2.1 RIP协议的工作原理</h4>
+
+<p><mark>路由信息协议RIP</mark>(Routing Information Protocol)是内部网关协议IGP中<span class="red">最先</span>得到广泛使用的协议。</p>
+<p>RIP是一种<strong>分布式的、基于<mark>距离向量</mark>的</strong>路由选择协议。</p>
+<p>RIP协议要求网络中的每一个路由器都要维护从自己到其他每一个网络的距离记录。所以最大的特点就是简单。</p>
+<ul>
+<li><p>基于距离向量的：<strong>距离</strong>是<strong>跳数</strong>，也就是经过路由器的个数，且指最短距离（最小跳数）。RIP允许一条路径最多只能包含<span class="red">15</span>个路由器。</p>
+</li>
+<li><p>分布式的：（分布式的特点就是各个路由器可以通过相互间的信息交互来完成路由信息的获取和更新）。所以我们会在意一下三个问题：</p>
+<ul>
+<li><p><u>和哪些路由器交换信息？</u></p>
+<p>RIP规定<strong>仅和相邻路由器交换信息</strong>。</p>
+</li>
+<li><p><u>交换什么信息?</u></p>
+<p>RIP规定路由器交换的信息是<strong>当前路由器所知道的全部信息，也就是自己现在的路由表</strong>，翻译一下就是”我到这个自治系统中所有网络的（最短）距离，以及到每个网络应该经过的下一跳路由器。</p>
+</li>
+<li><p><u>在什么时候交换信息?</u></p>
+<p>RIP规定<strong>按固定的时间间隔交换路由信息</strong>，比如30s</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>5.2.2 RIP使用的距离向量算法</h4>
+
+<p><img src="/img/%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95.png" srcset="/img/loading.gif" lazyload alt="距离向量算法"></p>
+<hr>
+<p><img src="/img/%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95eg.png" srcset="/img/loading.gif" lazyload alt="距离向量算法举例"></p>
+<h4>5.2.3 RIP协议的特点</h4>
+
+<ul>
+<li>优点：实现简单，开销小</li>
+<li>缺点：<ul>
+<li>RIP限制网络规模，最大距离为15</li>
+<li>随着网络规模的扩大，开销增加，因为交换的路由信息是完整的路由表</li>
+<li>坏消息传播得慢，使得更新过程的收敛时间过长</li>
+</ul>
+</li>
+</ul>
+<h3>5.3 内部网关协议 - OSPF</h3>
+
+<p>为了克服上述RIP的缺点，<mark>开放最短路径优先OSPF</mark>（Open Shortest Path First)营运而生。</p>
+<h4>5.3.1 OSPF协议的基本特点</h4>
+
+<p>OSPF也是分布式的，我们也关心三个最基本的问题：</p>
+<ul>
+<li><p><u>和哪些路由器交换信息？</u></p>
+<p>OSPF规定<strong>向本自治系统中所有路由器发送信息</strong>，这就是<strong>洪泛法</strong></p>
+</li>
+<li><p><u>交换什么信息?</u></p>
+<p>OSPF协议规定乐发送与本路由器相邻的所有路由器的<strong>链路状态</strong>，这只是<strong>路由器的部分信息</strong>。</p>
+<p>链路状态：说明本路由器和那些路由器相邻，以及该链路的度量。</p>
+</li>
+<li><p><u>在什么时候交换信息?</u></p>
+<p>OSPF规定<strong>当链路状态变化时交换路由信息</strong>或者隔一段时间（如30分钟）</p>
+</li>
+</ul>
+<h4>5.3.2 OSPF的区域area</h4>
+
+<p>为了使OSPF能够用于规模很大的网络，OSPF将一个自治系统再划分为若干个更小的范围，叫做区域</p>
+<h3>5.4 外部网关协议 - BGP</h3>
+
+<p>在外部网关协议BGP中，现在使用的是第四个版本BGP-4。如果没有BGP，那么每一个自治系统AS都是一个孤岛，BGP使得他们可以连接成一个完整的互联网。</p>
+<p>BGP力求能选择出一条能够到达目的网络前缀且比较好的路由，而不是计算出最佳路由。</p>
+<p><mark>BGP采用了路径向量路由选择协议</mark>，<span class="red">与<strong>距离向量协议（如RIP）</strong>和<strong>链路状态协议（如OSPF）</strong>有很大的区别</span>。</p>
+<h4>5.4.1 BGP路由</h4>
+
+<p>在一个自治系统中，有两种不同功能的路由器：</p>
+<ul>
+<li>边界路由器（边界网关）</li>
+<li>内部路由器</li>
+</ul>
+<p><mark>一个AS至少有一个边界路由器和相邻AS的边界路由器直接相连</mark>。正式有了边界路由器，AS之间才能利用BGP协议交换可达性路由信息。</p>
+<p>那么两个边界路由器是如何进行路由信息的交换的呢？</p>
+<p>首先，要先建立<strong>TCP连接</strong>，在此基础上上交换BGP报文以建立BGP会话，利用BGP会话交换路由信息</p>
+<h2>6.虚拟专用网VPN</h2>
+
+<p>由于IP地址的紧缺，一个机构能申请到的IP地址数往往远远小于本机构所拥有的主机数，且考虑到互联网并不安全，一个机构内也并不需要把所有的主机接入到外部的互联网。</p>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<p>假定在一个机构内部的计算机通信也是采用TCP&#x2F;IP协议，那么从原则上来讲，对于仅在机构内部使用的计算机就可以<strong>由本机构自行分配IP地址</strong>。</p>
+<h3>6.1 本地地址与全球地址</h3>
+
+<ul>
+<li><strong>本地地址</strong>：仅在机构内部使用的IP地址，可以由本机构自行分配而不需要向互联网的管理机构申请</li>
+<li><strong>全球地址</strong>：全球唯一的IP地址，必须向互联网的管理机构申请</li>
+</ul>
+<p><mark>问题</mark>：如果任意选择Ip地址作为机构内部使用的本地地址，那么很有可能和互联网中的某个IP重合。这就出现了<span class="red">地址的二义性问题</span>。</p>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<p>为了解决上述问题，RFC专门指明了一些<strong>专用地址</strong>，<span class="red">专用地址只能用作本地地址而不能用作全球地址，在互联网中的所有路由器，对目的地址是专有地址的数据报一律不进行转发</span>。</p>
+<p><img src="/img/%E4%B8%93%E7%94%A8IP%E5%9C%B0%E5%9D%80%E5%9D%97.png" srcset="/img/loading.gif" lazyload alt="专用IP地址块"></p>
+<h3>6.2 专用网与虚拟专用网</h3>
+
+<ul>
+<li><p><strong>专用网</strong>： 采用专用IP地址进行互连的网络叫做专用互联网（或本地互联网），简称专用网。</p>
+<p>全世界可能很多专用互连网络的具有相同的IP地址，但是并不会引起任何问题，故专用IP地址也称为可重用地址。</p>
+</li>
+</ul>
+<p>如果一个很大的机构的很多部门分布范围很广泛，且这些部门经常需要交换信息，则可以：</p>
+<ul>
+<li><strong>虚拟专用网VPN</strong>：Virtual Private Network， 利用公用的互联网作为本机构各专用之间的通信载体，这样的专用网又称为虚拟专用网。<ul>
+<li>“专用网”：因为这种网络是为本机构的主机在本机构内部的通信</li>
+<li>“虚拟”：并没有使用真正的通信专线（租金太高啦），但是在效果上和真正的专用网一样。</li>
+</ul>
+</li>
+</ul>
+<h3>6.3 使用IP隧道技术实现虚拟专用网VPN</h3>
+
+<p>背景：某个机构在两个相隔很远的场所建立了专用网A和B，现在需要通过公用的互联网构成一个VPN。</p>
+<ul>
+<li>如果专用网不同网点之间的通信必须经过公用的互联网，但是又有保密的要求，那么<strong>所有通过互联网传送的数据必须加密</strong></li>
+<li>一个机构要构建自己的VPN，就必须为它的每一个场所购买专门的硬件和软件，并进行配置，使每一个场所的VPN系统都知道其他场所的地址。</li>
+</ul>
+<hr>
+<p><img src="/img/IP%E9%9A%A7%E9%81%93%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0VPN.png" srcset="/img/loading.gif" lazyload alt="IP隧道技术实现VPN"></p>
+<p>首先，每一个场所至少要有一个路由器具有合法的全球IP地址（R1，R2），<mark>他们与互联网的接口地址是合法的全球IP地址，在专用网内部网络的接口地址就是专用网的本地地址</mark>。</p>
+<p>其次，在每一个场所A或者B内部的通信都是不经过互联网的。</p>
+<p>现在场所A的主机X要和另一个场所B的主机Y进行通信，则需要经过路由器R1和R2。</p>
+<ul>
+<li>主机X向主机Y发送的IP数据报的<strong>源地址</strong>是10.1.0.1，<strong>目的地址</strong>是10.2.0.3(<mark>本地地址</mark>)</li>
+<li>数据报先作为<u>机构内部数据报</u>从X发送到与互联网连接的路由器R1</li>
+<li>R1收到内部数据报后发现需要经过互联网才能到达，<span class="red">就把整个的内部数据报进行<mark>加密</mark></span>，再重新加上数据报的首部，封装成在互联网发送的外部数据报，此时，<strong>源地址</strong>是125.1.2.3，<strong>目的地址</strong>是194.4.5.6（<mark>全球地址</mark>）</li>
+<li>R2收到数据报后将数据部分取出进行解密，恢复出原来的内部数据报（目的地址10.2.0.3)，交付主机Y</li>
+</ul>
+<p>虽然外部数据报从R1到R2可能要经过互联网上许多个网络和路由器，但是从逻辑上看，R1到R2之间好像是一条直通的点对点的链路，故叫“IP隧道技术”。</p>
+<h3>6.4 内联网intranet和外联网extranet</h3>
+
+<p>上述例子中的，由场所A和B的内部网络所构成的虚拟专用网VPN称为<strong>内联网</strong>（intranet或intranetVPN），表示场所A和B属于一个机构。</p>
+<p>有时一个机构的VPN需要有些外部机构参加进来，这样的VPN称为<strong>外联网</strong>（extranent或extranetVPN）。</p>
+<p>内联网和外联网都采用了互联网技术，都是基于TCP&#x2F;IP协议的。</p>
+<h3>6.5 远程接入VPN</h3>
+
+<p>在外地的员工通过拨号接入互联网，驻留在员工个人电脑中的VPN软件可以在员工个人电脑和公司主机之间建立VPN隧道且通信内容是保密的，感觉就像使用公司内部的本地网络一样。</p>
+<h2>7.网络地址转换NAT</h2>
+
+<p>问题：在专用网内部的一些主机本来已经分配到了本地IP地址，但是现在又想和互联网上的主机进行通信（且不需要加密），怎么办呢？</p>
+<p>最简单的办法就是再申请全球IP地址，但是这很难做到！！</p>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<p><span class="red">目前使用的最多的就是<strong>网络地址转换</strong></span>。</p>
+<h3>7.1 网络地址转换NAT简介</h3>
+
+<p><strong>网络地址转换NAT</strong>：Network Address Translation, 需要再专用网连接到互联网上的路由器安装NAT软件。装有NAT软件的路由器称为<strong>NAT路由器</strong>，它至少有一个有效的外部全球IP地址。</p>
+<p>那么所有本地地址的主机在和外界通信时，都要在NAT路由器上将其本地地址转换成全球IP地址，才能和互联网连接。</p>
+<h3>7.2 网络地址转换的过程</h3>
+
+<p><img src="/img/NAT%E8%BF%87%E7%A8%8B.png" srcset="/img/loading.gif" lazyload alt="NAT过程"></p>
+<ul>
+<li>主机A用本地地址IPA和互联网上的主机B通信所发的数据报必须经过<strong>NAT路由器</strong></li>
+<li>NAT路由器将<strong>数据报的源地址IPA转换成全球地址IPGA</strong>，改写到数据报的首部作为新的源地址，并将转换的结果记录到<strong>NAT地址转换表</strong>中。将新的数据报转发出去。</li>
+<li>主机B收到IP数据报后返回应答。源地址就是自己的地址IPGB，目的地址是刚才收到的数据报的源地址IPGA。此时B并不知道A的专用地址，且就算知道了也不能使用（互联网上的路由器不能转发目的地址为任何专用地址的IP数据报！）。</li>
+<li>NAT路由器收到主机B返回的IP数据报时，<strong>再次进行地址的转换</strong>，通过NAT转换表将收到的IP地址IPGA转换为专用网内部的目的地址IPA，将最后的数据报发送给A。</li>
+</ul>
+<h3>7.3 网络地址与端口号转换NAPT</h3>
+
+<p>那么我们还能不能更有效的利用NAT路由器上的全球IP地址呢？</p>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<p>现在常用的NAT转换表把<span class="red">运输层的端口号也利用上</span>。</p>
+<p>这样，就可以使多个拥有本地地址的主机，公用NAT路由器上的一个全球IP地址，因而可以同时和互联网上的不用主机进行通信！！！</p>
+<p><strong>使用端口号的NAT</strong>也叫做<strong>网络地址与端口号转换NAPT</strong>（Network Address and Port Translation）。</p>
+<p>不使用端口号的NAT就叫做传统的NAT</p>
+<head>
+    <style>
+        .red {
+            color: red;}
+    </style>
+    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script>
+</head>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>计算机网络Chap4-网络层</div>
+      <div>http://example.com/2023/07/25/计算机网络Chap4-网络层/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>July 25, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/24/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/" title="防抖与节流">
+                        <span class="hidden-mobile">防抖与节流</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1381 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Vue前台项目-电商平台  技术架构：vue2+vue-cli+vuex+vue-router+axios+less 实现功能：  封装通用组件 登录注册 token 守卫 购物车 支付 项目性能优化等  1. 初始化项目  vue-cli脚手架依赖环境：node+webpack 1.1 vue create 项目名称  选择安装Vue2的default 用vue-cli脚手架初始化的项目目录中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue前台项目">
+<meta property="og:url" content="http://example.com/2023/07/18/vue%E5%89%8D%E5%8F%B0%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="德芭贝贝同学今天code了吗">
+<meta property="og:description" content="Vue前台项目-电商平台  技术架构：vue2+vue-cli+vuex+vue-router+axios+less 实现功能：  封装通用组件 登录注册 token 守卫 购物车 支付 项目性能优化等  1. 初始化项目  vue-cli脚手架依赖环境：node+webpack 1.1 vue create 项目名称  选择安装Vue2的default 用vue-cli脚手架初始化的项目目录中">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/%E8%B7%AF%E7%94%B1%E5%85%83%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="http://example.com/img/%E5%85%83%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6.png">
+<meta property="og:image" content="http://example.com/img/%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%827.png">
+<meta property="og:image" content="http://example.com/img/%E6%94%B9%E5%86%99push.png">
+<meta property="og:image" content="http://example.com/img/axios%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85.png">
+<meta property="og:image" content="http://example.com/img/%E8%B7%A8%E5%9F%9F.png">
+<meta property="og:image" content="http://example.com/img/modules.png">
+<meta property="og:image" content="http://example.com/img/code.png">
+<meta property="og:image" content="http://example.com/img/imp.png">
+<meta property="og:image" content="http://example.com/img/%E5%88%86%E9%A1%B5%E5%99%A8%E8%BF%9E%E7%BB%AD%E7%9A%84%E8%B5%B7%E5%A7%8B%E9%A1%B5%E6%95%B0%E5%92%8C%E7%BB%93%E6%9D%9F%E9%A1%B5%E6%95%B0.png">
+<meta property="og:image" content="http://example.com/img/%E8%BD%AE%E6%92%AD%E5%9B%BEcode.png">
+<meta property="og:image" content="http://example.com/img/improvement.png">
+<meta property="og:image" content="http://example.com/img/testStr.png">
+<meta property="og:image" content="http://example.com/img/%E8%AF%B7%E6%B1%82%E5%A4%B4.png">
+<meta property="og:image" content="http://example.com/img/%E4%B8%80%E9%94%AE%E5%85%A8%E9%83%A8.png">
+<meta property="article:published_time" content="2023-07-18T02:05:32.000Z">
+<meta property="article:modified_time" content="2023-08-03T13:33:36.502Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="projects">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/%E8%B7%AF%E7%94%B1%E5%85%83%E4%BF%A1%E6%81%AF.png">
+  
+  
+  
+  <title>vue前台项目 - 德芭贝贝同学今天code了吗</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>德芭贝贝同学今天code了吗</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="vue前台项目"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-18 10:05" pubdate>
+          July 18, 2023 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          16k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          131 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">vue前台项目</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2>Vue前台项目-电商平台</h2>
+
+<p><mark>技术架构</mark>：vue2+vue-cli+vuex+vue-router+axios+less</p>
+<p><span class="red">实现功能</span>：</p>
+<ul>
+<li>封装通用组件</li>
+<li>登录注册</li>
+<li>token</li>
+<li>守卫</li>
+<li>购物车</li>
+<li>支付</li>
+<li>项目性能优化等</li>
+</ul>
+<h3>1. 初始化项目</h3>
+
+<p>vue-cli脚手架依赖环境：node+webpack</p>
+<h4>1.1 vue create 项目名称</h4>
+
+<p>选择安装<u>Vue2的default</u></p>
+<p>用vue-cli脚手架初始化的项目目录中</p>
+<ul>
+<li>node_modules文件夹: 项目依赖</li>
+<li>public文件夹：一般放置静态资源，webpack在打包的时候会<span class="red">原封不动打包到dist文件夹中</span></li>
+<li><mark>src文件夹</mark>(程序员源代码文件夹)：<ul>
+<li>assets文件夹：一般放置多个组件公用的静态资源，webpack打包的时候会把静态资源<span class="red">当成一个模块打包到JS文件中</span></li>
+<li>components文件夹：非路由组件</li>
+<li>App.vue：唯一的根组件</li>
+<li>main.js: 程序的入口文件，整个程序最先执行的文件</li>
+</ul>
+</li>
+<li>babel.config.js: 配置文件，与babel相关。</li>
+<li>package.json文件： 记录项目各种信息，e.g. 项目名称、项目依赖、项目如何运行等。</li>
+<li>package-lock.json: 缓存性文件</li>
+</ul>
+<h4>1.2 项目的其他配置</h4>
+
+<ul>
+<li><p>项目运行起来的时候，让浏览器自动打开</p>
+<p>在package.json中的scripts节点下，找到serve命令，添加–open，就可以自动在输入npm run serve命令后自动打开</p>
+<p>“scripts”: {</p>
+<p>  “serve”: “vue-cli-service serve <span class="red">–open</span>“,</p>
+<p>  “build”: “vue-cli-service build”,</p>
+<p>  “lint”: “vue-cli-service lint”</p>
+<p> }</p>
+</li>
+<li><p>将eslint校验功能关闭</p>
+<p>在vue.config.js的导出中，添加：lintOnSave: false</p>
+</li>
+<li><p>配置src目录路径的简写形式。因为我们程序员需要经常大量的操作src目录下的文件，避免各种..&#x2F;路径的查找，我们可以配置给src一个别名，如：@。</p>
+<p>在jsconfig.json中</p>
+<p>“compilerOptions”: {</p>
+<p>  “baseUrl”: “.”,</p>
+<p>  “paths”: {</p>
+<p>   “@&#x2F;<em>“: [“.&#x2F;src&#x2F;</em>“]}</p>
+</li>
+</ul>
+<h3>2. 项目的路由分析</h3>
+
+<p>我希望达到的效果是在&#x2F;home地址中展示主页，在&#x2F;search地址中展示搜索页面，但是在切换页面时，整体页面的header和footer部分是不变的，故考虑将这两个组件放到<span class="red">非路由组件</span>，而不同地址对应的页面中间部分的组件考虑放到<span class="red">路由组件</span>中。</p>
+<p>其他页面同理，拆分路由组件和非路由组件。</p>
+<h3>3. Header-非路由组件</h3>
+
+<p>注意，非路由组件放到<mark>components节点</mark>里。</p>
+<h4>3.1 布局</h4>
+
+<p>在抽取组件内容之前，我先写了静态的HTML页面搭配Less样式和js行为。</p>
+<ul>
+<li><p>.top：头部的第一行，可以进行点击跳转，设置行高等于height可以让字体垂直居中，设置背景颜色。再将内容都包含在其中的版心模块container，设置margin: 0 auto, overflow: hidden</p>
+<ul>
+<li><p>.loginList: 需要贴着版心的左侧显示，设置向左浮动</p>
+</li>
+<li><p>.typeList: 向右浮动</p>
+<p>对于文字中间的 | 分割，可以考虑用展示左边框实现。在less文件中，使用<mark>&amp;+a选择除了第一个a以外的所有a设置border-left</mark></p>
+</li>
+</ul>
+</li>
+<li><p>.bottom:  头部的第二行，主要是搜索区域，同样设置居中</p>
+<ul>
+<li><p>.logoArea：在头部放置logo图片的位置，向左浮动</p>
+<p>其中，图片img首先需要被a包裹，确保可以进行点击，a还需要被h1包裹，<mark>以便于SEO优化</mark></p>
+</li>
+<li><p>.searchArea:  搜索栏的位置，向右浮动</p>
+<p>中间只有一个form表单元素。form中包含input和button。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>3.2 抽取为组件</h4>
+
+<ul>
+<li><p>在components节点下新建Header文件夹，里面新建myHeader.vue头部组件，以及存放logo的images文件夹</p>
+</li>
+<li><p>将样式粘贴到头部组件的template中</p>
+</li>
+<li><p>将less样式粘贴到style中，注意要确保项目安装了<mark>less、less-loader</mark>，还需给style标签添加lang&#x3D;”less”属性</p>
+</li>
+<li><p>将reset.css清除默认样式的css文件放到静态资源public中</p>
+</li>
+</ul>
+<h3>4. Footer-非路由组件</h3>
+
+<h4>4.1 布局</h4>
+
+<p>footer.footer设置一个背景颜色，里面只包含一个footer-container，设置成版心格式。在版心中包含上下两个部分</p>
+<ul>
+<li>.footerList: footer的上面部分，其中又分为六个部分，统一给类名：.footerItem再统一浮动起来在一排显示。每个.footerItem里包含一个h4标题和一个ul，只有最后一个的ul替换为img</li>
+<li>.copyright: footer的下面部分，由一个ul、两个p组成。</li>
+</ul>
+<h4>4.2 抽取为组件</h4>
+
+<p>和3.2同理</p>
+<h4>4.3 显示与隐藏的控制</h4>
+
+<p>Footer组件虽和Header组件同为非路由组件，但只在Home、Search界面中同时出现Header和Footer，登录注册界面没有Footer只有Header，在这里进行Footer的显示与隐藏的控制。控制组件的显示与隐藏有以下三个方案：</p>
+<ul>
+<li><p><del>v-if：具有很高的切换开销</del></p>
+</li>
+<li><p>v-show：</p>
+<ul>
+<li><p>在App根组件中利用v-show控制footer的显示与隐藏，利用$route.path的值来判断式哪个页面</p>
+<p>&lt; Footer v-show&#x3D;”$route.path&#x3D;&#x3D;’&#x2F;home’ || $route.path&#x3D;&#x3D;’&#x2F;search’” &gt;&lt; &#x2F;Footer &gt;</p>
+</li>
+<li><p><mark>问题：</mark>如果这里可展示的组件有100个，写起来太麻烦了</p>
+</li>
+</ul>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<ul>
+<li><p><mark>利用路由元信息meta</mark>：在index.js路由规则配置中，加入对象格式的meta元信息，存储是否展示footer的布尔值。</p>
+<p>meta的获取：$route.meta</p>
+</li>
+</ul>
+<p><img src="/img/%E8%B7%AF%E7%94%B1%E5%85%83%E4%BF%A1%E6%81%AF.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+</li>
+<li><p>动态组件component: 通过对is属性的赋值来控制展示什么组件，同样需要搭配路由元信息的使用</p>
+<p><img src="/img/%E5%85%83%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+</li>
+</ul>
+<h3>5. 路由组件的搭建</h3>
+
+<h4>5.1 vue-router的安装</h4>
+
+<p>注意！<mark>vue-router3.x配合vue2.x使用，vue-router4.x配合vue3.x使用</mark></p>
+<h4>5.2 router文件夹的创建</h4>
+
+<p>如果使用vue-cli脚手架搭建的时候没有选router，则需要在项目中install然后在src目录下新建<mark>pages文件夹，用来存放路由组件</mark>。</p>
+<p>根据项目需要，在里面给每一个组件新建一个文件夹。</p>
+<h4>5.3 配置路由</h4>
+
+<p><mark>在项目中配置路由一般在src-&gt;router文件夹中</mark>！</p>
+<ul>
+<li><p>新建router文件夹，在里面新建<mark>index.js文件</mark>用来配置路由</p>
+<ul>
+<li>因为Vue-router是Vue的插件，先引入Vue</li>
+<li>再引入Vue-router</li>
+<li>使用<mark>Vue.use(VueRouter)方法来使用vuerouter这个插件</mark></li>
+<li>用new VueRouter（）创建一个路由实例router，在里面配置路由<ul>
+<li><mark>routes数组声明路由的匹配规则</mark>，每条规则用对象的形式，path指定hash地址，component指定需要展示的组件，所以还需要再index.js中import所需的所有路由组件</li>
+<li>我们希望一进来就直接展示首页，这里做路由的redirect<mark>重定向</mark></li>
+</ul>
+</li>
+<li>向外导出路由实例router</li>
+</ul>
+</li>
+<li><p>我们需要让index.js生效，所以需要<mark>在入口文件main.js中<span class="red">导入并挂载</span>路由模块</mark></p>
+<ul>
+<li>这里需要注意！！挂载router的时候就是在注册路由信息，这样可以<mark>使每！个！组！件！（路由和非路由都有）身上都有$route, $routers属性</mark></li>
+<li><strong>$route</strong>: 一般使获取<span class="red">路由信息</span>的，e.g. 路径、query、params等</li>
+<li><strong>$router</strong>: 一般<span class="red">进行编程式导航进行路由跳转</span>, e.g. push、replace</li>
+</ul>
+</li>
+<li><p>我们的路由还需要一个展示的出口，在App.vue中<mark><span class="red">router-link声明路由链接和router-view占位符</span></mark></p>
+</li>
+</ul>
+<h4>5.4 路由跳转</h4>
+
+<p><span class="red">路由跳转有两种形式：声明式导航和编程式导航</span></p>
+<p><mark>回顾：编程式导航能做所有声明式导航可以做的，并且还能实现一些其他的业务逻辑</mark></p>
+<ul>
+<li><p>在我们的Header组件中，将包含登录的a改造成<span class="red">router-link</span>, to属性设置为&#x2F;login，注册、点击图片。</p>
+</li>
+<li><p>我们还需要在点击搜索按钮的时候跳转到search，这里尝试用<strong>编程式导航</strong>：</p>
+<p>给button绑定点击事件goSearch，在methods中声明，处理函数为<mark>this.$router.push(‘&#x2F;search’)</mark></p>
+</li>
+</ul>
+<h4>5.5 路由传参</h4>
+
+<p>【<strong>知识点可以参考我的另一篇笔记：路由传参</strong>】</p>
+<p>现在我想实现的业务逻辑为：当点击搜索的button按钮进行路由跳转的同时，将前面input输入框的值传递到Search组件中</p>
+<p><img src="/img/%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%827.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+<p><mark>注意</mark>：</p>
+<ul>
+<li>路由传参的时候，对象的写法可以是name或者path形式，但是path不能和params参数一起</li>
+<li>在配置路由的时候，params已经占位了（&#x2F;search&#x2F;:keyword)， 但是如果路由跳转的时候没带params就会出现路径上的问题无法跳转，如果想<span class="red">指定params可传可不传</span>，需要<strong>在配置路由的时候，params占位后面加个？</strong></li>
+</ul>
+<p>【<span class="red">问题</span>】：现在我们发现，使用编程式导航进行路由跳转时，如果参数不变，多次执行就会抛出<span class="red">redundant navigation</span>的错误警告</p>
+<p>【<span class="red">原因</span>】：打印了以下this.$router.push的返回值，发现是一个Promise类型，但是promise需要成功、失败的回调函数</p>
+<p>【<span class="red">解决1</span>】：想着给this.$router.push再传两个空的函数，this.$router.push({name: ‘search’, params: {keyword: ‘’}, query: {k: this.keyword.toUpperCase()}}, () &#x3D;&gt; {}, () &#x3D;&gt; {}); &#x2F;&#x2F;但是这种解决方法在别的组件中每次都要这么写</p>
+<p>【<span class="red">解决2</span>】：<mark>改写push方法</mark></p>
+<p>首先通过打印，发现push方法是VueRouter.prototype上的方法</p>
+<p>$router是VueRouter类的一个实例</p>
+<p>VueRouter.prototype.push &#x3D; function() {</p>
+<p>&#x2F;&#x2F;上下文是VueRouter类的一个实例}</p>
+<p><img src="/img/%E6%94%B9%E5%86%99push.png" srcset="/img/loading.gif" lazyload alt="改写push"></p>
+<h3>6. 三级联动-全局组件</h3>
+
+<p>因为三级联动这个功能在很多组件中都需要使用，现在想把三级联动抽成一个组件的时候就考虑全局组件，只需要注册一次就可以全局使用。</p>
+<h4>6.1 布局</h4>
+
+<p>.typeNav添加下边框且包含.container来控制这一行导航居中展示。</p>
+<ul>
+<li><p>.all全部商品分类给宽高和红色背景</p>
+</li>
+<li><p>.nav包含了导航栏其他的窗格，其中每个窗格都被一个a包裹</p>
+</li>
+<li><p>.sort就是竖着这个精细的导航栏部分，想用定位定到全部商品分类的下面，所以添加position: absolute同时给父元素container添加position: relative。其中每一个分类都是一个.item，为了完成三级联动的效果，每个.item除了包含本身左侧的h3标题，还包含要在中间展示的具体内容.item-list</p>
+<ul>
+<li><p>.item-list: 首先在我们不用鼠标经过的时候是不展示的，设置display:none；其次，展示的时候位置需要通过定位的形式，添加position: absolute，通过<span class="red">left：.sort的宽度</span>就可以定位到贴着sort的右侧展示的位置；子元素.sub-item向左浮动。</p>
+<p>中间的内容每一条选择用自定义表单元素dl进行包含，dt是左侧的，dd是右侧的</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>6.2 注册为全局组件</h4>
+
+<p>抽取出template中的UI结构以及style组成typeNav.vue</p>
+<p>需要在<mark>main.js中引入并Vue.component(全局组件的名字，哪个组件)注册为全局组件</mark>： </p>
+<h4>6.3 在Home组件中使用</h4>
+
+<p>因为已经是注册为全局组件了，不需要引入注册，可以直接使用~</p>
+<h3>7. ListContainer组件：包含轮播图和快报</h3>
+
+<h4>7.1 布局</h4>
+
+<p>.list-container设置版心结构，加个padding-left展示出6的三级联动组件。</p>
+<ul>
+<li><p>.center是轮播图模块：找到想要的效果的demo对应的html文件打开复制样式、结构和初始js</p>
+</li>
+<li><p>.right就是轮播图右侧的模块：</p>
+<ul>
+<li><p>.news是尚品汇快报模块：其中第一行用h4展示，里面两个模块分别向左右浮动；第二行的.news-list中放ul展示新闻</p>
+</li>
+<li><p>ul.lifeservices是三行小图标模块：设置为<mark>display:flex布局，为了让中间的li可以多行展示，再添加flex-wrap: wrap属性</mark>；</p>
+<p>其中<mark>小图标选择使用精灵图</mark>，给每个.list-item设置精灵图为background-image，然后再通过nth-child选择器给每个item调整background-position</p>
+</li>
+<li><p>.ads是最下的广告模块：选择插入一张广告图，并且添加transition属性，当鼠标经过hover的时候opacity从0.8变1</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>7.2 在Home组件中使用</h4>
+
+<p>这次需要严格按照引入、注册、使用的步骤</p>
+<h3>8. Home首页剩下的其他组件</h3>
+
+<h4>8.1 Recommend今日推荐</h4>
+
+<p>包含container做版心的居中对齐，其中包含一个ul.recommend中每个li是一个推荐。</p>
+<h4>8.2 Rank商品排行</h4>
+
+<ul>
+<li>.tab: 上面的切换栏。设置margin: 0 auto水平居中。给每个块用a包裹达到点击的效果，每个a里面包含上一个img下一个p。</li>
+<li>.content: 下面的内容区域。一看到这种整齐的结构就考虑用ul&gt;li去呈现。给每个item设置一个红色的border，里面再分别包含上面图片下面相关信息。</li>
+</ul>
+<h4>8.3 Like猜你喜欢</h4>
+
+<ul>
+<li>.title: 上面的文字+可点击的换一换</li>
+<li>.bd: 还是考虑用ul&gt;li去呈现每个item。</li>
+</ul>
+<h4>8.4 Floor可以做组件的复用</h4>
+
+<ul>
+<li>.title: 上面的标题和导航栏。一个h3左浮动，一个ul&gt;li*7右浮动</li>
+<li>.tab-content: 内容栏。每一列是一个子元素，需要分裂的.split。</li>
+</ul>
+<h4>8.5 Brand商标组件</h4>
+
+<p>看到整齐的结构，ul&gt;li，只不过每个li包含一个商标的图片</p>
+<h3>9. axios二次封装</h3>
+
+<p><strong>为了设置请求拦截器和响应拦截器</strong></p>
+<p>首先需要在项目装安装axios【<strong>axios知识点可以参考我的另一篇笔记：数据的请求与发送</strong>】</p>
+<p>且在项目中通常在src下面的<mark>api</mark>文件夹存放axios相关js文件。故在src下新建api文件夹，在文件夹中新建request.js来使用axios发送请求。在这里对axios进行二次封装。</p>
+<h4>9.1 配置axios实例</h4>
+
+<p>利用<mark>axios.create()</mark>方法可以创建一个axios实例，传入配置对象就可以进行配置。配置对象中比较常用的两个属性：</p>
+<ul>
+<li>baseURL：基础路径，比如我们的接口文档中路径都带有api，就可以配置上，免得手写</li>
+<li>timeout：设置请求超时的时间</li>
+</ul>
+<h4>9.1 请求拦截器</h4>
+
+<p>请求拦截器：在发送请求之<span class="red">前</span>，请求拦截器可以检测到，就可以在请求发出去之前做一些事情。</p>
+<h4>9.2 响应拦截器</h4>
+
+<p>响应拦截器：在服务器响应之后，响应拦截器可以检测到，这时候可以完成一些业务逻辑，比如设置成功和失败的回调</p>
+<p><img src="/img/axios%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85.png" srcset="/img/loading.gif" lazyload alt="axios二次封装"></p>
+<h3>10. api接口统一管理</h3>
+
+<p>因为项目较大，在api下新建index.js用来统一管理api接口。</p>
+<h4>10.1 跨域问题</h4>
+
+<p>在api-&gt;index.js文件中我们向外暴露了一个获取三级联动数据的函数，但是出现了404错误，原因是跨域了。</p>
+<p><mark>跨域</mark>： <span class="red">协议、域名、端口号</span>不同请求，就成为跨域。（<mark>非同源</mark>）</p>
+<p>Reference: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/145837536">你还不知道跨域问题是怎样造成的吗？ - 知乎 (zhihu.com)</a></p>
+<p> <a target="_blank" rel="noopener" href="http://localhost:8080/#/home">http://localhost:8080/#/home</a>  这是前端项目的本地服务器</p>
+<p> <a target="_blank" rel="noopener" href="http://gmall-h5-api.atguigu.cn/">http://gmall-h5-api.atguigu.cn</a>  这是后台服务器</p>
+<h4>10.2 跨域问题解决</h4>
+
+<p>由于跨域问题只存在于浏览器间，服务器间不存在，故考虑使用代理服务器！！</p>
+<p><mark>在vue.config.js中配置代理<span class="red">proxy</span></mark>：只要请求路径中有&#x2F;api，代理服务器就会去找真实服务器请求数据</p>
+<p><img src="/img/%E8%B7%A8%E5%9F%9F.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+<h3>11. nprogress插件显示进度条</h3>
+
+<p>首先业务逻辑是开始发请求的时候就开始显示进度条，服务器的数据返回之后进度条结束。</p>
+<p>想到可以在<mark>请求和响应拦截器</mark>中使用nprogress的start和done方法。</p>
+<p>然后引入nproress进度条css样式即可。如果想要修改样式就到css中去修改就行了~</p>
+<h3>12. 在项目中使用vuex状态管理库</h3>
+
+<p>vuex：官方提供的一个插件，（vue-router也是），是做状态管理用的库，可以<span class="red">集中式管理项目中组件公用的数据</span></p>
+<h4>12.1 vuex的安装</h4>
+
+<p>我用的vue2.x，要注意npm i –save <a href="mailto:&#x76;&#x75;&#101;&#x78;&#x40;&#x33;&#46;&#50;&#x2e;&#48;">&#x76;&#x75;&#101;&#x78;&#x40;&#x33;&#46;&#50;&#x2e;&#48;</a>才能版本适配</p>
+<h4>12.2 在项目中配置vuex</h4>
+
+<p>src下新建<mark>store文件夹</mark>。在其中新建index.js来配置vuex。</p>
+<p>下面就可以类比配置vuerouter的步骤了。</p>
+<ul>
+<li><p>引入vue和vuex，vue.use（vuex）注册为插件</p>
+</li>
+<li><p>向外暴露<mark>Vuex.Store({配置对象})</mark>的这样一个实例对象</p>
+<p>其中，配置对象主要有以下几个属性：</p>
+<ul>
+<li><mark>state</mark>：仓库存储数据的地方</li>
+<li><mark>mutations</mark>：修改state的唯一手段</li>
+<li><mark>actions</mark>：处理action</li>
+<li><mark>getters</mark>：理解为计算属性，用于简化仓库数据</li>
+</ul>
+</li>
+<li><p>在入口文件中引入、注册仓库。此时，所有的组件身上会带有<span class="red">$store</span>的属性了。</p>
+</li>
+</ul>
+<h4>12.3 利用vuex进行模块化开发</h4>
+
+<p>在store下面为每个模块新建一个文件夹，分别存储这个模块里的数据，在文件夹中新建index.js文件，向外暴露state、mutations、actions和getters对象。</p>
+<p>再在store下面的index.js中的<mark>modules</mark>进行引用：</p>
+<p><img src="/img/modules.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+<h3>13. 三级联动的静态页面改写</h3>
+
+<p>现在我们的三级联动TypeNav组件里面的内容都是我们手动写死的，但是项目接口文档中指出了请求路径和方式，我们要把里面手动写死的数据替换为动态请求来的数据。</p>
+<h3>13.1 何时发送请求？</h3>
+
+<p>我们考虑在<mark>组件挂载完毕，就可以通知vuex向服务器发送请求数据，存储在仓库中</mark></p>
+<ul>
+<li><p>挂载完毕：就是在组件的mounted()声明周期函数里完成这个发送请求的业务逻辑</p>
+</li>
+<li><p>通过vuex进行数据的统一管理</p>
+<ul>
+<li><p>因为是要发送数据请求，所以需要异步操作，要用this.$store.dispatch(‘’)派发actions里的函数</p>
+</li>
+<li><p>我们已经封装好了发送请求的函数，引入调接口即可</p>
+</li>
+<li><p>注意axios发出的数据请求返回的是一个<span class="red">Promise对象</span>，为了拿到调用成功的结果，使用<span class="red">async&#x2F;await</span>对函数进行改造</p>
+</li>
+<li><p>如果请求成功，则需要修改state里面的数据，所以我们需要传入context参数，这里选择对齐做解构赋值{commit}作为参数，判断如果res.code &#x3D;&#x3D; 200, 那么通过commit再去提交mutation去修改state中的值</p>
+<p><mark>这里注意一下在vuex的使用中，为了方便这些函数间的相互调用，每个对象里方法的参数！！！注意！！！</mark></p>
+<p>Reference：<a target="_blank" rel="noopener" href="https://blog.csdn.net/hbwhypw/article/details/112577588">(70条消息) vuex commit 传递多个参数的两种方法_vuex传递多个参数_hbwhypw的博客-CSDN博客</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3>13.2 请求到了数据如何修改template？</h3>
+
+<p>现在已经拿到了数据，所以将我们的template中的所有并列的一级结构中除了第一个都删了，给第一个加<mark>v-for</mark>指令。</p>
+<p>v-for&#x3D;”(c1, index) in categoryList”</p>
+<p><mark>注意！！v-for还要绑定key！！！</mark></p>
+<p><img src="/img/code.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+<h3><i class="fa-solid fa-bookmark"></i>13.3 <mark>卡顿现象引入防抖与节流</mark></h3>
+
+<p>我们发现，如果从全部商品分类快速的用鼠标下划，并不会触发所有一级分类的mouseenter事件的回调函数，这是由于用户操作过快，且每一次的触发，回调函数都需去执行，这时候如果事件很短且回调函数内部有计算，很有可能出现浏览器<mark>卡顿</mark>现象的出现。</p>
+<p><mark>防抖</mark>：<span class="red">前面的所有触发都被取消，最后一次执行在规定的时间之后才会触发。</span>也就是说<mark>如果连续快速的触发，只会执行一次</mark>。</p>
+<p><mark>节流</mark>：<span class="red">在规定的间隔时间范围内不会重复触发回调，只有大于这个时间间隔才会触发回调</span>。也就是说<mark>把频繁触发变为少量触发</mark>。</p>
+<p>所以我们考虑在三级联动的模块使用lodash添加节流的技术，防止mouseover事件触发的太频繁造成的卡顿现象。</p>
+<p>但是我们es6语法的methods中的格式没法用lodash，考虑写es5格式的kv</p>
+<p>changeIndex: _.throttle(function(id) {</p>
+<p>   this.currentIndex &#x3D; id;</p>
+<p>  },50)</p>
+<h3>13.4 三级联动路由跳转 - 编程式导航+事件的委派</h3>
+
+<p>在我们的三级联动模块，业务需要点击一级或二级或三级分类标题就可以跳转到搜索模块，并将用户选中的产品名字和id在路由跳转的时候进行传递。</p>
+<p>这时候路由跳转我们有两种选择：声明式导航和编程式导航。</p>
+<p>虽然声明式导航router-link可以实现路由的跳转和参数的传递，但是会造成卡顿的现象！！因为它可是一个组件！！在for循环的时候创建太多的组件再渲染是一件高开销的事情。故尝试编程式导航。</p>
+<p>但是给每个a都加一个click事件的处理函数进行this.$router.push的跳转虽然会比声明式导航好一些，但是也是大量的回调函数。</p>
+<p><mark>考虑事件的委派</mark>！！！太妙了啊！！！！给就近的父盒子添加@click事件</p>
+<p>但是还仍然存在两个问题：</p>
+<ul>
+<li><p>如何知道点击的一定是a标签才触发的父盒子的click事件呢？</p>
+<p>ans：利用自定义属性，给所有子节点中的a都加上data-categoryName</p>
+</li>
+<li><p>现在已经知道是a标签，如何区分是一级？二级还是三级？</p>
+<p>ans：可以借鉴上面的思想，也利用自定义属性，分别给一二三级a标签添加自定义属性data-category1Id、data-category2Id、data-category3Id来进行区分</p>
+</li>
+<li><p>整理参数就可以跳转啦~~~</p>
+</li>
+</ul>
+<h3>14. Search页面</h3>
+
+<h4>14.1 Search页面引入三级联动并加入过渡效果</h4>
+
+<p>因为三级联动组件TypeNav已经注册为了全局组件，直接在search页面中引入即可。</p>
+<p><i class="fa-regular fa-face-sad-cry"></i>但是现在和我们想要的效果还相差甚远啊55555</p>
+<ul>
+<li><p>问题1：我们希望已进入search界面这个三级联动的下拉菜单是默认隐藏的，当鼠标经过才下拉显示</p>
+<p>解决：在TypeNav组件中，给下拉的导航栏首先尝试写死v-show:’false’达到目的，现在我们就考虑通过定义一个变量navShow的值来动态的控制下拉导航栏的显示与隐藏。</p>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+</li>
+<li><p>问题2：那么从home跳转到search组件的时候，哪里会有区别可以改写navShow的值呢？</p>
+<p>解决：<mark>mounted！！！！！</mark></p>
+<p>mounted() {</p>
+<p>​	if(this.$route.path!&#x3D;’&#x2F;home’) {</p>
+<p>​		this.navShow &#x3D; false</p>
+<p>}}</p>
+</li>
+<li><p>问题3：如何添加过渡动画效果？</p>
+<p>解决：要注意<mark>组件或者元素能够添加过渡动画效果的前提是必须有v-if&#x2F;v-show指令！！！</mark></p>
+<p>用transition标签将包含v-show的内容包含，其中过渡动画的效果是用指令来完成的。</p>
+</li>
+</ul>
+<h4>14.2 从Home首页跳转到Search页面的参数合并</h4>
+
+<p>现在我们有两个入口可以从Home首页跳转到Search页面，且我们分别在搜索框的button按钮和三级联动写好了路由传参。</p>
+<p>但是现在业务想要实现的逻辑是，如果有params就把params和query一起传递然后跳转到search。</p>
+<p><u>解决</u>：我们在三级联动中push之前先判断if(this.$route.params)如果为true，就合并参数再传递。同理在header组件中push之前也先判断有无query参数~</p>
+<h4>14.3 Search模块数据操作</h4>
+
+<p>现在写好的是静态的页面，我们还是需要向服务器发送请求、将数据存储到vuex的仓库中、再在Search组件中动态展示数据。</p>
+<h4>14.3.1 api</h4>
+
+<p>在api&#x2F;index.js中写上获取搜索商品的数据的部分，根据接口文档，注意发起axios请求的类型是<strong>POST</strong>。</p>
+<p>这个地方要注意发起axios请求的post的语法，axios({method:’post’, url: ‘xxx’, <span class="red">data</span>: xxx})传递post的参数要用data！！</p>
+<p>且根据接口文档，传的参数起码是一个空对象。</p>
+<h4>14.3.2 vuex操作</h4>
+
+<p>注意现在已经要切换到search小仓库啦~</p>
+<p>然后就是vuex的三连环操作，actions中发请求，mutations中修改state中的数据就已经存储到仓库中了</p>
+<p>在组件中引用mapState把仓库的数据映射成组件身上的数据</p>
+<h4>14.3.3 在组件中动态展示数据</h4>
+
+<p><u>本来的写法</u>：computed: {</p>
+<p>  …mapState({</p>
+<p>   goodsList: state&#x3D;&gt;state.search.searchList.goodsList</p>
+<p>  })}</p>
+<p>但是这个地方太复杂了，想要在<span class="red">仓库中先利用getters简化一下数据再在search组件中使用mapGetters将getters映射成组件自己的计算属性</span></p>
+<p>注意！state是分模块的（home、search等模块）所以mapState({})中间是对象的格式，但是getters部分模块，直接用数据的形式就行</p>
+<p><u>改进</u>：</p>
+<p><img src="/img/imp.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+<h4>14.4 发送请求的位置改写</h4>
+
+<p>现在我们的请求数据的代码是写在了mounted钩子函数中，但是这只会执行一次，我们的业务需求是当携带不同的参数进行查询时，都应当返回不一样的数据。</p>
+<p><span class="red"><strong>考虑将发送请求的部分封装在函数（methods）里</strong></span>，这样就可以声明一次，多次调用。</p>
+<p>考虑<mark>watch监听路由的变化再次发送请求获取新的数据</mark></p>
+<p>我们选择在beforeMount声明周期函数中，修改params这样的话就可以在mounted前有要在mounted中传递的参数了</p>
+<p>这里的小trick：</p>
+<p><u>原始版本</u>：this.searchParams.keyword &#x3D; this.$route.qarams.keyword</p>
+<p>​					this.searchParams.category1Id &#x3D; this.$route.query.category1Id,…..</p>
+<p><u>改进版本</u>：<span class="red">使用es6语法：<mark>Object.assign方法</mark></span></p>
+<p>​					Object.assign(this.searchParams, this.$route.params, this.$route.query)</p>
+<h4><i class="fa-solid fa-star"></i>14.5 分页器</h4>
+
+<h4>14.5.1 将静态页面中的分页器摘出来做全局组件</h4>
+
+<p>全局组件书写的位置：src-&gt;components-&gt;Pagination-&gt;myPagination.vue</p>
+<p>在main.js中注册全局组件</p>
+<h4>14.5.2 对自定义分页器使用假的数据进行调试</h4>
+
+<p>在父组件Search.vue中通过自定义属性向子组件传递假数据：</p>
+<ul>
+<li>pageNo：当前是第几页的数据</li>
+<li>pageSize：每一页有多少条数据</li>
+<li>total：一共有多少条数据</li>
+<li>continues：连续的页码数</li>
+</ul>
+<p>e.g. &lt; Pagination :pageNo&#x3D;”1” :pageSize&#x3D;”3” :total&#x3D;”91” :continues&#x3D;”5”&gt;&lt; &#x2F;Pagination&gt;</p>
+<p>Q1: 如何算出连续页面的起始数字和结束数字？</p>
+<p>Ans：这个地方需要考虑很多种情况。</p>
+<ul>
+<li>continues &gt; 一共的页数</li>
+<li>continues &lt;&#x3D; 一共的页数 :<ul>
+<li>出现负的页码数</li>
+<li>超出totalPages</li>
+<li>正常</li>
+</ul>
+</li>
+</ul>
+<p><img src="/img/%E5%88%86%E9%A1%B5%E5%99%A8%E8%BF%9E%E7%BB%AD%E7%9A%84%E8%B5%B7%E5%A7%8B%E9%A1%B5%E6%95%B0%E5%92%8C%E7%BB%93%E6%9D%9F%E9%A1%B5%E6%95%B0.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+<h4>14.5.3 向服务器发送请求真实的数据动态展示</h4>
+
+<p>我们将分页器的结构分为三部分：</p>
+<ul>
+<li>上一页 + 1 + …</li>
+<li>中间的连续页数部分</li>
+<li>… + totalPages + 下一页</li>
+</ul>
+<p>这个时候我们要分别考虑这三块的显示与隐藏：</p>
+<ol>
+<li>考虑中间的部分： 将start和end中间的数字push到一个数组中，用v-for遍历展示。</li>
+<li>第一部分：<ul>
+<li>1：如果start &gt; 1就显示</li>
+<li>… : 如果start &gt; 2就显示</li>
+</ul>
+</li>
+<li>第二部分：<ul>
+<li>totalPages :  如果end&lt;totalPages就显示</li>
+<li>… : 如果end &lt; totalPages - 1就显示</li>
+</ul>
+</li>
+</ol>
+<p>为每个button添加点击事件，通过自定义事件向父组件传递pageNo，父组件向服务器请求数据，将父组件Search中传递的数据替换成服务器返回的数据。</p>
+<h3>15. Home首页</h3>
+
+<p>在Home首页，我们可以从服务器请求回来的数据只有三级联动里面的数据。</p>
+<p>其他的数据服务器都不提供，就需要<mark>模拟mock</mark>数据，这里利用第三方插件<mark>mock.js</mark>: <mark>生成随机数据，拦截Ajax请求</mark>。</p>
+<p>也就是说前端mock的数据不会和服务器进行任何的通信。</p>
+<p>首先，在我们的项目中安装mock.js： </p>
+<p>mock.js的使用步骤： </p>
+<ul>
+<li><p>src下创建mock文件夹，在文件夹中创建相应的json文件</p>
+</li>
+<li><p>将mock数据需要的图片放到public文件夹中</p>
+</li>
+<li><p>在mock文件夹下创建mockServe.js来进行相应的配置。</p>
+<ul>
+<li><p>引入mockjs</p>
+</li>
+<li><p>引入两个json文件</p>
+<p>注意！！！<mark>webpack默认json文件是对外暴露的</mark></p>
+</li>
+<li><p>Mock.mock(rurl,template): 当拦截到匹配rurl的ajax请求时，将根据数据模板template生成模拟数据并作为响应数据返回。</p>
+</li>
+</ul>
+</li>
+<li><p>将我们的mockServe.js文件在入口文件main.js中引入</p>
+</li>
+</ul>
+<h4>15.1 ListContainer组件</h4>
+
+<p>在mounted生命周期函数中发请求，mock回来的数据用vuex存储到仓库中。</p>
+<p>现在有了数据了，要开始对轮播图进行动态的展示。</p>
+<ul>
+<li><p>引入swiper的js和css</p>
+</li>
+<li><p><span class="red">new Swiper实例</span>（新版本的Swiper可能不是这种写法了）</p>
+<p>问题！！！！我发现在mounted中写这个new Swiper不起效果！！！！</p>
+<p>原因v-for！！！！是动态创建的！！！！！！！！！！！！！！！前提是服务器返回了数据我才能生成对应的DOM，这是异步的！！！！！</p>
+<p>【解决】：<mark>watch+nextTick</mark></p>
+<ul>
+<li><p><mark>watch对bannerList进行监听</mark>：从初始化的空数组到接收到服务器返回来的数据，定义handler函数，函数内部肯定是在已经拿到了数据的基础上进行操作的。</p>
+<p>但是还不行!!!!!!</p>
+<p>原因：还是因为结构的问题。当前的handler执行了只能保证有数据，但是v-for动态的往上渲染不能保证完毕。</p>
+</li>
+<li><p><mark>$nextTick</mark>: 在下次DOM更新循环结束之后执行延迟回调。<mark>在修改数据后立即使用这个方法获得更新后的DOM</mark>。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/img/%E8%BD%AE%E6%92%AD%E5%9B%BEcode.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+<p>问题：<mark>vue中尽量不使用原生的这个js获取元素的写法！！！</mark></p>
+<p>改进：<strong>使用ref引用啊！！！</strong></p>
+<p>给container添加ref属性&#x3D;”myswiper“，</p>
+<p><img src="/img/improvement.png" srcset="/img/loading.gif" lazyload alt="ref引用"></p>
+<h4>15.2 Floor组件</h4>
+
+<p>和上面15.1的逻辑大差不差，不做过多展示。</p>
+<h3>16. 详情页</h3>
+
+<p>src-&gt;pages-&gt;Detail-&gt;myDetail.vue</p>
+<h4>16.1 注册为路由组件</h4>
+
+<p>在router-&gt;index.js中引入Detail组件并且在routes数组中添加路由规则。注意要用id占位。在路由跳转带上id。</p>
+<h4>16.2 解决在搜索页最底部点击商品跳转到详情页滚轮还在底下的问题</h4>
+
+<p>利用Vue路由进阶-<mark>滚动行为scrollBehavior</mark>，注意和routes平级</p>
+<p> scrollBehavior(to, from, savedPosition) {</p>
+<p>  &#x2F;&#x2F;return 期望滚到的地方</p>
+<p>  return { y: 0 }</p>
+<p> }</p>
+<h4>16.3 <i class="fa-solid fa-magnifying-glass"></i>放大镜功能的实现</h4>
+
+<h4>16.3.1 放大镜的布局</h4>
+
+<p>![放大镜.png]</p>
+<p>通过.event:hover触发.big和.mask的显示</p>
+<p><i class="fa-solid fa-magnifying-glass"></i>其中.big通过定位left：100%，overflow：hidden和提升z-idex&#x3D;999使得在盒子右侧压住其他内容显示。</p>
+<p>其中的img就需要将width和height设置为200%，又因为本身img容器.big是overflow：hidden就会模拟出放大镜的效果嘞！！！！</p>
+<h4>16.3.2 绑定mousemove事件使得mask随着鼠标移动</h4>
+
+<p>在上述样式中，我们的mask的位置是写死的，现在需要给event添加mousemove事件，触发时使得mask随着鼠标移动。</p>
+<p><span class="red">核心思想</span>：<mark>通过ref引用拿到mask的DOM对象的定位的left和top属性，将其改写为鼠标当前坐标（offsetX&#x2F;offsetY) - 1&#x2F;2(mask自身宽度offsetWidth&#x2F;高度)</mark></p>
+<p>这里注意<u>clientX&#x2F;offsetX&#x2F;pageX的区别</u>：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a52077e8369d">https://www.jianshu.com/p/a52077e8369d</a></p>
+<p>还需要注意：<u>对于没有设置宽度的元素或者是css设置宽度非内嵌式的，DOM.style.width并不能拿到宽度值，只能设置宽度值。<span class="red">只能通过offsetWidth拿到宽度</span>。</u></p>
+<p>【问题：还需要对mask的范围进行约束】</p>
+<p>top和left同理，只拿left记录：</p>
+<ul>
+<li>异常1：left&lt;&#x3D;0, 直接强制赋值left&#x3D;0</li>
+<li>异常2：left&gt;&#x3D; 盒子宽度 - mask自身宽度（这时候mask的右侧边边超出去了！！），强制赋值left&#x3D;这个最大的left值</li>
+</ul>
+<h4>16.3.3 根据mask修改好的left和top修改大图定位的坐标</h4>
+
+<p>注意现在大图big是按照2倍进行放大，那么left和top值也得是2倍！</p>
+<h4>16.4 <i class="fa-solid fa-cart-shopping"></i>加入购物车功能的实现</h4>
+
+<h4>16.4.1 购买产品个数操作</h4>
+
+<p>给input表单元素绑定<mark>v-model</mark>,数据双向绑定！！</p>
+<p>给+和-添加点击事件，给个数做+1和-1操作，需要注意个数的取值范围，必须大于等于1。</p>
+<p>现在我们还希望用户可以自己输入购买的个数，那么就要注意判定输入的合法性啦~~</p>
+<p><mark>为input表单绑定change事件</mark>，在文本框中的值发生变化且丧失焦点时触发。</p>
+<p>（这个操作存在的合理性就在于：我们使用v-model双向绑定后不管用户输入什么都可以直接赋值给skuNum，但是我们想通过change事件的处理函数先检查<mark>e.target.value</mark>的合法性再存。）</p>
+<ul>
+<li><p>Q: 如何判断用户输入的带字符？</p>
+<p>A: 文本 * 1 只要是Nan就是！！！</p>
+<p><img src="/img/testStr.png" srcset="/img/loading.gif" lazyload alt="测试"></p>
+<p>数字字符串*1是数字本身，只要带有其他字符的 * 1就是Nan</p>
+</li>
+</ul>
+<h4>16.4.2 点击加入购物车需要实现的功能</h4>
+
+<ol>
+<li><p>向服务器发送请求，将产品加入到数据库</p>
+</li>
+<li><p>若服务器存储成功，进行带参路由跳转</p>
+<p>需要传递的太多了，如果通过query传参，url地址贼混乱</p>
+<p>考虑query传参只带个数，结合<mark>会话存储</mark>传递产品信息数据（复杂）</p>
+<p>不考虑localStorage的原因：有上限（5M左右）、且持久化（购物的信息不需要一直存储在本地）</p>
+<p>但是我本来想把skuInfo这个对象直接存储在sessionStorage里的！！失败了！！</p>
+<p><mark>localStorage和sessionStorage都不能存储对象！！都是按键值对存储字符串！！存储的时候使用JSON.stringfy()将对象转化为字符串再存！！！从storage中取的时候也得用JSON.parse()将字符串再转化为对象进行使用！！！</mark></p>
+</li>
+<li><p>若服务器存储失败，给用户进行提示</p>
+<p>catch(error) {alert(error.message)}</p>
+</li>
+</ol>
+<h3>17. <i class="fa-solid fa-cart-shopping"></i>加入购物车成功页面</h3>
+
+<ul>
+<li><p>通过点击查看商品详情回退到详情页：</p>
+<p>两种思路：</p>
+<ul>
+<li>绑定点击事件，处理函数中this.$router.go(-1)回退到上一页</li>
+<li>利用声明式导航router-link带着id参数进行跳转</li>
+</ul>
+</li>
+<li><p>通过点击去购物车结算的按钮： 路由跳转到 ‘&#x2F;shopcart’, 展示ShopCart组件</p>
+</li>
+</ul>
+<h3>18. <i class="fa-solid fa-cart-shopping"></i>购物车页面</h3>
+
+<p>第一步还是熟悉的操作啊…  </p>
+<p>向服务器发送请求获取购物车的数据+操作vuex三连环+拿到数据在组件中动态的展示数据</p>
+<p>还是同样的问题！！！注意<mark>this.$store.dispatch派发actions要写在methods的某个函数中，可以多次调用获取数据！！！不能写在mounted周期函数中</mark></p>
+<p>可是现在的问题是我们发现：<strong>从服务器返回的数据是个空数组</strong></p>
+<p>why？</p>
+<p><mark><strong>问题出在了16.4.2添加购物车这个步骤</strong></mark>，<strong>我们需要再额外传递用户身份的信息</strong>！！！</p>
+<p>身份有两种：登录了的用户 &#x2F;  游客身份</p>
+<h4>16.6.1 增加detail模块中加入购物车功能时传递的参数</h4>
+
+<p>利用<mark>uuid第三方库</mark>生成唯一的用户id来标识不同用户。</p>
+<p>由于现在我们希望每个用户作为游客身份的时候不管何时再次浏览都是同样的ID！！！考虑<mark>localStorage</mark>！！</p>
+<p>在src下新建<strong>utils文件夹</strong>，常放项目中的功能模块，如正则、临时身份等等。</p>
+<p>但是uuid()方法每次调用都会生成一个新的唯一的标识id，我们希望可以对于一个用户只生成唯一的<strong>一个</strong>标识！！</p>
+<p>解决：先判断本地存储有没有，没有就用uuid生成并存储，有了就直接getItem！</p>
+<p>Q：如何在发送请求时带上用户身份id？</p>
+<p>A：<mark>在请求头中加入UUID标识！</mark></p>
+<p>在请求拦截器中配置，代码如图</p>
+<p><img src="/img/%E8%AF%B7%E6%B1%82%E5%A4%B4.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+<h4>16.6.2 利用计算属性才完成全选按钮的状态</h4>
+
+<p>一开始没思路，记得todolist就是这个操作！！！</p>
+<p>对产品array进行遍历！！<mark>用array.every更简单</mark></p>
+<p>return this.cartInfoList.every(item &#x3D;&gt; item.isChecked &#x3D;&#x3D; 1)  &#x2F;&#x2F;evey方法发现数组的每一个都是勾选的状态就会返回true，不然返回false</p>
+<h4>16.6.3 点击+-对产品购买数量进行修改</h4>
+
+<p>这个地方除了需要完成对数量的修改操作外，还需要注意，每点击一次都需要<strong>发送请求</strong>，告诉服务器购物车模块里的数据变化。然后再从服务器获取最近的数据再展示。</p>
+<p>现在我们发现<span class="red">不管点击+还是-还是在input中修改数量最终都会触发同一个action</span>，注意在方法中传递参数可以给三种不同的操作区分开。</p>
+<p>另外！！！！！！为了避免用户点的太快！！！！！！！！！！<mark>用上节流</mark>（还是熟悉的节奏，引lodash）</p>
+<h4>16.6.4 在购物车中删除某产品</h4>
+
+<p>这里发送请求的方式是<mark>DELETE</mark>。</p>
+<h4>16.6.5 删除全部选中的商品和全部商品勾选</h4>
+
+<p>对于这种需要一键删除全部或者选中宣布的功能，肯定是需要遍历我们的购物车数据存放的数组的。</p>
+<p>但是我们现在的actions里只有一次删除一条或者一次勾选上一条的函数，那么<span class="red">大体的思路</span>就是<strong>遍历数组，符合条件的多次派发action</strong></p>
+<p>我们想在一个action中派发另一个action并且想拿到全部的购物车商品数据：就需要在<strong>占位中解构出{dispatch，getters}</strong></p>
+<p>我们每次派发action都会有一个promise返回值，那我们怎么在我们现在的点击事件中拿到唯一的返回的promise值呢？</p>
+<p><mark>利用Promise.all([p1,p2,…])方法！！！</mark>数组中都是promise，只有都为成功时，Promise.all就会返回成功，有一个失败就是失败啦~</p>
+<p><img src="/img/%E4%B8%80%E9%94%AE%E5%85%A8%E9%83%A8.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+<h3>19. 登录注册页面</h3>
+
+
+
+<head>
+    <style>
+        .red {
+            color: red;}
+    </style>
+    <script src="https://kit.fontawesome.com/42565a6d69.js" crossorigin="anonymous"></script>
+</head>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/front-end/" class="category-chain-item">front-end</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/projects/">#projects</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>vue前台项目</div>
+      <div>http://example.com/2023/07/18/vue前台项目/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>July 18, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/07/18/vue%E5%90%8E%E5%8F%B0%E9%A1%B9%E7%9B%AE/" title="vue后台项目">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">vue后台项目</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/17/ES6%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" title="ES6模块化与异步编程">
+                        <span class="hidden-mobile">ES6模块化与异步编程</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
