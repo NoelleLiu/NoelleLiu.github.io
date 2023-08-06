@@ -38,8 +38,9 @@
 <meta property="og:image" content="http://example.com/img/testStr.png">
 <meta property="og:image" content="http://example.com/img/%E8%AF%B7%E6%B1%82%E5%A4%B4.png">
 <meta property="og:image" content="http://example.com/img/%E4%B8%80%E9%94%AE%E5%85%A8%E9%83%A8.png">
+<meta property="og:image" content="http://example.com/img/order%E4%BA%8C%E7%BA%A7%E8%B7%AF%E7%94%B1.png">
 <meta property="article:published_time" content="2023-07-18T02:05:32.000Z">
-<meta property="article:modified_time" content="2023-08-03T13:33:36.502Z">
+<meta property="article:modified_time" content="2023-08-06T03:39:04.176Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="projects">
 <meta name="twitter:card" content="summary_large_image">
@@ -236,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          16k words
+          18k words
         
       </span>
     
@@ -247,7 +248,7 @@
         
         
         
-          131 mins
+          154 mins
         
       </span>
     
@@ -612,7 +613,7 @@
 <p>vuex：官方提供的一个插件，（vue-router也是），是做状态管理用的库，可以<span class="red">集中式管理项目中组件公用的数据</span></p>
 <h4>12.1 vuex的安装</h4>
 
-<p>我用的vue2.x，要注意npm i –save <a href="mailto:&#x76;&#x75;&#101;&#x78;&#x40;&#x33;&#46;&#50;&#x2e;&#48;">&#x76;&#x75;&#101;&#x78;&#x40;&#x33;&#46;&#50;&#x2e;&#48;</a>才能版本适配</p>
+<p>我用的vue2.x，要注意npm i –save <a href="mailto:&#x76;&#117;&#101;&#120;&#64;&#x33;&#46;&#50;&#46;&#48;">&#x76;&#117;&#101;&#120;&#64;&#x33;&#46;&#50;&#46;&#48;</a>才能版本适配</p>
 <h4>12.2 在项目中配置vuex</h4>
 
 <p>src下新建<mark>store文件夹</mark>。在其中新建index.js来配置vuex。</p>
@@ -985,10 +986,129 @@
 <p>我们每次派发action都会有一个promise返回值，那我们怎么在我们现在的点击事件中拿到唯一的返回的promise值呢？</p>
 <p><mark>利用Promise.all([p1,p2,…])方法！！！</mark>数组中都是promise，只有都为成功时，Promise.all就会返回成功，有一个失败就是失败啦~</p>
 <p><img src="/img/%E4%B8%80%E9%94%AE%E5%85%A8%E9%83%A8.png" srcset="/img/loading.gif" lazyload alt="code"></p>
-<h3>19. 登录注册页面</h3>
+<h2>19. 登录注册页面</h2>
 
+<h3>19.1 注册页面</h3>
 
+<h4>19.1.1 点击按钮获取验证码</h4>
 
+<p>业务逻辑：点击按钮发送请求，需要携带的参数就是用户第一行填写的手机号值。</p>
+<h4>19.1.2 点击完成注册按钮进行跳转</h4>
+
+<p>业务逻辑：点击完成注册，先向服务器发送请求，如果成功就跳转到登录页，失败就停在注册页。</p>
+<h3>19.2 登录页面</h3>
+
+<h4>19.2.1 token</h4>
+
+<p>现在我们点击登录按钮，带着手机号和密码向服务器发送请求，服务器成功的data里面会返回一个<mark>token</mark>。</p>
+<p><strong>token</strong>：<strong>令牌</strong>，是<span class="red">用户的唯一标识符</span>。</p>
+<p><strong>前台需要持久化存储这个token</strong>，这样的话我们就可以拿着token去找服务器要这个用户的各种数据了。</p>
+<p>Q1：我们向服务器发送了登录请求后，服务器成功返回唯一的用户标识token，我们现在只是在vuex的仓库中进行存储，but！！！<mark>vuex并不能持久化存储</mark>，一刷新就没了，我们想持久化存储token怎么办？</p>
+<p>Ans1：拿到token就存在localStorage中</p>
+<p>Q2：我们在发送请求得到res&#x3D;&#x3D;200后，进行路由跳转到home组件，还是和之前一样！！怎么才能展示用户名和退出登录的部分呢？</p>
+<p>Ans2：还需要<span class="red">带着token</span>再次向服务器发送请求555555，api: &#x2F;user&#x2F;passport&#x2F;auth&#x2F;getUserInfo,get请求。因为接口没有占位，我们想get还带参数的话，用<span class="red">请求头</span>带进去。<mark>注意派发action的时间是在主页的mounted渲染好后派发！</mark>在Header组件中，需要根据有无用户信息来<span class="red">动态展示左上角登录的地方</span>，考虑v-show&#x2F;v-if</p>
+<h4>19.2.2 退出登录</h4>
+
+<p>需要做的事情：</p>
+<ul>
+<li>发请求，通知服务器清除一些数据如token</li>
+<li>清除前台项目里的数据如token、userInfo等</li>
+<li>退出成功就回到首页</li>
+</ul>
+<h3>19.3 导航守卫</h3>
+
+<p>导航守卫：可以控制路由的访问权限。</p>
+<p>分为：全局导航守卫、路由独享守卫、组件内守卫</p>
+<p>全局守卫又分：全局前置守卫、全局解析守卫和全局后置守卫</p>
+<p>我们在这里使用<mark>全局前置守卫，router.beforeEach(to,from,next)</mark></p>
+<p>待解决问题1：现在用户已经登录了但是还能跳转到login页面</p>
+<p>解决：通过登录用户才有token来判断！再进行全局守卫的判断和放行。</p>
+<p>if(token) {</p>
+<p>​	&#x2F;&#x2F;	成功登录的状态</p>
+<p>​	if(to.path &#x3D;&#x3D; ‘&#x2F;login’) {   <mark>通过to.path来判断去哪！！</mark></p>
+<p>​		next(‘&#x2F;‘)}</p>
+<p>​	else{</p>
+<p>​		&#x2F;&#x2F;去除了login以外的其他页面</p>
+<p>​		if(name) {</p>
+<p>​			next()}</p>
+<p>​		else {</p>
+<p>​			&#x2F;&#x2F;没有用户信息</p>
+<p>​			try {</p>
+<p>​				await store.dispatch(‘getUserInfo’);</p>
+<p>​				next()} catch(error) {</p>
+<p>​				&#x2F;&#x2F;有token但是捞不到用户的信息！！！（有可能token国企捏）先清空信息再跳到login界面</p>
+<p>​				await store.dispatch(‘logOut’);</p>
+<p>​				next(‘&#x2F;login’)}</p>
+<p>​			}}</p>
+<p>}</p>
+<p><mark>路由独享守卫</mark>：<span class="red">beforeEnter: (to, from, next) &#x3D;&gt; {}</span></p>
+<p>现在我们希望对于想跳到trade的路由必须得从shopcart购物车跳过来才行！！！</p>
+<p>其他的就停留在原地，next(false)</p>
+<p> {</p>
+<p>   path: ‘&#x2F;trade’,</p>
+<p>   component: Trade,</p>
+<p>   meta: { show: true },</p>
+<p>   &#x2F;&#x2F;路由独享守卫</p>
+<p>   beforeEnter: (to, from, next) &#x3D;&gt; {</p>
+<p>​    if (from.path &#x3D;&#x3D; ‘&#x2F;shopcart’) {</p>
+<p>​     next()</p>
+<p>​    } else {</p>
+<p>​     next(false)</p>
+<p>​    }</p>
+<p>   },</p>
+<p>  },</p>
+<p>其他的同理，比如pay支付页必须从trade页跳来等等。</p>
+<h2>20.交易页面</h2>
+
+<h3>20.1 用户地址信息的显示</h3>
+
+<p>在正常的发请求-&gt;vuex存数据-&gt;组件中捞并替换为动态展示的数据之后</p>
+<p>我们希望可以实现点击哪个地址就给哪个地址加上被勾选的状态：<mark>排他</mark></p>
+<p>且不管是点人还是点地址都想触发click，就<mark>委派</mark>给父亲p标签~~~</p>
+<p>函数传递的参数 - 点击的address和数组addresses</p>
+<p>给数组进行遍历全部清除相关样式，再给点击的那个添加样式</p>
+<h3>20.2 提交订单</h3>
+
+<p>之前都是固定操作：写api发请求，拿到数据写vuex，在组件中捞数据进行展示</p>
+<p>现在想不用vuex，直接在组件中存数据。</p>
+<p>但是我又不想在每一个组件中分别引用api里写好的方法，怎么才能将api里的方法暴露一次就全局可用了呢？</p>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<p>想到了event bus！！和它类似操作</p>
+<p>在<span class="red">main.js</span>中引入api中全部的请求函数</p>
+<p>import * as API from ‘@&#x2F;api&#x2F;index.js’，这个对象就包含了所有的请求方法</p>
+<p>然后<mark>Vue.prototype.$API &#x3D; API</mark>!!!!!直接挂载到vue原型对象的身上。所有的组件可以直接使用。</p>
+<hr>
+<p>但是在我们获取支付信息的时候，遇到了在mounted钩子函数中调用API发送请求，<mark>不要给周期函数加async</mark></p>
+<p><span class="red">巧妙的解决办法：</span>在生命周期函数中写个this.某个函数，再在methods中声明这个方法即可~~~</p>
+<h3>20.3 立即支付</h3>
+
+<p>业务需求：点击立即支付会弹出一个担忧微信支付二维码的弹窗。</p>
+<p>我自己写的话会采用加一个遮罩层再加上z-index。</p>
+<p>这里用<mark>elementUI</mark>组件库的<mark>MessageBox弹框组件</mark>。</p>
+<p>组件库总结：</p>
+<p><strong>React</strong>:  pc - antd     移动 - antd-mobile</p>
+<p><strong>Vue</strong>: pc - ElementUi   移动端 - vant</p>
+<p>这个二维码支付成功与失败需要向服务器发送请求才能知道。</p>
+<p>那么什么时候发？发几次？</p>
+<p><i class="fa-solid fa-arrow-down"></i></p>
+<p><span class="red">我们需要在展示二维码的时候<mark>用定时器</mark>一！！！直！！！！发！！！！</span></p>
+<h3>20.4 查看订单</h3>
+
+<p>点击查看订单跳转到个人中心</p>
+<h2>21.个人中心页面</h2>
+
+<h3>21.1 二级路由的搭建</h3>
+
+<p><img src="/img/order%E4%BA%8C%E7%BA%A7%E8%B7%AF%E7%94%B1.png" srcset="/img/loading.gif" lazyload alt="code"></p>
+<p>注意二级路由的路径的写法！！</p>
+<h3>21.2 请求我的订单的数据</h3>
+
+<p>api：   ‘&#x2F;api&#x2F;order&#x2F;auth&#x2F;{page}&#x2F;{limit}’</p>
+<p>注意何时向服务器发送请求要数据呢？</p>
+<p><mark>有分页器需要每次点击都重新获取，所以不考虑写在mounted里，应该写在methods里，然后在mounted和每次点击分别调用</mark></p>
+<h2>22.图片懒加载</h2>
+
+<p><mark>利用插件：<a href="mailto:&#x76;&#x75;&#x65;&#45;&#108;&#x61;&#122;&#x79;&#108;&#111;&#x61;&#x64;&#x40;&#49;&#46;&#x33;&#x2e;&#x33;">&#x76;&#x75;&#x65;&#45;&#108;&#x61;&#122;&#x79;&#108;&#111;&#x61;&#x64;&#x40;&#49;&#46;&#x33;&#x2e;&#x33;</a></mark></p>
 <head>
     <style>
         .red {
